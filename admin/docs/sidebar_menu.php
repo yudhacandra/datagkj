@@ -30,6 +30,6 @@
 
         <li><a class="app-menu__item" href="keuangan.php"><span class="app-menu__label">Keuangan</span></a></li>
         <li><a class="app-menu__item" href="warta.php"><span class="app-menu__label">Warta</span></a></li>
-        <li><a class="app-menu__item" href="proker.php"><span class="app-menu__label">Program Kerja Tahunan</span></a></li>
+        <li><a class="app-menu__item" href="proker.php"><span class="app-menu__label">Program  Kerja Tahunan</span></a></li>
 
 </aside>
