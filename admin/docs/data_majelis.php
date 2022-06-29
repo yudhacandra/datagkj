@@ -86,7 +86,6 @@ include 'sidebar_menu.php';
                       <th rowspan="5">Password</th>
                       <th rowspan="2">Jabatan Majelis</th>
                       <th rowspan="2">Tanggal Registrasi</th>
-                      <th rowspan="2">No Telpon</th>
                       <th rowspan="2">Status</th>
                     </tr>
 
@@ -102,7 +101,6 @@ include 'sidebar_menu.php';
                       <td><?= $row["password"]; ?></td>
                       <td><?= $row["jabatan_majelis"]; ?></td>
                       <td><?= $row["tanggal_registrasi"]; ?></td>
-                      <td><?= $row["no_telpon"]; ?></td>
                       <td><?= $row["status"]; ?></td>
                     </tr>
                     <?php $i++; ?>

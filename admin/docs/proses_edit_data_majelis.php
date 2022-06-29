@@ -8,12 +8,11 @@ $nam=$_POST['nama'];
 $usrnm=$_POST['username'];
 $jbm=$_POST['jabatan_majelis'];
 $tr=$_POST['tanggal_registrasi'];
-$notel=$_POST['no_telpon'];
 $psw=$_POST['password'];
 $st=$_POST['status'];
 
 
-$data_majelis = mysqli_query($conn, "UPDATE `data_majelis` SET `id_majelis`='$idm',`nama`='$nam',`username`='$usrnm',`jabatan_majelis`='$jbm',`tanggal_registrasi`='$tr',`no_telpon`='$notel',`password`='$psw',`status`='$st' WHERE id_majelis='$id'");
+$data_majelis = mysqli_query($conn, "UPDATE `data_majelis` SET `id_majelis`='$idm',`nama`='$nam',`username`='$usrnm',`jabatan_majelis`='$jbm',`tanggal_registrasi`='$tr',`password`='$psw',`status`='$st' WHERE id_majelis='$id'");
 if ($data_majelis) {
     header("location:data_majelis.php");
 }
@@ -97,12 +96,7 @@ include 'sidebar_menu.php';
                                     <input type="date" class="form-control" value="<?=  $data['tanggal_registrasi']; ?>"  name="tanggal_registrasi">
                                 </div>
                             </div>
-                            <div class="col-12 col-lg-10">
-                                <div class="form-group">
-                                    <label for="contact-name"><b>No Telpon  :</b></label>
-                                    <input type="text" class="form-control" value="<?=  $data['no_telpon']; ?>"  name="no_telpon">
-                                </div>
-                            </div>
+                            
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
                                     <label for="contact-name"><b>Status :</b></label>

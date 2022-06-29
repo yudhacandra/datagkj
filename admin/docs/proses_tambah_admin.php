@@ -2,22 +2,22 @@
 include '../../database.php';
 if(isset($_POST['simpan']))
 {
-$ijm=$_POST['idjabatan_majelis'];
-$pm=$_POST['periode_majelis'];
-$jlam=$_POST['jumlah_anggota_majelis'];
+  $id=$_POST['id'];
+  $nam=$_POST['nama'];
+  $usrnm=$_POST['username'];
+  $psw=$_POST['password'];
+  $alm=$_POST['alamat'];
+  $notel=$_POST['no_telpon'];
+  $st=$_POST['Tidak Aktif'];
 
-$insert = mysqli_query($conn,"INSERT INTO `struktur_majelis` (`idjabatan_majelis`, `periode_majelis`, `jumlah_anggota_majelis`) VALUES ('$ijm', '$pm', '$jlam')");
+$insert = mysqli_query($conn,"INSERT INTO `admin`(`id`, `nama`, `username`, `password`,  `alamat`, `no_telpon`, `status`) VALUES ('$id','$nam','$usrnm','$psw','$alm','$notel', '$st')");
 if($insert){ 
   // $alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
-  header("location:struktur_majelis.php");
+  header("location:admin.php");
   }
 }
-
-
-
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <?php
@@ -34,50 +34,60 @@ include 'sidebar_menu.php';
         <div>
           <h1><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-file-earmark-person-fill" viewBox="0 0 16 16">
            <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm2 5.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-.245S4 12 8 12s5 1.755 5 1.755z"/>
-          </svg> Tambah Data Majelis</h1>
+          </svg> Tambah Data Akun Admin</h1>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <div class="tile">
             <div class="tile-body">
-            <p><b><h3> <div class="text-center"><u> FORM TAMBAH DATA MAJELIS </u></div></h3></b></p>
+            <p><b><h3> <div class="text-center"><u> FORM TAMBAH DATA AKUN ADMIN </u></div></h3></b></p>
           
             <div class="contact-form-area">
                     <form action="" method="POST" >
                         <div class="row">
-                            <div class="col-12 col-lg-10">
-                              <label class="control-label mt-1"><b>Jabatan Majelis :</b></label>
-                              <select class="form-control col-30" name="idjabatan_majelis">
-                                <option value="ketua"></option>
-                                <option value="ketua">ketua</option>
-                                <option value="wakil ketua">Wakil Ketua</option>
-                                <option value="Sekretaris">Sekretaris</option>
-                                <option value="Bendahara">Bendahara</option>
-                                <option value="Bidang KEESAAN">Bidang KEESAAN</option>
-                                <option value="Bidang PIWG">Bidang PIWG</option>
-                                <option value="Bidang KESPEL">Bidang KESPEL</option>
-                                <option value="Bidang Penata Layanan">Bidang Penata Layanan</option>
-                                <option value="Bidang Kajian">Bidang Kajian</option>
-                                <option value="Bidang Pembangunan">Bidang Pembangunan</option>
-                              </select>
+                            <div class="col-12 col-lg-3">
+                              <div class="form-group">
+                                <label for="contact-name"><b>ID Admin :</b></label>
+                                <input type="text" class="form-control" id="contact-name" name="id">
+                              </div>
                             </div>
 
                             <div class="col-12 col-lg-10">
                               <div class="form-group">
-                                <p></p>
-                                <label for="contact-name"><b>Periode Majelis :</b></label>
-                                <input type="" class="form-control" name="periode_majelis">
+                                <label for="contact-name"><b>Nama Admin :</b></label>
+                                <input type="text" class="form-control" name="nama">
                               </div>
                             </div>
-                          
+                            
                             <div class="col-12 col-lg-10">
                               <div class="form-group">
-                                <label for="contact-name"><b>Jumlah Anggota :</b></label>
-                                <input type="text" class="form-control" name="jumlah_anggota_majelis">
+                                <label for="contact-name"><b>Username :</b></label>
+                                <input type="text" class="form-control" name="username">
                               </div>
                             </div>
-                              
+
+                            <div class="col-12 col-lg-10">
+                              <div class="form-group">
+                                <label for="contact-name"><b>Password :</b></label>
+                                <input type="text" class="form-control" name="password">
+                              </div>
+                            </div>
+                            
+                            <div class="col-12 col-lg-10">
+                              <div class="form-group">
+                                <label for="contact-name"><b>Alamat  :</b></label>
+                                <input type="text" class="form-control" name="alamat">
+                              </div>
+                            </div>
+                            
+                            <div class="col-12 col-lg-10">
+                              <div class="form-group">
+                                <label for="contact-name"><b>No Telpon  :</b></label>
+                                <input type="text" class="form-control" name="no_telpon">
+                              </div>
+                            </div>
+
                               <div class="col-12 text-center">
                                 <button type="submit" name="simpan" class="btn btn-info">Tambah</button>
                               </div>

@@ -31,7 +31,7 @@ if (!isset($_SESSION['role'])) {
       <div class="logo">
         <h1>Gereja Kristen Jawa Boyolali</h1>
       </div>
-      <div class="login-box " style="height: 510px;">
+      <div class="login-box " style="height: 400px;">
         <form class="login-form" action="">
         <h3 class="login-head"><img src="img/gkj.png" height="60" width="60"> GKJ BOYOLALI</h3>
           <div class="form-group">
@@ -46,27 +46,27 @@ if (!isset($_SESSION['role'])) {
             <div class="utility">
               <div class="animated-checkbox">
                 <label>
-                  <input type="checkbox"><span class="label-text">Tetap Masuk</span>
+                  <!-- <input type="checkbox"><span class="label-text">Tetap Masuk</span> -->
                 </label>
               </div>
-              <p class="semibold-text mb-2"><a href="#" data-toggle="flip">Lupa Password ?</a></p>
+              <!-- <p class="semibold-text mb-2"><a href="#" data-toggle="flip">Lupa Password ?</a></p> -->
             </div>
           </div>
           <div class="form-group btn-container">
             <button class="btn btn-primary btn-block btn-login"><i class="fa fa-sign-in fa-lg fa-fw"></i>Masuk</button>
-            <a href="signup_majelis.php"class="btn btn-primary btn-block mt-2"><i class="fa fa-sign-in fa-lg fa-fw"></i>Daftar Majelis</a>
-            <a href="signup_admin.php"class="btn btn-primary btn-block mt-2"><i class="fa fa-sign-in fa-lg fa-fw"></i>Daftar Admin</a>
+            <!-- <a href="signup_majelis.php"class="btn btn-primary btn-block mt-2"><i class="fa fa-sign-in fa-lg fa-fw"></i>Daftar Majelis</a> -->
+            <!-- <a href="signup_admin.php"class="btn btn-primary btn-block mt-2"><i class="fa fa-sign-in fa-lg fa-fw"></i>Daftar Admin</a> -->
           </div>
         </form>
         <form class="forget-form" action="index.html">
-          <h3 class="login-head"><i class="fa fa-lg fa-fw fa-lock"></i>Lupa Password?</h3>
-          <div class="form-group">
-            <label class="control-label">EMAIL</label>
-            <input class="form-control" type="text" placeholder="Email">
-          </div>
-          <div class="form-group btn-container">
-            <button class="btn btn-primary btn-block"><i class="fa fa-unlock fa-lg fa-fw"></i>RESET</button>
-          </div>
+          <!-- <h3 class="login-head"><i class="fa fa-lg fa-fw fa-lock"></i>Lupa Password?</h3> -->
+          <!-- <div class="form-group"> -->
+            <!-- <label class="control-label">EMAIL</label> -->
+            <!-- <input class="form-control" type="text" placeholder="Email"> -->
+          <!-- </div> -->
+          <!-- <div class="form-group btn-container"> -->
+            <!-- <button class="btn btn-primary btn-block"><i class="fa fa-unlock fa-lg fa-fw"></i>RESET</button> -->
+          <!-- </div> -->
           <div class="form-group mt-3">
             <p class="semibold-text mb-0"><a href="login-majelis.php" data-toggle="flip"><i class="fa fa-angle-left fa-fw"></i> Back to Login</a></p>
           </div>

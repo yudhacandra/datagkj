@@ -7,22 +7,17 @@ $nam=$_POST['nama'];
 $usrnm=$_POST['username'];
 $jbm=$_POST['jabatan_majelis'];
 // $tr=$_POST['tanggal_registrasi'];
-$notel=$_POST['no_telpon'];
 $psw=$_POST['password'];
 $st='Tidak Aktif';
 
-$insert = mysqli_query($conn,"INSERT INTO `data_majelis`(`id_majelis`, `nama`, `username`, `jabatan_majelis`, `no_telpon`, `password`, `status`) VALUES ('$idm','$nam','$usrnm','$jbm','$notel','$psw','$st')");
+$insert = mysqli_query($conn,"INSERT INTO `data_majelis`(`id_majelis`, `nama`, `username`, `jabatan_majelis`, `password`, `status`) VALUES ('$idm','$nam','$usrnm','$jbm','$psw','$st')");
 if($insert){ 
   // $alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
   header("location:data_majelis.php");
   }
 }
-
-
-
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <?php
@@ -94,12 +89,7 @@ include 'sidebar_menu.php';
                       
                               </div>
                             </div> -->
-                            <div class="col-12 col-lg-10">
-                              <div class="form-group"><p></p>
-                                <label for="contact-name"><b>No Telpon  :</b></label>
-                                <input type="text" class="form-control" name="no_telpon">
-                              </div>
-                            </div>
+                            
                             <div class="col-12 col-lg-10">
                               <div class="form-group">
                                 <label for="contact-name"><b>Password :</b></label>

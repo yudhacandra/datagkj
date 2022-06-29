@@ -53,6 +53,13 @@ include 'sidebar_menu.php';
       <div class="row">
         <div class="col-md-12">
           <div class="tile">
+            <div class="tile-body">
+              <form action="" method="POST">
+              <div class="form-inline">
+              <input type="text" name="cari1" class="form-control col-2 m-2">
+              <button type="submit" name="cari" class="btn btn-info"><i class="app-menu__icon fa fa-search" aria-hidden="true"></i></button>
+              <a href="proses_tambah_admin.php" class="btn btn-success ml-1 "><i class="app-menu__icon fa fa-plus" aria-hidden="true"></i></a>
+            </div>
           </form>
 
               <div style="height: 600px;overflow: scroll;">
@@ -72,15 +79,11 @@ include 'sidebar_menu.php';
                   <thead>
                     <tr>
                       <th rowspan="2">Opsi</th>
-                      <th rowspan="2">Id</th>
+                      <th rowspan="2">Nama</th>
                       <th rowspan="2">Username</th>
                       <th rowspan="5">Password</th>
-                      <th rowspan="2">Nama</th>
-                      <th rowspan="2">Tempat Lahir</th>
-                      <th rowspan="2">Tanggal Lahir</th>
                       <th rowspan="2">Alamat</th>
                       <th rowspan="2">No Telpon</th>
-                      <th rowspan="2">Tanggal Registrasi</th>
                       <th rowspan="2">Status</th>
                     </tr>
 
@@ -89,16 +92,12 @@ include 'sidebar_menu.php';
                   <?php $i = 1; ?>
                   <?php foreach ($admin as $row) : ?>
                     <tr>
-                      <td><a href="proses_edit_admin.php?id=<?= $row["id"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i></td>
-                      <td><?= $row["id"]; ?></td>
+                      <td><a class="btn btn-primary" href="proses_edit_admin.php?id=<?= $row["id"]; ?>"><i class="fa fa-lg fa-edit"></i></a><a class="btn btn-primary" href="proses_hapus_admin.php?id=<?= $row["id"]; ?>"><i class="fa fa-lg fa-trash"></i></a></td>
+                      <td><?= $row["nama"]; ?></td>
                       <td><?= $row["username"]; ?></td>
                       <td><?= $row["password"]; ?></td>
-                      <td><?= $row["nama"]; ?></td>
-                      <td><?= $row["tempat_lahir"]; ?></td>
-                      <td><?= $row["tanggal_lahir"]; ?></td>
                       <td><?= $row["alamat"]; ?></td>
                       <td><?= $row["no_telpon"]; ?></td>
-                      <td><?= $row["tanggal_registrasi"]; ?></td>
                       <td><?= $row["status"]; ?></td>
                     </tr>
                     <?php $i++; ?>

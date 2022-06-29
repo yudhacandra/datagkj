@@ -33,10 +33,10 @@ $cek = mysqli_num_rows($data_jemaat);
 include 'header.php';
 ?>
   <body class="app sidebar-mini">
-<?php
-include 'navbar_menu.php';
-include 'sidebar_menu.php';
-?>
+    <?php
+      include 'navbar_menu.php';
+      include 'sidebar_menu.php';
+    ?>
    
     <main class="app-content">
       <div class="app-title">
@@ -158,7 +158,7 @@ include 'sidebar_menu.php';
       }
     </script>
     <?php
-include 'alert.php';
+    include 'alert.php';
     ?>
   </body>
 </html>

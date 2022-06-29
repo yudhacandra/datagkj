@@ -55,9 +55,9 @@ include 'sidebar_menu.php';
             <div class="tile-body">
               <form action="" method="POST">
               <div class="form-inline">
-              <input type="text" name="cari1" class="form-control col-2 m-2">
+              <input type="text" name="cari1" class="form-control col-2 m-1">
               <button type="submit" name="cari" class="btn btn-info"><i class="app-menu__icon fa fa-search" aria-hidden="true"></i></button>
-              <a href="proses_tambah.php" class="btn btn-info ml-2"><i class="app-menu__icon fa fa-plus" aria-hidden="true"></i></a>
+              <a href="proses_tambah.php" class="btn btn-info ml-1"><i class="app-menu__icon fa fa-plus" aria-hidden="true"></i></a>
             </div>
           </form>
 

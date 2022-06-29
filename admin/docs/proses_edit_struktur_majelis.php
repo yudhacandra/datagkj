@@ -8,7 +8,7 @@ $pm=$_POST['periode_majelis'];
 $jam=$_POST['jumlah_anggota_majelis'];
 
 
-$struktur_majelis = mysqli_query($conn, "UPDATE `struktur_majelis` SET `idjabatan_majelis`='$ijm',`periode_majelis`='$pm',`jumlah_anggota_majelis`='$jam' WHERE idjabatan_majelis='$id'");
+$struktur_majelis = mysqli_query($conn, "UPDATE `struktur_majelis` SET `idjabatan_majelis`='$ijm',`periode_majelis`='$pm',`jumlah_anggota_majelis`='$jam' WHERE idjabatan_majelis='$ijm'");
 if ($struktur_majelis) {
     header("location:struktur_majelis.php");
 }
@@ -18,6 +18,7 @@ if ($struktur_majelis) {
 $struktur_majelis = mysqli_query($conn, "SELECT * FROM `struktur_majelis` where idjabatan_majelis='$id'");
 $data = mysqli_fetch_array($struktur_majelis);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <?php

@@ -58,7 +58,7 @@ include 'sidebar_menu.php';
               <div class="form-inline">
               <input type="text" name="cari1" class="form-control col-2 m-2">
               <button type="submit" name="cari" class="btn btn-info"><i class="app-menu__icon fa fa-search" aria-hidden="true"></i></button>
-              <a href="proses_tambah_struktur_majelis.php" class="btn btn-info ml-2"><i class="app-menu__icon fa fa-plus" aria-hidden="true"></i></a>
+              <a href="proses_tambah_struktur_majelis.php" class="btn btn-success ml-1 "><i class="app-menu__icon fa fa-plus" aria-hidden="true"></i></a>
             </div>
           </form>
 
@@ -89,7 +89,7 @@ include 'sidebar_menu.php';
                   <?php $i = 1; ?>
                   <?php foreach ($struktur_majelis as $row) : ?>
                     <tr>
-                      <td><a href="proses_edit_struktur_majelis.php?id=<?= $row["idjabatan_majelis"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i></td>
+                      <td><a class="btn btn-primary" href="detail.php?id=<?= $row["idjabatan_majelis"]; ?>"><i class="fa fa-eye" aria-hidden="true"></i></a><a class="btn btn-primary" href="proses_edit_struktur_majelis.php?id=<?= $row["idjabatan_majelis"]; ?>"><i class="fa fa-lg fa-edit"></i></a><a class="btn btn-primary" href="proses_hapus_struktur_majelis.php?id=<?= $row["idjabatan_majelis"]; ?>"><i class="fa fa-lg fa-trash"></i></a></td>
                       <td><?= $row["idjabatan_majelis"]; ?></td>
                       <td><?= $row["periode_majelis"]; ?></td>
                       <td><?= $row["jumlah_anggota_majelis"]; ?></td>
@@ -98,6 +98,7 @@ include 'sidebar_menu.php';
                     <?php endforeach; 
                   }
                   ?>
+
                    
                   </tbody>
                 </table>

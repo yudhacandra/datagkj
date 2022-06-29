@@ -3,18 +3,15 @@ include '../../database.php';
 $id = $_GET['id'];
 if(isset($_POST['edit_data_admin']))
 {
-$id=$_POST['id'];
-$usrnm=$_POST['username'];
-$psw=$_POST['password'];
-$nam=$_POST['nama'];
-$tl=$_POST['tempat_lahir'];
-$tal=$_POST['tanggal_lahir'];
-$alm=$_POST['alamat'];
-$notel=$_POST['no_telpon'];
-$st=$_POST['status'];
+    $nam=$_POST['nama'];
+    $usrnm=$_POST['username'];
+    $psw=$_POST['password'];
+    $alm=$_POST['alamat'];
+    $notel=$_POST['no_telpon'];
+    $st=$_POST['status'];
 
 
-$admin = mysqli_query($conn, "UPDATE `admin` SET `id`='$id',`username`='$usrnm',`password`='$psw',`nama`='$nam',`tempat_lahir`='$tl',`tanggal_lahir`='$tal',`alamat`='$alm',`no_telpon`='$notel',`status`='$st' WHERE id='$id'");
+$admin = mysqli_query($conn, "UPDATE `admin` SET `id`='$id',`nama`='$nam',`username`='$usrnm',`password`='$psw',`alamat`='$alm',`no_telpon`='$notel',`status`='$st' WHERE id='$id'");
 if ($admin) {
     header("location:admin.php");
 }
@@ -51,40 +48,24 @@ include 'sidebar_menu.php';
             <div class="contact-form-area">
                     <form action="" method="POST" >
                         <div class="row">
-                            <div class="col-12 col-lg-3">
-                                <div class="form-group">
-                                    <label for="contact-name"><b>Id :</b></label>
-                                    <input type="text" class="form-control"  value="<?=  $data['id']; ?>" name="id">
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-10">
-                                <div class="form-group">
-                                    <label for="contact-name"><b>Username   :</b></label>
-                                    <input type="text" class="form-control" value="<?=  $data['username']; ?>"  name="username">
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-10">
-                                <div class="form-group">
-                                    <label for="contact-name"><b>Password   :</b></label>
-                                    <input type="text" class="form-control" value="<?=  $data['password']; ?>"  name="password">
-                                </div>
-                            </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
                                     <label for="contact-name"><b>Nama  :</b></label>
                                     <input type="text" class="form-control" value="<?=  $data['nama']; ?>"  name="nama">
                                 </div>
                             </div>
+
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
-                                    <label for="contact-name"><b>Tempat Lahir   :</b></label>
-                                    <input type="text" class="form-control" value="<?=  $data['tempat_lahir']; ?>"  name="tempat_lahir">
+                                    <label for="contact-name"><b>Username   :</b></label>
+                                    <input type="text" class="form-control" value="<?=  $data['username']; ?>"  name="username">
                                 </div>
                             </div>
+
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
-                                    <label for="contact-name"><b>Tanggal Lahir   :</b></label>
-                                    <input type="date" class="form-control" value="<?=  $data['tanggal_lahir']; ?>"  name="tanggal_lahir">
+                                    <label for="contact-name"><b>Password   :</b></label>
+                                    <input type="text" class="form-control" value="<?=  $data['password']; ?>"  name="password">
                                 </div>
                             </div>
 
@@ -94,12 +75,14 @@ include 'sidebar_menu.php';
                                     <input type="text" class="form-control" value="<?=  $data['alamat']; ?>"  name="alamat">
                                 </div>
                             </div>
+
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
                                     <label for="contact-name"><b>No Telpon  :</b></label>
                                     <input type="text" class="form-control" value="<?=  $data['no_telpon']; ?>"  name="no_telpon">
                                 </div>
                             </div>
+
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
                                     <label for="contact-name"><b>Status :</b></label>
@@ -111,6 +94,7 @@ include 'sidebar_menu.php';
                                 </div>
                             </div>
                             </div>
+
                             <div class="col-12 text-center">
                                 <button type="submit" name="edit_data_admin" class="btn btn-info">Simpan</button>
                             </div>
