@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 23 Jun 2022 pada 19.07
+-- Waktu pembuatan: 29 Jun 2022 pada 19.39
 -- Versi server: 10.4.24-MariaDB
--- Versi PHP: 7.4.29
+-- Versi PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,14 +29,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `id` int(2) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(8) NOT NULL,
   `nama` varchar(50) NOT NULL,
-  `tempat_lahir` varchar(50) NOT NULL,
-  `tanggal_lahir` date NOT NULL DEFAULT current_timestamp(),
-  `alamat` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `alamat` text NOT NULL,
   `no_telpon` varchar(16) NOT NULL,
-  `tanggal_registrasi` datetime NOT NULL DEFAULT current_timestamp(),
   `status` enum('Aktif','Tidak Aktif','','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -44,9 +41,9 @@ CREATE TABLE `admin` (
 -- Dumping data untuk tabel `admin`
 --
 
-INSERT INTO `admin` (`id`, `username`, `password`, `nama`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `no_telpon`, `tanggal_registrasi`, `status`) VALUES
-(1, 'rio', '123', 'rio', 'jebol', '2022-06-03', ' ', '0137042174', '2022-06-03 00:57:31', 'Aktif'),
-(2, 'yudha', '321', 'hegar yudha c', 'boyolali', '2022-06-02', 'byl', '08082823', '2022-06-03 00:58:45', 'Aktif');
+INSERT INTO `admin` (`id`, `nama`, `username`, `password`, `alamat`, `no_telpon`, `status`) VALUES
+(1, 'Hegar Yudha Candra Tionica', 'yudha', 'yudha11', 'Jl. Merbabu 96 Boyolali', '085727873492', 'Tidak Aktif'),
+(60, 'GKJ BOYOLALI', 'gkjboyolali', 'GkjBoyolali1', 'Jl. Pahlawan No.60, Ngrancah, Siswodipuran, Kec. Boyolali', '(0276) 321696', 'Aktif');
 
 -- --------------------------------------------------------
 
@@ -106,7 +103,6 @@ CREATE TABLE `data_majelis` (
   `username` varchar(50) NOT NULL,
   `jabatan_majelis` varchar(20) NOT NULL,
   `tanggal_registrasi` date NOT NULL DEFAULT current_timestamp(),
-  `no_telpon` varchar(20) NOT NULL,
   `password` varchar(50) NOT NULL,
   `status` enum('Aktif','Tidak Aktif','','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -115,23 +111,10 @@ CREATE TABLE `data_majelis` (
 -- Dumping data untuk tabel `data_majelis`
 --
 
-INSERT INTO `data_majelis` (`id_majelis`, `nama`, `username`, `jabatan_majelis`, `tanggal_registrasi`, `no_telpon`, `password`, `status`) VALUES
-(1, 'Hegar Yudha Candra Tionica', 'yudha', 'Ketua Majelis', '2022-06-20', '082265589091', 'yudha11', 'Aktif'),
-(2, 'Dkn. Sri Wahono', 'Wahono', 'Bidang Kajian', '2022-06-22', '', '1234567', 'Aktif'),
-(26, 'Untung Setiasa Bayu Purnama', 'untung', 'Sekretaris', '2022-06-22', '', 'boyolali', 'Aktif'),
-(27, 'Sri Saptiwi', 'saptiwi', 'Bendahara', '2022-06-22', '', 'saptiwi', 'Aktif');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `induk`
---
-
-CREATE TABLE `induk` (
-  `jenis_ibadah` varchar(50) NOT NULL,
-  `waktu` datetime NOT NULL DEFAULT current_timestamp(),
-  `petugas` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `data_majelis` (`id_majelis`, `nama`, `username`, `jabatan_majelis`, `tanggal_registrasi`, `password`, `status`) VALUES
+(1, 'Hegar Yudha Candra Tionica', 'yudha', 'Ketua Majelis', '2022-06-20', 'yudha11', 'Aktif'),
+(2, 'Dkn. Sri Wahono', 'Wahono', 'Bidang Kajian', '2022-06-22', '1234567', 'Aktif'),
+(26, 'Untung Setiasa Bayu Purnama', 'untung', 'Sekretaris', '2022-06-22', 'boyolali', 'Aktif');
 
 -- --------------------------------------------------------
 
@@ -152,13 +135,70 @@ CREATE TABLE `kelompok` (
 --
 
 CREATE TABLE `keuangan` (
-  `pemasukan_harian` text NOT NULL,
-  `pemasukan_mingguan` text NOT NULL,
-  `pemasukan_bulanan` text NOT NULL,
-  `jumlah_pemasukan` text NOT NULL,
-  `pengeluaran` text NOT NULL,
+  `jadwal` date NOT NULL,
+  `jenis_persembahan` varchar(50) NOT NULL,
+  `nominal` int(11) NOT NULL,
   `keterangan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `keuangan`
+--
+
+INSERT INTO `keuangan` (`jadwal`, `jenis_persembahan`, `nominal`, `keterangan`) VALUES
+('2022-06-12', 'Persembahan Kantong 3', 5752000, ''),
+('2022-06-26', 'Persembahan Kasih', 20000000, ''),
+('2022-06-26', 'Persembahan Mingguan', 12500000, ''),
+('2022-06-19', 'Persembahan Pembangunan', 4277000, '');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pelayanan_baptis`
+--
+
+CREATE TABLE `pelayanan_baptis` (
+  `id_baptis` varchar(11) NOT NULL,
+  `pemohon_baptis` varchar(50) NOT NULL,
+  `jenis_baptis` varchar(20) NOT NULL,
+  `jadwal_registrasi` date NOT NULL,
+  `jadwal_baptis` date NOT NULL,
+  `petugas_baptis` varchar(50) NOT NULL,
+  `keterangan` varchar(50) NOT NULL,
+  `status` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `pelayanan_baptis`
+--
+
+INSERT INTO `pelayanan_baptis` (`id_baptis`, `pemohon_baptis`, `jenis_baptis`, `jadwal_registrasi`, `jadwal_baptis`, `petugas_baptis`, `keterangan`, `status`) VALUES
+('1', 'candra arjun', 'Baptis Sidi', '2022-06-27', '2022-06-28', 'Pdt. Simon Julianto', '-', 'Menunggu'),
+('2', 'Hegar Yudha Candra Tionica', 'Baptis Dewasa', '2022-06-12', '2022-06-19', 'Pdt. Simon Julianto', '-', 'Terlaksana');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pelayanan_katekisasi`
+--
+
+CREATE TABLE `pelayanan_katekisasi` (
+  `id_katekisasi` varchar(11) NOT NULL,
+  `pemohon_katekisasi` varchar(50) NOT NULL,
+  `jenis_katekisasi` varchar(20) NOT NULL,
+  `jadwal_registrasi` date NOT NULL,
+  `jadwal_katekisasi` date NOT NULL,
+  `petugas_katekisasi` varchar(50) NOT NULL,
+  `keterangan` varchar(50) NOT NULL,
+  `status` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `pelayanan_katekisasi`
+--
+
+INSERT INTO `pelayanan_katekisasi` (`id_katekisasi`, `pemohon_katekisasi`, `jenis_katekisasi`, `jadwal_registrasi`, `jadwal_katekisasi`, `petugas_katekisasi`, `keterangan`, `status`) VALUES
+('1', 'andra', 'Katekisasi Baptis', '2022-06-27', '2022-06-28', 'aku', '-', 'Menunggu');
 
 -- --------------------------------------------------------
 
@@ -191,33 +231,6 @@ INSERT INTO `pelayan_ibadah` (`id_ibadah`, `nama_ibadah`, `tempat`, `jadwal_ibad
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pelayan_ibadah_teras`
---
-
-CREATE TABLE `pelayan_ibadah_teras` (
-  `id_ibadah` int(11) NOT NULL,
-  `nama_ibadah` text NOT NULL,
-  `tempat` varchar(50) NOT NULL,
-  `jadwal_ibadah` datetime NOT NULL,
-  `pengkotbah` varchar(50) NOT NULL,
-  `organis` varchar(50) NOT NULL,
-  `pemandu_nyanyian` varchar(100) NOT NULL,
-  `bunga_mimbar` varchar(50) NOT NULL,
-  `keterangan` text NOT NULL,
-  `penanggung_jawab` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `pelayan_ibadah_teras`
---
-
-INSERT INTO `pelayan_ibadah_teras` (`id_ibadah`, `nama_ibadah`, `tempat`, `jadwal_ibadah`, `pengkotbah`, `organis`, `pemandu_nyanyian`, `bunga_mimbar`, `keterangan`, `penanggung_jawab`) VALUES
-(1, 'Ibadah Minggu ke 1', 'Pepantan Teras', '2022-07-03 00:00:00', 'Sri Wahono', '-', '-', '-', 'Ibadah Minggu ke 1', ''),
-(2, 'Ibadah Minggu ke 2', 'Pepantan Teras', '2022-07-10 00:00:00', 'Rina Kristyaningsih', '-', '-', '-', '-', '-');
-
--- --------------------------------------------------------
-
---
 -- Struktur dari tabel `pepantan`
 --
 
@@ -226,6 +239,30 @@ CREATE TABLE `pepantan` (
   `waktu` datetime NOT NULL DEFAULT current_timestamp(),
   `petugas` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `proker`
+--
+
+CREATE TABLE `proker` (
+  `id_proker` varchar(11) NOT NULL,
+  `bidang` varchar(50) NOT NULL,
+  `nama_proker` text NOT NULL,
+  `jenis_kegiatan` text NOT NULL,
+  `waktu` varchar(25) NOT NULL,
+  `keterangan` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `proker`
+--
+
+INSERT INTO `proker` (`id_proker`, `bidang`, `nama_proker`, `jenis_kegiatan`, `waktu`, `keterangan`) VALUES
+('', 'Sekretaris', 'Pengelolaan Administrasi Kantor Gereja', 'Menerima, mengagenda dan mengarsip surat-surat masuk', 'Januari s/d Desember', ''),
+('2', 'Bidang KEESAAN', 'Penyelenggaraan Kebaktian', 'menyelenggarakan kebaktian hari minggu/kebaktian rutin di induk dan pepantan', 'Januari-Desember', ''),
+('3', 'komisi Ibadah', 'Penyelenggara ibadah minggu dan rutin', 'membantu menyiapkan perlengkapan, sarana ibadah, perlengkapan simbol gerejawi, petugas pendukung ibadah minggu dan rutin', 'Januari-Desember 2022', '');
 
 -- --------------------------------------------------------
 
@@ -298,7 +335,7 @@ INSERT INTO `struktur_majelis` (`idjabatan_majelis`, `periode_majelis`, `jumlah_
 ('Bidang Pembangunan', '2021', '2'),
 ('Bidang Penata Layanan', '2021', '2'),
 ('Bidang PIWG', '2021', '2'),
-('ketua', '2021', '1'),
+('ketua', '2021', '2'),
 ('Sekretaris', '2021', '2'),
 ('wakil ketua', '2021', '1');
 
@@ -309,8 +346,19 @@ INSERT INTO `struktur_majelis` (`idjabatan_majelis`, `periode_majelis`, `jumlah_
 --
 
 CREATE TABLE `warta` (
+  `judul` text NOT NULL,
+  `tanggal` date NOT NULL DEFAULT current_timestamp(),
   `warta_gereja` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `warta`
+--
+
+INSERT INTO `warta` (`judul`, `tanggal`, `warta_gereja`) VALUES
+('Warta Gereja GKJ Boyolali edisi minggu ke 28', '2022-06-12', 'Punya mikel dihapus aja ini anak.docx'),
+('Warta Gereja GKJ Boyolali edisi minggu ke 29', '2022-06-19', 'kartu ucapan tahlilan.pdf'),
+('Warta Gereja GKJ Boyolali edisi minggu ke 30', '2022-06-26', 'B220181005.jpg');
 
 --
 -- Indexes for dumped tables
@@ -335,16 +383,34 @@ ALTER TABLE `data_majelis`
   ADD PRIMARY KEY (`id_majelis`);
 
 --
+-- Indeks untuk tabel `keuangan`
+--
+ALTER TABLE `keuangan`
+  ADD PRIMARY KEY (`jenis_persembahan`);
+
+--
+-- Indeks untuk tabel `pelayanan_baptis`
+--
+ALTER TABLE `pelayanan_baptis`
+  ADD PRIMARY KEY (`id_baptis`);
+
+--
+-- Indeks untuk tabel `pelayanan_katekisasi`
+--
+ALTER TABLE `pelayanan_katekisasi`
+  ADD PRIMARY KEY (`id_katekisasi`);
+
+--
 -- Indeks untuk tabel `pelayan_ibadah`
 --
 ALTER TABLE `pelayan_ibadah`
   ADD PRIMARY KEY (`id_ibadah`);
 
 --
--- Indeks untuk tabel `pelayan_ibadah_teras`
+-- Indeks untuk tabel `proker`
 --
-ALTER TABLE `pelayan_ibadah_teras`
-  ADD PRIMARY KEY (`id_ibadah`);
+ALTER TABLE `proker`
+  ADD PRIMARY KEY (`id_proker`);
 
 --
 -- Indeks untuk tabel `struktur_komisi`
@@ -359,6 +425,12 @@ ALTER TABLE `struktur_majelis`
   ADD PRIMARY KEY (`idjabatan_majelis`);
 
 --
+-- Indeks untuk tabel `warta`
+--
+ALTER TABLE `warta`
+  ADD PRIMARY KEY (`tanggal`);
+
+--
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -366,7 +438,7 @@ ALTER TABLE `struktur_majelis`
 -- AUTO_INCREMENT untuk tabel `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_induk`
@@ -378,7 +450,7 @@ ALTER TABLE `data_induk`
 -- AUTO_INCREMENT untuk tabel `data_majelis`
 --
 ALTER TABLE `data_majelis`
-  MODIFY `id_majelis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_majelis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9546;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

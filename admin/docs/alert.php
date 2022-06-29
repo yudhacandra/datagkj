@@ -6,7 +6,7 @@ if (isset($alert)){ ?>
   icon: 'success',
   title: '<?= $alert; ?>',
   showConfirmButton: false,
-  timer: 1500
+  timer: 500
 })
 
 </script>
