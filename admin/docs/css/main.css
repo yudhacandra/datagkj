@@ -2709,15 +2709,15 @@ fieldset:disabled a.btn {
 
 .btn-success.disabled, .btn-success:disabled {
   color: #FFF;
-  background-color: #28a745;
-  border-color: #28a745;
+  background-color: #009688;
+  border-color: #009688;
 }
 
 .btn-success:not(:disabled):not(.disabled):active, .btn-success:not(:disabled):not(.disabled).active,
 .show > .btn-success.dropdown-toggle {
   color: #FFF;
-  background-color: #1e7e34;
-  border-color: #1c7430;
+  background-color: #009688;
+  border-color: #009688;
 }
 
 .btn-success:not(:disabled):not(.disabled):active:focus, .btn-success:not(:disabled):not(.disabled).active:focus,

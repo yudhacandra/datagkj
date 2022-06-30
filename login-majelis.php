@@ -142,21 +142,21 @@ if (!isset($_SESSION['role'])) {
                 });
                 setTimeout(function() {
                   window.location.href = "majelis/docs/dashboard_majelis.php";
-                }, 3000);
+                }, 4500);
 
 
               } else if (response == "Admin") {
 
-				iziToast.success({
-				title: 'Selamat',
-				message: 'Anda berhasil login sebagai Admin GKJ BOYOLALI',
-				position: 'topRight'
-				});
-				setTimeout(function() {
-				window.location.href = "admin/docs/dashboard.php";
-				}, 3000);
+                iziToast.success({
+                title: 'Selamat',
+                message: 'Anda berhasil login sebagai Admin GKJ BOYOLALI',
+                position: 'topRight'
+                });
+                setTimeout(function() {
+                window.location.href = "admin/docs/dashboard.php";
+                }, 4500);
 							
-				}else if (response == "Tidak Aktif") {
+				      }else if (response == "Tidak Aktif") {
                 // Jika error/akun sudah off
                 iziToast.warning({
                   title: 'Maaf...!',

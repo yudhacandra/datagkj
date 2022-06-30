@@ -6,10 +6,10 @@ if (isset($alert)){ ?>
   icon: 'success',
   title: '<?= $alert; ?>',
   showConfirmButton: false,
-  timer: 500;
+  timer: 3000;
 })
 
 </script>
 
 
-<?php  unset($alert); }
+<?php  unset($alert); }?>
