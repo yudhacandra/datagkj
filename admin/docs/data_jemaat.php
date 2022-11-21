@@ -94,7 +94,7 @@ include 'sidebar_menu.php';
                       <td><?= $row["nama"]; ?></td>
                       <td><?= $row["jenis_kelamin"]; ?></td>
                       <td><?= $row["alamat"]; ?></td>
-                      <td><a class="btn btn-primary" href="proses_lihat.php?id=<?= $row["no_induk"]; ?>"><i class="fa fa-eye" aria-hidden="true"></i></a><a class="btn btn-primary" href="proses_edit.php?id=<?= $row["no_induk"]; ?>"><i class="fa fa-lg fa-edit"></i></a><a class="btn btn-primary" href="proses_hapus_data_jemaat.php?id=<?= $row["no_induk"]; ?>"><i class="fa fa-lg fa-trash"></i></a></td>
+                      <td><a class="btn btn-danger" href="proses_lihat.php?id=<?= $row["no_induk"]; ?>"><i class="fa fa-eye" aria-hidden="true"></i></a><a class="btn btn-primary" href="proses_edit.php?id=<?= $row["no_induk"]; ?>"><i class="fa fa-lg fa-edit"></i></a><a class="btn btn-primary" href="proses_hapus_data_jemaat.php?id=<?= $row["no_induk"]; ?>"><i class="fa fa-lg fa-trash"></i></a></td>
                     </tr>
                     
 
