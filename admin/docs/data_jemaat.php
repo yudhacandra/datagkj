@@ -16,6 +16,7 @@ if ($cari != null) {
   
 }
 
+
 } else {
   $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` order by tanggal_terdaftar DESC ");
   $data = mysqli_fetch_array($data_jemaat);
