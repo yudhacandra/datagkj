@@ -2,39 +2,51 @@
 include '../../database.php';
 if(isset($_POST['simpan']))
 {
-$ijm=$_POST['idjabatan_majelis'];
-$pm=$_POST['periode_majelis'];
-$jlam=$_POST['jumlah_anggota_majelis'];
+    $ni=$_POST['no_induk'];
+    $nj=$_POST['nama_jemaat'];
+    $jk=$_POST['jeniskelamin'];
+    $at=$_POST['alamat_tinggal'];
+    $dl=$_POST['datalahir'];
+    $bo=$_POST['baptis_oleh'];
+    $so=$_POST['sidi_oleh'];
+    $no=$_POST['nikah_oleh'];
+    $mo=$_POST['meninggal_oleh'];
+    $ot=$_POST['orangtua'];
+    $si=$_POST['suamiistri'];
+    $ag=$_POST['asalgereja'];
+    $tg=$_POST['tujuangereja'];
+    $ke=$_POST['ket'];
+    $kt=$_POST['ketambahan'];
 
-$query = mysqli_query($conn,"DELETE FROM `struktur_majelis` WHERE  `idjabatan_majelis`=$ijm ");
-if($hasil){ 
-  // $alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
-  header("location:struktur_majelis.php");
+$query = mysqli_query($conn,"DELETE FROM `data_jemaat` WHERE  `no_induk`=$ni ");
+if($hasil){
+  header("location:data_jemaat.php");
   }
 }
 ?>
 
 <?php
-//proses hapus data
-    if ($_GET['id']) {
-      $idjabatan_majelis =$_GET['id'];
-        $hapus = "DELETE FROM struktur_majelis WHERE idjabatan_majelis='$idjabatan_majelis'";
+  //proses hapus data
+    if ($_GET['id']) 
+    {
+      $no_induk =$_GET['id'];
+        $hapus = "DELETE FROM data_jemaat WHERE no_induk='$no_induk'";
         $sql = mysqli_query ($conn,$hapus);
-        if ($sql) {        
-            ?>
-                <script language="JavaScript">
-                alert('Data <?=$idjabatan_majelis?> Berhasil dihapus!');
-                document.location='struktur_majelis.php?page=lihat';
-                </script>
-            <?php        
+        if ($sql) 
+        {        
+?>
+    <script language="JavaScript">
+      alert('Data <?=$no_induk?> Berhasil dihapus!');
+      document.location='data_jemaat.php?page=lihat';
+    </script>
+  <?php        
         } else {
-            echo "<font color=red><center>Data Mahasiswa gagal dihapus</center></font>";    
+            echo "<font color=red><center>Data Jemaat gagal dihapus</center></font>";    
         }
     }
-    
-//Tutup koneksi engine MySQL
-    mysql_close($Open);
+
 ?>
+
 
   <!DOCTYPE html>
   <html lang="en">

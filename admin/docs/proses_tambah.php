@@ -2,26 +2,27 @@
 include '../../database.php';
 if(isset($_POST['simpan']))
 {
-$ni=$_POST['noinduk'];
-$nj=$_POST['nama_jemaat'];
-$jk=$_POST['jeniskelamin'];
-$at=$_POST['alamat_tinggal'];
-$dl=$_POST['datalahir'];
-$bo=$_POST['baptis_oleh'];
-$so=$_POST['sidi_oleh'];
-$no=$_POST['nikah_oleh'];
-$mo=$_POST['meninggal_oleh'];
-$ot=$_POST['orangtua'];
-$si=$_POST['suamiistri'];
-$ag=$_POST['asalgereja'];
-$tg=$_POST['tujuangereja'];
-$ke=$_POST['ket'];
-$kt=$_POST['ketambahan'];
+    $ni=$_POST['no_induk'];
+    $nm=$_POST['nama'];
+    $jk=$_POST['jenis_kelamin'];
+    $al=$_POST['alamat'];
+    $lh=$_POST['lahir'];
+    $bp=$_POST['baptis'];
+    $sd=$_POST['sidi'];
+    $nkh=$_POST['nikah'];
+    $mng=$_POST['meninggal'];
+    $ot=$_POST['orang_tua'];
+    $si=$_POST['suami_istri'];
+    $dg=$_POST['dari_gereja'];
+    $kg=$_POST['ke_gereja'];
+    $ket=$_POST['keterangan'];
+    $tt=$_POST['tanggal_terdaftar'];
+    $kt=$_POST['keterangan_tambahan'];
 
-$insert = mysqli_query($conn,"INSERT INTO `data_induk`(`no_induk`, `nama`, `jenis_kelamin`, `alamat`, `lahir`, `baptis`, `sidi`, `nikah`, `meninggal`, `orang_tua`, `suami_istri`, `dari_gereja`, `ke_gereja`, `keterangan`, `keterangan_tambahan`) VALUES ('$ni','$nj','$jk','$at','$dl','$bo','$so','$no','$mo','$ot','$si','$ag','$tg','$ke','$kt')");
+$insert = mysqli_query($conn,"INSERT INTO `data_jemaat`(`no_induk`, `nama`, `jenis_kelamin`, `alamat`, `lahir`, `baptis`, `sidi`, `nikah`, `meninggal`, `orang_tua`, `suami_istri`, `dari_gereja`, `ke_gereja`, `keterangan`, `tanggal_terdaftar`, `keterangan_tambahan`) VALUES ('$ni','$nm','$jk','$al','$lh','$bp','$sd','$nkh','$mng','$ot','$si','$dg','$kg','$ket','$tt','$kt')");
 if($insert){ 
   // $alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
-  header("location:data-jemaat.php");
+  header("location:data_jemaat.php");
   }
 }
 
@@ -53,7 +54,7 @@ include 'sidebar_menu.php';
         <div class="col-md-12">
           <div class="tile">
             <div class="tile-body">
-            <p><b><h3> <div class="text-center"><u> FORM TAMBAH DATA JEMAAT </u></div></h3></b></p>
+            <p><b><h3> <div class="text-center"> FORM TAMBAH DATA JEMAAT </div></h3></b></p>
 
             <div class="contact-form-area">
                     <form action="" method="POST" >
@@ -61,19 +62,20 @@ include 'sidebar_menu.php';
                             <div class="col-12 col-lg-4">
                                 <div class="form-group">
                                     <label for="contact-name"><b>No Induk  :</b></label>
-                                    <input type="text" class="form-control" id="contact-name" name="noinduk">
+                                    <input type="text" class="form-control" id="contact-name" name="no_induk">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
                                     <label for="contact-name"><b>Nama  :</b></label>
-                                    <input type="text" class="form-control" name="nama_jemaat">
+                                    <input type="text" class="form-control" name="nama">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
                                     <label for="contact-name"><b>Jenis Kelamin   :</b></label>
-                                    <select name="jeniskelamin" class="form-control">
+                                    <select name="jenis_kelamin" class="form-control">
+                                    <option value=""></option>
                                     <option value="P">Perempuan</option>
                                     <option value="L">Laki-laki</option>
                                     </select>
@@ -82,73 +84,79 @@ include 'sidebar_menu.php';
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
                                     <label for="contact-name"><b>Alamat    :</b></label>
-                                    <input type="text" class="form-control" name="alamat_tinggal">
+                                    <input type="text" class="form-control" name="alamat">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
                                     <label for="contact-number"><b>Lahir   :</b></label>
-                                    <input type="text" class="form-control" name="datalahir">
+                                    <input type="text" class="form-control" name="lahir">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
                                     <label for="contact-name"><b>Baptis    :</b></label>
-                                    <input type="text" class="form-control" name="baptis_oleh">
+                                    <input type="text" class="form-control" name="baptis">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
                                     <label for="contact-name"><b>Sidi  :</b></label>
-                                    <input type="text" class="form-control" name="sidi_oleh">
+                                    <input type="text" class="form-control" name="sidi">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
                                     <label for="contact-name"><b>Nikah    :</b></label>
-                                    <input type="text" class="form-control" name="nikah_oleh">
+                                    <input type="text" class="form-control" name="nikah">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
                                     <label for="contact-name"><b>Meninggal :</b></label>
-                                    <input type="text" class="form-control" name="meninggal_oleh">
+                                    <input type="text" class="form-control" name="meninggal">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
                                     <label for="contact-name"><b>Orang Tua :</b></label>
-                                    <input type="text" class="form-control" name="orangtua">
+                                    <input type="text" class="form-control" name="orang_tua">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
                                     <label for="contact-name"><b>Suami/Istri   :</b></label>
-                                    <input type="text" class="form-control" name="suamiistri">
+                                    <input type="text" class="form-control" name="suami_istri">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
                                     <label for="contact-name"><b>Asal Gereja   :</b></label>
-                                    <input type="text" class="form-control" name="asalgereja">
+                                    <input type="text" class="form-control" name="dari_gereja">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
                                     <label for="contact-name"><b>Tujuan Gereja :</b></label>
-                                    <input type="text" class="form-control" name="tujuangereja">
+                                    <input type="text" class="form-control" name="ke_gereja">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
                                     <label for="contact-name"><b>Keterangan    :</b></label>
-                                    <input type="text" class="form-control" name="ket">
+                                    <input type="text" class="form-control" name="keterangan">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
-                                    <label for="contact-name"><b>Keterangan Tambahan   :</b></label>
-                                    <input type="text" class="form-control" name="ketambahan">
+                                    <label for="contact-name"><b>Tanggal Terdaftar    :</b></label>
+                                    <input type="date" class="form-control" name="tanggal_terdaftar">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <div class="form-group">
+                                    <label for="contact-name"><b>Keterangan Tambahan    :</b></label>
+                                    <textarea col="3" cols="30" class="form-control" rows="3" name="keterangan_tambahan"></textarea>
                                 </div>
                             </div>
                             </div>

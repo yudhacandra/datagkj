@@ -3,14 +3,14 @@ include '../../database.php';
 $id = $_GET['id'];
 if(isset($_POST['edit_pelayanan_baptis']))
 {
-$idb=$_POST['id_baptis'];
-$pb=$_POST['pemohon_baptis'];
-$jnb=$_POST['jenis_baptis'];
-$jr=$_POST['jadwal_registrasi'];
-$jb=$_POST['jadwal_baptis'];
-$ptb=$_POST['petugas_baptis'];
-$kt=$_POST['keterangan'];
-$st=$_POST['status'];
+  $idb=$_POST['id_baptis'];
+  $pb=$_POST['pemohon_baptis'];
+  $jnb=$_POST['jenis_baptis'];
+  $jr=$_POST['jadwal_registrasi'];
+  $jb=$_POST['jadwal_baptis'];
+  $ptb=$_POST['petugas_baptis'];
+  $kt=$_POST['keterangan'];
+  $st=$_POST['status'];
 
 
 $pelayanan_baptis = mysqli_query($conn, "UPDATE `pelayanan_baptis` SET `id_baptis`='$idb',`pemohon_baptis`='$pb',`jenis_baptis`='$jnb',`jadwal_registrasi`='$jr',`jadwal_baptis`='$jb',`petugas_baptis`='$ptb',`keterangan`='$kt',`status`='$st' WHERE id_baptis='$id'");
@@ -68,6 +68,7 @@ include 'sidebar_menu.php';
                               <label class="control-label mt-1"><b>Jenis Baptis :</b></label>
                               <select class="form-control col-30" name="jenis_baptis">
                                 <option value="#"></option>
+                                <option value="Baptis Anak">Baptis Anak</option>
                                 <option value="Baptis Sidi">Baptis Sidi</option>
                                 <option value="Baptis Dewasa">Baptis Dewasa</option>
                               </select>

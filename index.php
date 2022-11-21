@@ -37,7 +37,7 @@ if (!isset($_SESSION['role'])) {
       
       .header_css{
         margin-left: 100px;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
         margin-top: 10px;
         font-size: 12pt;
         font-family: Times New Roman;
@@ -70,6 +70,9 @@ if (!isset($_SESSION['role'])) {
                 <a class="nav-link page-scroll" href="#warta">Warta</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link page-scroll" href="#jemaat">Jemaat</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link page-scroll" href="#features">Ibadah</a>
               </li>
               <li class="nav-item">
@@ -86,12 +89,15 @@ if (!isset($_SESSION['role'])) {
         </div>
 
         <!-- Mobile Menu Start -->
-        <ul class="mobile-menu">
+        <!--<ul class="mobile-menu">
            <li>
               <a class="page-scroll" href="#beranda">Beranda</a>
             </li>
             <li>
-              <a class="page-scroll" href="#warta">Warta Gereja</a>
+              <a class="page-scroll" href="#warta">Warta</a>
+            </li>
+            <li>
+              <a class="page-scroll" href="#jemaat">Jemaat</a>
             </li>
             <li>
               <a class="page-scroll" href="#features">Ibadah</a>
@@ -99,13 +105,13 @@ if (!isset($_SESSION['role'])) {
             <li>
               <a class="page-scroll" href="#kas">Keuangan</a>
             </li>
-            <li>
-              <a class="page-scroll" href="#login">Masuk</a>
+            <li class="nav-item">
+              <a class="nav-link login-button" href="login-majelis.php">Login</a>
             </li>
             <li>
               <a class="page-scroll" href="#contact">Kontak</a>
             </li>
-        </ul>
+        </ul>-->
         <!-- Mobile Menu End -->
 
       </nav>
@@ -147,7 +153,40 @@ if (!isset($_SESSION['role'])) {
             <div class="item-boxes wow fadeInDown" data-wow-delay="0.2s">
               <div class="icon">
                 <a href="?warta=<?= $data['warta_gereja'];?>"><i class="lnr lnr-download"></i></a>
-                
+              </div>
+              <h4><?= $data['judul'];?></h4>
+              <!-- <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p> -->
+            </div>
+          </div>
+        <?php }
+        ?>
+       
+          
+        </div>
+      </div>
+    </section>
+    <!-- Services Section End -->
+
+     <!-- Services Section Start -->
+     <section id="jemaat" class="section jemaat">
+      <div class="container h-50">
+        <div class="section-header">          
+          <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Jemaat Gereja</h2>
+          <hr class="lines wow zoomIn" data-wow-delay="0.3s">
+          <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p>
+        </div>
+        <div class="row">
+        <?php
+        include 'database.php';
+        $data_jemaat = mysqli_query($conn, "SELECT * FROM `warta` ORDER BY tanggal limit 3");
+
+        while ($data = mysqli_fetch_array($data_jemaat))
+        {
+        ?>
+          <div class="col-md-4 col-sm-6">
+            <div class="item-boxes wow fadeInDown" data-wow-delay="0.2s">
+              <div class="icon">
+                <a href="?jemaat=<?= $data['jemaat_gereja'];?>"><i class="lnr lnr-download"></i></a>
               </div>
               <h4><?= $data['judul'];?></h4>
               <!-- <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p> -->
@@ -214,9 +253,6 @@ if (!isset($_SESSION['role'])) {
             </div>
           </div>
           <div class="col-lg-4 col-xs-12">
-            <div class="show-box">
-              <img class="img-fulid" src="img/features/feature.png" alt="">
-            </div>
           </div>
         </div>
       </div>
@@ -357,16 +393,12 @@ if (!isset($_SESSION['role'])) {
     <footer>          
       <div class="container">
         <div class="row">
-          <!-- Footer Links -->
-          <div class="col-lg-6 col-sm-6 col-xs-12">
-            <ul class="footer-links">
-            </ul>
+          <div class="col-lg-3">
+            <div class="copyright"> </div>
           </div>
-          <div class="col-lg-6 col-sm-6 col-xs-12">
-            <div class="copyright">
-              <p>gkjboyolaliofficial © 2022-hegaryudha || TI-Universitas Kristen Surakarta</a></p>
-            </div>
-          </div>  
+		<div class="col-lg-6">
+<p class="text-center">GKJBoyolaliofficial ©2022-hegaryudha || TI-UKS</p>
+        </div>
         </div>
       </div>
     </footer>

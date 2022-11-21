@@ -5,15 +5,14 @@ if(isset($_POST['simpan']))
 $idm=$_POST['id_majelis'];
 $nam=$_POST['nama'];
 $usrnm=$_POST['username'];
-$jbm=$_POST['jabatan_majelis'];
-// $tr=$_POST['tanggal_registrasi'];
+$jbg=$_POST['jabatan_grejawi'];
 $psw=$_POST['password'];
 $st='Tidak Aktif';
 
-$insert = mysqli_query($conn,"INSERT INTO `data_majelis`(`id_majelis`, `nama`, `username`, `jabatan_majelis`, `password`, `status`) VALUES ('$idm','$nam','$usrnm','$jbm','$psw','$st')");
+$insert = mysqli_query($conn,"INSERT INTO `akun_majelis`(`id_majelis`, `nama`, `username`, `jabatan_grejawi`, `password`, `status`) VALUES ('$idm','$nam','$usrnm','$jbg','$psw','$st')");
 if($insert){ 
   // $alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
-  header("location:data_majelis.php");
+  header("location:akun_majelis.php");
   }
 }
 ?>
@@ -34,14 +33,14 @@ include 'sidebar_menu.php';
         <div>
           <h1><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-file-earmark-person-fill" viewBox="0 0 16 16">
            <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm2 5.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-.245S4 12 8 12s5 1.755 5 1.755z"/>
-          </svg> Tambah Data Majelis</h1>
+          </svg> Tambah Data Akun Majelis</h1>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <div class="tile">
             <div class="tile-body">
-            <p><b><h3> <div class="text-center"><u> FORM TAMBAH DATA MAJELIS </u></div></h3></b></p>
+            <p><b><h3> <div class="text-center"><u> FORM TAMBAH AKUN MAJELIS </u></div></h3></b></p>
           
             <div class="contact-form-area">
                     <form action="" method="POST" >
@@ -66,9 +65,9 @@ include 'sidebar_menu.php';
                             </div>
 
                             <div class="col-12 col-lg-10">
-                              <label class="control-label mt-1">Jabatan Majelis</label>
-                              <select class="form-control col-30" name="jabatan_majelis">
-                                <option value="ketua"></option>
+                              <label class="control-label mt-1"><b>Jabatan Grejawi</b></label>
+                              <select class="form-control col-30" name="jabatan_grejawi">
+                                <option value="#">- Silahkan Pilih -</option>
                                 <option value="ketua">ketua</option>
                                 <option value="wakil ketua">Wakil Ketua</option>
                                 <option value="Sekretaris">Sekretaris</option>
@@ -81,17 +80,9 @@ include 'sidebar_menu.php';
                                 <option value="Bidang Pembangunan">Bidanng Pembangunan</option>
                               </select>
                             </div>
-
-                            <!-- <div class="col-12 col-lg-10">
-                              <div class="form-group">
-                                <label for="contact-name"><b>Tanggal Registrasi :</b></label>
-                                <input type="timestamp" class="form-control" name="tanggal_registrasi">
-                      
-                              </div>
-                            </div> -->
                             
                             <div class="col-12 col-lg-10">
-                              <div class="form-group">
+                              <div class="form-group"><p></p>
                                 <label for="contact-name"><b>Password :</b></label>
                                 <input type="text" class="form-control" name="password">
                               </div>

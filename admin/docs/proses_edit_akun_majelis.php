@@ -1,26 +1,25 @@
 <?php
 include '../../database.php';
 $id = $_GET['id'];
-if(isset($_POST['edit_data_majelis']))
+if(isset($_POST['edit_akun_majelis']))
 {
 $idm=$_POST['id_majelis'];
 $nam=$_POST['nama'];
 $usrnm=$_POST['username'];
-$jbm=$_POST['jabatan_majelis'];
-$tr=$_POST['tanggal_registrasi'];
+$jbg=$_POST['jabatan_grejawi'];
 $psw=$_POST['password'];
 $st=$_POST['status'];
 
 
-$data_majelis = mysqli_query($conn, "UPDATE `data_majelis` SET `id_majelis`='$idm',`nama`='$nam',`username`='$usrnm',`jabatan_majelis`='$jbm',`tanggal_registrasi`='$tr',`password`='$psw',`status`='$st' WHERE id_majelis='$id'");
+$data_majelis = mysqli_query($conn, "UPDATE `akun_majelis` SET `id_majelis`='$idm',`nama`='$nam',`username`='$usrnm',`jabatan_grejawi`='$jbg',`password`='$psw',`status`='$st' WHERE id_majelis='$id'");
 if ($data_majelis) {
-    header("location:data_majelis.php");
+    header("location:akun_majelis.php");
 }
 
 }
 
-$data_majelis = mysqli_query($conn, "SELECT * FROM `data_majelis` where id_majelis='$id'");
-$data = mysqli_fetch_array($data_majelis);
+$akun_majelis = mysqli_query($conn, "SELECT * FROM `akun_majelis` where id_majelis='$id'");
+$data = mysqli_fetch_array($akun_majelis);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,21 +37,21 @@ include 'sidebar_menu.php';
         <div>
           <h1><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-file-earmark-person-fill" viewBox="0 0 16 16">
            <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm2 5.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-.245S4 12 8 12s5 1.755 5 1.755z"/>
-          </svg> Edit Data Majelis</h1>
+          </svg> Edit Akun Majelis</h1>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
             <div class="tile">
                 <div class="tile-body">
-                <p><b><h3><div class="text-center"><u> FORM EDIT DATA MAJELIS </u></div></h3></b></p>
+                <p><b><h3><div class="text-center"><u> FORM EDIT AKUN MAJELIS </u></div></h3></b></p>
             <div class="contact-form-area">
                     <form action="" method="POST" >
                         <div class="row">
                             <div class="col-12 col-lg-3">
                                 <div class="form-group">
                                     <label for="contact-name"><b>Id Majelis :</b></label>
-                                    <input type="text" class="form-control"  value="<?=  $data['id_majelis']; ?>" name="id_majelis">
+                                    <input type="text" class="form-control"  value="<?=  $data['id_majelis']; ?>" name="id_majelis" readonly>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">
@@ -75,8 +74,9 @@ include 'sidebar_menu.php';
                             </div>
                             
                             <div class="col-12 col-lg-10">
-                                <label class="control-label mt-1">Jabatan Majelis</label>
-                                <select class="form-control col-30" name="jabatan_majelis">
+                                <label class="control-label mt-1">Jabatan Grejawi</label>
+                                <select class="form-control col-30" name="jabatan_grejawi">
+                                <option value="#">~ Silahkan Pilih ~</option>
                                 <option value="ketua">ketua</option>
                                 <option value="wakil ketua">Wakil Ketua</option>
                                 <option value="Sekretaris">Sekretaris</option>
@@ -89,19 +89,12 @@ include 'sidebar_menu.php';
                                 <option value="Bidang Pembangunan">Bidanng Pembangunan</option>
                                 </select>
                             </div>
-
-                            <div class="col-12 col-lg-10">
-                                <div class="form-group">
-                                    <label for="contact-number"><b>Tanggal Registrasi   :</b></label>
-                                    <input type="date" class="form-control" value="<?=  $data['tanggal_registrasi']; ?>"  name="tanggal_registrasi">
-                                </div>
-                            </div>
                             
-                            <div class="col-12 col-lg-10">
-                                <div class="form-group">
+                            <div class="col-12 col-lg-3">
+                                <div class="form-group"><p></p>
                                     <label for="contact-name"><b>Status :</b></label>
                                     <select class="form-control col-13" name="status">
-                                        <option value=""></option>
+                                        <option value="#">~ Silahkan Pilih ~</option>
                                         <option value="aktif">Aktif</option>
                                         <option value="tidak aktif">Tidak Aktif</option>
                                     </select>
@@ -109,7 +102,7 @@ include 'sidebar_menu.php';
                             </div>
                             </div>
                             <div class="col-12 text-center">
-                                <button type="submit" name="edit_data_majelis" class="btn btn-info">Simpan</button>
+                                <button type="submit" name="edit_akun_majelis" class="btn btn-info">Simpan</button>
                             </div>
 
                         </div>

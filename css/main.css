@@ -40,7 +40,7 @@
    ========================================================================== */
 body {
   font-family: 'Poppins', sans-serif;
-  color: #333;
+  color: rgb(255, 255, 255);
   font-size: 14px;
   font-weight: 400;
   background: #fff;
@@ -101,13 +101,14 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
    2.1 Section Title
    ========================================================================== */
 .section {
-  padding: 140px 0;
+  padding: 210px 0;
 }
 
 .section-header {
   color: #fff;
   margin-bottom: 40px;
   text-align: center;
+  padding:210;
 }
 
 .section-header .section-title {
@@ -124,7 +125,7 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 }
 
 .section-header .section-subtitle {
-  margin-top: 15px;
+  margin-top: 100px;
   color: #333;
   font-size: 14px;
   font-weight: 400;
@@ -406,7 +407,7 @@ button:focus {
 #beranda {
   background: url(../img/gkjb.png) fixed no-repeat;
   background-size: cover;
-  color: #000000;
+  color: #000;
   overflow: hidden;
   position: relative;
   height: 750px;
@@ -430,7 +431,7 @@ button:focus {
   color: #ffffff;
   font-family: 'Times New Roman', Times, serif;
   font-size: 48px;
-  font-weight: 700;
+  font-weight: 750;
   margin-bottom: 25px;
 }
 
@@ -474,7 +475,7 @@ button:focus {
 }
 
 .top-nav-collapse {
-  background: #000000;
+  background: #ffffff;
   z-index: 999999;
   top: 0px !important;
   padding: 0;
@@ -485,7 +486,7 @@ button:focus {
   animation-fill-mode: both;
   -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;
-  background: #fff !important;
+  background: rgb(255, 255, 255) !important;
 }
 
 .top-nav-collapse .navbar-brand {
@@ -563,6 +564,7 @@ button:focus {
 
 .slicknav_menu {
   display: none;
+  position: relative;
 }
 
 @media screen and (max-width: 768px) {
@@ -632,6 +634,7 @@ button:focus {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 10px;
+  color: #000;
 }
 
 .item-boxes:hover .icon {
@@ -639,7 +642,7 @@ button:focus {
 }
 
 .item-boxes:hover .icon i {
-  color: #fff;
+  color: rgb(0, 0, 0);
 }
 
 /* ==========================================================================
@@ -1254,11 +1257,6 @@ footer {
 
 .footer-links li a:hover {
   color: #61D2B4;
-}
-
-.copyright {
-  margin-top: 10px;
-  float: ;
 }
 
 .copyright p {

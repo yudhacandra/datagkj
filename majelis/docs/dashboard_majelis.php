@@ -30,11 +30,11 @@ include 'sidebar_menu.php';
           <div class="widget-small primary coloured-icon"><i class="icon fa fa-address-card-o fa-3x" aria-hidden="true"></i>
             <div class="info">
           <?php
-          $data_jemaat = mysqli_query($conn, "SELECT nama, COUNT(no_induk) total FROM `data_induk`;");
+          $data_jemaat = mysqli_query($conn, "SELECT nama, COUNT(no_induk) total FROM `data_jemaat`;");
             $data = mysqli_fetch_array($data_jemaat);
           ?>
             <h4><b>Jemaat</b></h4>
-            <p><b><?=  $data['total']; ?></b></p>
+            <p><b><?= $data['total']; ?></b></p>
             </div>
           </div>
         </div>

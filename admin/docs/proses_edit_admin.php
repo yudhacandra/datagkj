@@ -87,7 +87,7 @@ include 'sidebar_menu.php';
                                 <div class="form-group">
                                     <label for="contact-name"><b>Status :</b></label>
                                     <select class="form-control col-13" name="status">
-                                        <option value=""></option>
+                                        <option value="#">~ Silahkan Pilih ~</option>
                                         <option value="aktif">Aktif</option>
                                         <option value="tidak aktif">Tidak Aktif</option>
                                     </select>

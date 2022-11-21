@@ -89,10 +89,37 @@ include 'sidebar_menu.php';
                   <?php $i = 1; ?>
                   <?php foreach ($struktur_majelis as $row) : ?>
                     <tr>
-                      <td><a class="btn btn-primary" href="detail.php?id=<?= $row["idjabatan_majelis"]; ?>"><i class="fa fa-eye" aria-hidden="true"></i></a><a class="btn btn-primary" href="proses_edit_struktur_majelis.php?id=<?= $row["idjabatan_majelis"]; ?>"><i class="fa fa-lg fa-edit"></i></a><a class="btn btn-primary" href="proses_hapus_struktur_majelis.php?id=<?= $row["idjabatan_majelis"]; ?>"><i class="fa fa-lg fa-trash"></i></a></td>
+                      <td><a class="btn btn-primary" href="proses_lihat_majelis.php?id=<?= $row["idjabatan_majelis"]; ?>"><i class="fa fa-eye" aria-hidden="true"></i></a><a class="btn btn-primary" href="proses_edit_struktur_majelis.php?id=<?= $row["idjabatan_majelis"]; ?>"><i class="fa fa-lg fa-edit"></i></a><a class="btn btn-primary" href="proses_hapus_struktur_majelis.php?id=<?= $row["idjabatan_majelis"]; ?>"><i class="fa fa-lg fa-trash"></i></a></td>
                       <td><?= $row["idjabatan_majelis"]; ?></td>
                       <td><?= $row["periode_majelis"]; ?></td>
-                      <td><?= $row["jumlah_anggota_majelis"]; ?></td>
+                      <td>
+                        <?php
+
+  if($row["idjabatan_majelis"]=='Bendahara'){
+    $jumlahjabatan = mysqli_fetch_array(mysqli_query($conn, "SELECT COUNT(jabatan) as jabatan FROM `data_jemaat` WHERE jabatan ='".$row["idjabatan_majelis"]."'"));
+  
+  } else if($row["idjabatan_majelis"]=='wakil ketua'){
+    $jumlahjabatan = mysqli_fetch_array(mysqli_query($conn, "SELECT COUNT(jabatan) as jabatan FROM `data_jemaat` WHERE jabatan ='".$row["idjabatan_majelis"]."'"));
+  
+  } else if($row["idjabatan_majelis"]=='Sekretaris'){
+    $jumlahjabatan = mysqli_fetch_array(mysqli_query($conn, "SELECT COUNT(jabatan) as jabatan FROM `data_jemaat` WHERE jabatan ='".$row["idjabatan_majelis"]."'"));
+  
+  } else if($row["idjabatan_majelis"]=='Bidang PIWG'){
+    $jumlahjabatan = mysqli_fetch_array(mysqli_query($conn, "SELECT COUNT(jabatan) as jabatan FROM `data_jemaat` WHERE jabatan ='".$row["idjabatan_majelis"]."'"));
+  
+  } else if($row["idjabatan_majelis"]=='Bidang Penata Layanan'){
+    $jumlahjabatan = mysqli_fetch_array(mysqli_query($conn, "SELECT COUNT(jabatan) as jabatan FROM `data_jemaat` WHERE jabatan ='".$row["idjabatan_majelis"]."'"));
+  
+  } else if($row["idjabatan_majelis"]=='Bidang Pembangunan'){
+    $jumlahjabatan = mysqli_fetch_array(mysqli_query($conn, "SELECT COUNT(jabatan) as jabatan FROM `data_jemaat` WHERE jabatan ='".$row["idjabatan_majelis"]."'"));
+  
+  }
+
+
+
+                        echo $jumlahjabatan['jabatan'];
+                        ?>
+                      </td>
                     </tr>
                     <?php $i++; ?>
                     <?php endforeach; 

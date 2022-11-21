@@ -30,7 +30,7 @@ include 'sidebar_menu.php';
           <div class="widget-small primary coloured-icon"><i class="icon fa fa-address-card-o fa-3x" aria-hidden="true"></i>
             <div class="info">
             <?php
-            $data_jemaat = mysqli_query($conn, "SELECT nama, COUNT(no_induk) total FROM `data_induk`;");
+            $data_jemaat = mysqli_query($conn, "SELECT nama, COUNT(no_induk) total FROM `data_jemaat`;");
               $data = mysqli_fetch_array($data_jemaat);
             ?>
             <h4><b>Jemaat</b></h4>
@@ -43,10 +43,10 @@ include 'sidebar_menu.php';
           <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
             <div class="info">
             <?php
-          $data_majelis = mysqli_query($conn, "SELECT nama, COUNT(id_majelis) total FROM `data_majelis`;");
-            $data = mysqli_fetch_array($data_majelis);
+          $akun_majelis = mysqli_query($conn, "SELECT nama, COUNT(id_majelis) total FROM `akun_majelis`;");
+            $data = mysqli_fetch_array($akun_majelis);
           ?>
-              <h4><b>Majelis</b></h4>
+              <h4><b>Data Majelis</b></h4>
                <p><b><?= $data['total']; ?></b></p>
             </div>
           </div>

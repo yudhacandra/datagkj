@@ -208,6 +208,7 @@ figure {
 img {
   vertical-align: middle;
   border-style: none;
+  position: relative;
 }
 
 svg {
@@ -379,6 +380,7 @@ h1, h2, h3, h4, h5, h6,
 
 h1, .h1 {
   font-size: 2.1875rem;
+  position: relative;
 }
 
 h2, .h2 {
@@ -16389,6 +16391,7 @@ be a descendant of the grid when it is being dragged.
 .login-content .logo h1 {
   font-size: 52px;
   font-weight: 400;
+  position: relative;
 }
 
 .login-content .login-box {

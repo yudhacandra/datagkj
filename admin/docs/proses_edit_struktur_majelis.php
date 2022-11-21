@@ -5,10 +5,8 @@ if(isset($_POST['edit_struktur_majelis']))
 {
 $ijm=$_POST['idjabatan_majelis'];
 $pm=$_POST['periode_majelis'];
-$jam=$_POST['jumlah_anggota_majelis'];
 
-
-$struktur_majelis = mysqli_query($conn, "UPDATE `struktur_majelis` SET `idjabatan_majelis`='$ijm',`periode_majelis`='$pm',`jumlah_anggota_majelis`='$jam' WHERE idjabatan_majelis='$ijm'");
+$struktur_majelis = mysqli_query($conn, "UPDATE `struktur_majelis` SET `idjabatan_majelis`='$ijm',`periode_majelis`='$pm' WHERE idjabatan_majelis='$ijm'");
 if ($struktur_majelis) {
     header("location:struktur_majelis.php");
 }
@@ -67,13 +65,6 @@ include 'sidebar_menu.php';
                                 <div class="form-group">
                                     <label for="contact-name"><b>Periode Majelis  :</b></label>
                                     <input type="text" class="form-control" value="<?=  $data['periode_majelis']; ?>"  name="periode_majelis">
-                                </div>
-                            </div>
-                            
-                            <div class="col-12 col-lg-10">
-                                <div class="form-group">
-                                    <label for="contact-name"><b>Jumlah Anggota Majelis   :</b></label>
-                                    <input type="text" class="form-control" value="<?=  $data['jumlah_anggota_majelis']; ?>"  name="jumlah_anggota_majelis">
                                 </div>
                             </div>
                             

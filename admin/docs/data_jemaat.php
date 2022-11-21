@@ -1,6 +1,6 @@
 <?php
 include '../../database.php';
-  ##$alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
+ #$alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
 
 
 if (isset($_POST['cari'])) {
@@ -8,23 +8,23 @@ $cari = $_POST['cari1'];
 
 if ($cari != null) {
 
-  $data_majelis = mysqli_query($conn, "SELECT * FROM `data_majelis` where `nama` like '%$cari%' or `id_majelis` like '%$cari%' ");
-  $data = mysqli_fetch_array($data_majelis);
+  $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` where `nama` like '%$cari%' or `no_induk` like '%$cari%' ");
+  $data = mysqli_fetch_array($data_jemaat);
 } else {
-  $data_majelis = mysqli_query($conn, "SELECT * FROM `data_majelis` ");
-  $data = mysqli_fetch_array($data_majelis);
+  $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` ");
+  $data = mysqli_fetch_array($data_jemaat);
   
 }
 
 } else {
-  $data_majelis = mysqli_query($conn, "SELECT * FROM `data_majelis` ");
-  $data = mysqli_fetch_array($data_majelis);
+  $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` order by tanggal_terdaftar DESC ");
+  $data = mysqli_fetch_array($data_jemaat);
   
 }
 
 
 
-$cek = mysqli_num_rows($data_majelis);
+$cek = mysqli_num_rows($data_jemaat);
 ?>
 
 <!DOCTYPE html>
@@ -41,15 +41,13 @@ include 'sidebar_menu.php';
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-id-badge" aria-hidden="true"></i></i> Data Majelis GKJ Boyolali</h1>
-          <p>Data Majelis Gereja GKJ Boyolali</p>
+          <h1><i class="fa fa-address-card" aria-hidden="true"></i> Data Jemaat GKJ Boyolali</h1>
+          <p>Master Data Jemaat GKJ Boyolali</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><a href="dashboard.php"><i class="fa fa-dashboard"></a></i></li>
-          <li class="breadcrumb-item">Bidang Majelis</li>
-          <li class="breadcrumb-item">Majelis</li>
+          <li class="breadcrumb-item">Data Jemaat</li>
         </ul>
-      </div>
       </div>
       <div class="row">
         <div class="col-md-12">
@@ -57,9 +55,9 @@ include 'sidebar_menu.php';
             <div class="tile-body">
               <form action="" method="POST">
               <div class="form-inline">
-              <input type="text" name="cari1" class="form-control col-2 m-2">
+              <input type="text" name="cari1" class="form-control col-2 m-1">
               <button type="submit" name="cari" class="btn btn-info"><i class="app-menu__icon fa fa-search" aria-hidden="true"></i></button>
-              <a href="proses_tambah_data_majelis.php" class="btn btn-info ml-2"><i class="app-menu__icon fa fa-plus" aria-hidden="true"></i></a>
+              <a href="proses_tambah.php" class="btn btn-success ml-1 "><i class="app-menu__icon fa fa-plus" aria-hidden="true"></i></a>
             </div>
           </form>
 
@@ -69,8 +67,8 @@ include 'sidebar_menu.php';
                   if ($cek == 0) {
                     echo "  <script>
                     Swal.fire(
-                      '<strong>Maaf...!</strong>',
-                      'Kata Kunci yang anda masukan tidak ada',
+                      '<strong>Announcement!</strong>',
+                      'Activity schedule does not exist',
                       'question'
                     )
                    </script>";
@@ -79,30 +77,26 @@ include 'sidebar_menu.php';
               
                   <thead>
                     <tr>
-                      <th rowspan="2">Opsi</th>
-                      <th rowspan="2">Id Majelis</th>
+                      <th rowspan="2">No Induk</th>
                       <th rowspan="2">Nama</th>
-                      <th rowspan="2">Username</th>
-                      <th rowspan="5">Password</th>
-                      <th rowspan="2">Jabatan Majelis</th>
-                      <th rowspan="2">Tanggal Registrasi</th>
-                      <th rowspan="2">Status</th>
+                      <th rowspan="2">Jenis Kelamin</th>
+                      <th rowspan="2">Alamat</th>
+                      <th rowspan="2">Aksi</th>
                     </tr>
-
+                    
                   </thead>
                   <tbody>
                   <?php $i = 1; ?>
-                  <?php foreach ($data_majelis as $row) : ?>
+                  <?php foreach ($data_jemaat as $row) : ?>
                     <tr>
-                      <td><a href="proses_edit_data_majelis.php?id=<?= $row["id_majelis"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i></td>
-                      <td><?= $row["id_majelis"]; ?></td>
+                      <td><?= $row["no_induk"]; ?></td>
                       <td><?= $row["nama"]; ?></td>
-                      <td><?= $row["username"]; ?></td>
-                      <td><?= $row["password"]; ?></td>
-                      <td><?= $row["jabatan_majelis"]; ?></td>
-                      <td><?= $row["tanggal_registrasi"]; ?></td>
-                      <td><?= $row["status"]; ?></td>
+                      <td><?= $row["jenis_kelamin"]; ?></td>
+                      <td><?= $row["alamat"]; ?></td>
+                      <td><a class="btn btn-primary" href="proses_lihat.php?id=<?= $row["no_induk"]; ?>"><i class="fa fa-eye" aria-hidden="true"></i></a><a class="btn btn-primary" href="proses_edit.php?id=<?= $row["no_induk"]; ?>"><i class="fa fa-lg fa-edit"></i></a><a class="btn btn-primary" href="proses_hapus_data_jemaat.php?id=<?= $row["no_induk"]; ?>"><i class="fa fa-lg fa-trash"></i></a></td>
                     </tr>
+                    
+
                     <?php $i++; ?>
                     <?php endforeach; 
                   }

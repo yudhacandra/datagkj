@@ -68,7 +68,8 @@ include 'sidebar_menu.php';
                               <label class="control-label mt-1"><b>Jenis Baptis :</b></label>
                               <select class="form-control col-30" name="jenis_baptis">
                                 <option value="#"></option>
-                                <option value="Baptis Sidi">Baptis Sidi</option>
+                                <option value="Baptis Anak">Baptis Anak</option>
+                                <option value="Baptis Sidi">Sidi</option>
                                 <option value="Baptis Dewasa">Baptis Dewasa</option>
                               </select>
                             </div>

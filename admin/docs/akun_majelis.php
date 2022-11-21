@@ -1,6 +1,6 @@
 <?php
 include '../../database.php';
- #$alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
+  ##$alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
 
 
 if (isset($_POST['cari'])) {
@@ -8,23 +8,21 @@ $cari = $_POST['cari1'];
 
 if ($cari != null) {
 
-  $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_induk` where `nama` like '%$cari%' or `no_induk` like '%$cari%' ");
-  $data = mysqli_fetch_array($data_jemaat);
+  $akun_majelis = mysqli_query($conn, "SELECT * FROM `akun_majelis` where `nama` like '%$cari%' or `id_majelis` like '%$cari%' ");
+  $data = mysqli_fetch_array($akun_majelis);
 } else {
-  $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_induk` ");
-  $data = mysqli_fetch_array($data_jemaat);
+  $akun_majelis = mysqli_query($conn, "SELECT * FROM `akun_majelis` ");
+  $data = mysqli_fetch_array($akun_majelis);
   
 }
 
 } else {
-  $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_induk` ");
-  $data = mysqli_fetch_array($data_jemaat);
+  $akun_majelis = mysqli_query($conn, "SELECT * FROM `akun_majelis` ");
+  $data = mysqli_fetch_array($akun_majelis);
   
 }
 
-
-
-$cek = mysqli_num_rows($data_jemaat);
+$cek = mysqli_num_rows($akun_majelis);
 ?>
 
 <!DOCTYPE html>
@@ -41,13 +39,15 @@ include 'sidebar_menu.php';
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-address-card" aria-hidden="true"></i> Data Jemaat GKJ Boyolali</h1>
-          <p>Master Data Jemaat GKJ Boyolali</p>
+          <h1><i class="fa fa-id-badge" aria-hidden="true"></i></i> Data Majelis GKJ Boyolali</h1>
+          <p>Data Akun Majelis Gereja GKJ Boyolali</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><a href="dashboard.php"><i class="fa fa-dashboard"></a></i></li>
-          <li class="breadcrumb-item">Data Jemaat</li>
+          <li class="breadcrumb-item">Bidang Majelis</li>
+          <li class="breadcrumb-item">Akun Majelis</li>
         </ul>
+      </div>
       </div>
       <div class="row">
         <div class="col-md-12">
@@ -55,9 +55,9 @@ include 'sidebar_menu.php';
             <div class="tile-body">
               <form action="" method="POST">
               <div class="form-inline">
-              <input type="text" name="cari1" class="form-control col-2 m-1">
+              <input type="text" name="cari1" class="form-control col-2 m-2">
               <button type="submit" name="cari" class="btn btn-info"><i class="app-menu__icon fa fa-search" aria-hidden="true"></i></button>
-              <a href="proses_tambah.php" class="btn btn-info ml-1"><i class="app-menu__icon fa fa-plus" aria-hidden="true"></i></a>
+              <a href="proses_tambah_akun_majelis.php" class="btn btn-info ml-2"><i class="app-menu__icon fa fa-plus" aria-hidden="true"></i></a>
             </div>
           </form>
 
@@ -67,8 +67,8 @@ include 'sidebar_menu.php';
                   if ($cek == 0) {
                     echo "  <script>
                     Swal.fire(
-                      '<strong>Announcement!</strong>',
-                      'Activity schedule does not exist',
+                      '<strong>Maaf...!</strong>',
+                      'Kata Kunci yang anda masukan tidak ada',
                       'question'
                     )
                    </script>";
@@ -78,53 +78,26 @@ include 'sidebar_menu.php';
                   <thead>
                     <tr>
                       <th rowspan="2">Opsi</th>
-                      <th rowspan="2">No Induk</th>
+                      <th rowspan="2">Id Majelis</th>
                       <th rowspan="2">Nama</th>
-                      <th rowspan="2">Jenis Kelamin</th>
-                      <th rowspan="2">Alamat</th>
-                      <th colspan="5">Tanggal dan Tempat</th>
-                      <th colspan="2">Nama dan No Induk</th>
-                      <th colspan="2">Surat Lulusan</th>
-                      <th rowspan="2">Keterangan</th>
-                      <th rowspan="2">Keterangan Tambahan</th>
+                      <th rowspan="2">Username</th>
+                      <th rowspan="5">Password</th>
+                      <th rowspan="2">Jabatan Gerejawi</th>
+                      <th rowspan="2">Status</th>
                     </tr>
-                    <tr>
-                      <th>Lahir</th>
-                      <th>Baptis</th>
-                      <th>Sidi</th>
-                      <th>Nikah</th>
-                      <th>Meninggal</th>
-                      <th>Orang Tua</th>
-                      <th>Suami/Istri</th>
-                      <th>Dari Gereja</th>
-                      <th>Ke Gereja</th>
-                    </tr>
-                    
 
                   </thead>
                   <tbody>
                   <?php $i = 1; ?>
-                  <?php foreach ($data_jemaat as $row) : ?>
+                  <?php foreach ($akun_majelis as $row) : ?>
                     <tr>
-                      <td><a href="proses_edit.php?id=<?= $row["id"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i></td>
-                      <td><?= $row["no_induk"]; ?></td>
+                      <td><a href="proses_edit_akun_majelis.php?id=<?= $row["id_majelis"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i></td>
+                      <td><?= $row["id_majelis"]; ?></td>
                       <td><?= $row["nama"]; ?></td>
-                      <td><?= $row["jenis_kelamin"]; ?></td>
-                      <td><?= $row["alamat"]; ?></td>
-                      <td><?= $row["lahir"]; ?></td>
-                      <td><?= $row["baptis"]; ?></td>
-                      <td><?= $row["sidi"]; ?></td>
-                      <td><?= $row["nikah"]; ?></td>
-                      <td><?= $row["meninggal"]; ?></td>
-                      <td><?= $row["orang_tua"]; ?></td>
-                      <td><?= $row["suami_istri"]; ?></td>
-                      <td><?= $row["dari_gereja"]; ?></td>
-                      <td><?= $row["ke_gereja"]; ?></td>
-                      <td><?= $row["keterangan"]; ?></td>
-                      <td><?= $row["keterangan_tambahan"]; ?></td>
-                      
-                    
-                      
+                      <td><?= $row["username"]; ?></td>
+                      <td><?= $row["password"]; ?></td>
+                      <td><?= $row["jabatan_gerejawi"]; ?></td>
+                      <td><?= $row["status"]; ?></td>
                     </tr>
                     <?php $i++; ?>
                     <?php endforeach; 
