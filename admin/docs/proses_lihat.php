@@ -82,25 +82,25 @@ include 'sidebar_menu.php';
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-number">Lahir:</label>
+                                    <label for="contact-number">Tempat tanggal Lahir:</label>
                                     <input type="text" class="form-control" value="<?=  $data['lahir']; ?>"  name="lahir" readonly>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Baptis:</label>
+                                    <label for="contact-name">Sudah Baptis ?</label>
                                     <input type="text" class="form-control" value="<?=  $data['baptis']; ?>"  name="baptis" readonly>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Sidi:</label>
+                                    <label for="contact-name">Sudah Sidi ?</label>
                                     <input type="text" class="form-control" value="<?=  $data['sidi']; ?>"  name="sidi" readonly>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Nikah:</label>
+                                    <label for="contact-name">Sudah Nikah ?</label>
                                     <input type="text" class="form-control" value="<?=  $data['nikah']; ?>"  name="nikah" readonly>
                                 </div>
                             </div>
@@ -112,25 +112,39 @@ include 'sidebar_menu.php';
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Orang Tua:</label>
+                                    <label for="contact-name">Nama Orang Tua:</label>
                                     <input type="text" class="form-control" value="<?=  $data['orang_tua']; ?>"  name="orang_tua" readonly>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Suami/Istri:</label>
+                                    <label for="contact-name">Nama Suami/Istri:</label>
                                     <input type="text" class="form-control" value="<?=  $data['suami_istri']; ?>"  name="suami_istri" readonly>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Asal Gereja:</label>
+                                    <label for="contact-name">Gereja Asal :</label>
                                     <input type="text" class="form-control" value="<?=  $data['dari_gereja']; ?>"  name="dari_gereja" readonly>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
+                            <?php
+                                          function nama($name_)
+                                          {
+                                              global $conn;
+                                              $sqly = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM struktur_majelis WHERE id_struktur='$name_'"));
+                                              return $sqly['idjabatan_majelis'];
+                                          }
+                            ?>
                                 <div class="form-group">
-                                    <label for="contact-name">Tujuan Gereja:</label>
+                                    <label for="contact-name">Status :</label>
+                                    <input type="text" class="form-control" value="<?=  nama($data['jabatan']); ?>"  name="dari_gereja" readonly>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-13">
+                                <div class="form-group">
+                                    <label for="contact-name">Tujuan pindah Gereja:</label>
                                     <input type="text" class="form-control" value="<?=  $data['ke_gereja']; ?>"  name="ke_gereja" readonly>
                                 </div>
                             </div>
@@ -142,13 +156,13 @@ include 'sidebar_menu.php';
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Tanggal Terdaftar:</label>
+                                    <label for="contact-name">Tanggal Baptis:</label>
                                     <input type="text" class="form-control" value="<?=  $data['tanggal_terdaftar']; ?>"  name="tanggal_terdaftar" readonly>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Keterangan Tambahan:</label>
+                                    <label for="contact-name">Keterangan :</label>
                                     <textarea col="3" cols="30" class="form-control" rows="3" readonly><?=  $data['keterangan_tambahan']; ?></textarea>
                                     <!-- <input type="text" class="form-control" value="<?=  $data['keterangan_tambahan']; ?>"  name="keterangan_tambahan" readonly> -->
                                 </div>

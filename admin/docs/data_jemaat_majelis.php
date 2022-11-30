@@ -10,26 +10,11 @@ include '../../database.php';
       </script>";
   }
 }
-
-if (isset($_POST['cari'])) {
-$cari = $_POST['cari1'];
-
-if ($cari != null) {
-
-  $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` where `nama` like '%$cari%' or `no_induk` like '%$cari%' ");
-  $data = mysqli_fetch_array($data_jemaat);
-} else {
-  $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` ");
+$id__ = $_GET['id'];
+  $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` where `jabatan` = '$id__'");
   $data = mysqli_fetch_array($data_jemaat);
   
-}
 
-
-} else {
-  $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` order by tanggal_terdaftar DESC ");
-  $data = mysqli_fetch_array($data_jemaat);
-  
-}
 
 
 
@@ -61,30 +46,8 @@ include 'sidebar_menu.php';
       <div class="row">
         <div class="col-md-12">
           <div class="tile">
-            <div class="tile-body">
-              <form action="" method="POST">
-              <div class="form-inline">
-              <input type="text" name="cari1" class="form-control col-2 m-1">
-              <button type="submit" name="cari" class="btn btn-info"><i class="app-menu__icon fa fa-search" aria-hidden="true"></i></button>
-              <a href="proses_tambah.php" class="btn btn-success ml-1 "><i class="app-menu__icon fa fa-plus" aria-hidden="true"></i></a>
-              <a href="cetak.php" target="blank" class="btn btn-success ml-1 "><i class="app-menu__icon fa fa-download" aria-hidden="true"></i></a>
-            </div>
-          </form>
-
               <div style="height: 600px;overflow: scroll;">
                 <table class=" table-hover table-bordered" >
-                  <?php
-                  if ($cek == 0) {
-                    echo "  <script>
-                    Swal.fire(
-                      '<strong>Announcement!</strong>',
-                      'Activity schedule does not exist',
-                      'question'
-                    )
-                   </script>";
-                  
-                  } else { ?>
-              
                   <thead>
                     <tr>
                       <th rowspan="2">No Induk</th>
@@ -103,9 +66,9 @@ include 'sidebar_menu.php';
                       <td><?= $row["nama"]; ?></td>
                       <td><?= $row["jenis_kelamin"]; ?></td>
                       <td><?= $row["alamat"]; ?></td>
-                      <td><a class="btn btn-primary m-1" href="proses_lihat.php?id=<?= $row["no_induk"]; ?>"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                      <a class="btn btn-primary m-1" href="proses_edit.php?id=<?= $row["no_induk"]; ?>"><i class="fa fa-lg fa-edit"></i></a>
-                      <!-- <a class="btn btn-primary m-1" href="proses_hapus_data_jemaat.php?id=<?= $row["no_induk"]; ?>"><i class="fa fa-lg fa-trash"></i></a> -->
+                      <td>
+                       
+                  
                       <form action="" method="POST">
                         <button type="submit" name="hapus" value="<?= $row['no_induk']; ?>" class="btn btn-danger" onclick="return confirm('Yakin Hapus?')"><i class="fa fa-lg fa-trash"></i></button>
                       </form>
@@ -115,7 +78,7 @@ include 'sidebar_menu.php';
 
                     <?php $i++; ?>
                     <?php endforeach; 
-                  }
+                  
                   ?>
                    
                   </tbody>
@@ -149,8 +112,6 @@ include 'sidebar_menu.php';
       	ga('send', 'pageview');
       }
     </script>
-    <?php
-include 'alert.php';
-    ?>
+
   </body>
 </html>

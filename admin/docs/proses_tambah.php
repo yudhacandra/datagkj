@@ -9,8 +9,9 @@ if(isset($_POST['simpan']))
     $lh=$_POST['lahir'];
     $bp=$_POST['baptis'];
     $sd=$_POST['sidi'];
+    $st=$_POST['status'];
     $nkh=$_POST['nikah'];
-    $mng=$_POST['meninggal'];
+    // $mng=$_POST['meninggal'];
     $ot=$_POST['orang_tua'];
     $si=$_POST['suami_istri'];
     $dg=$_POST['dari_gereja'];
@@ -19,7 +20,7 @@ if(isset($_POST['simpan']))
     $tt=$_POST['tanggal_terdaftar'];
     $kt=$_POST['keterangan_tambahan'];
 
-$insert = mysqli_query($conn,"INSERT INTO `data_jemaat`(`no_induk`, `nama`, `jenis_kelamin`, `alamat`, `lahir`, `baptis`, `sidi`, `nikah`, `meninggal`, `orang_tua`, `suami_istri`, `dari_gereja`, `ke_gereja`, `keterangan`, `tanggal_terdaftar`, `keterangan_tambahan`) VALUES ('$ni','$nm','$jk','$al','$lh','$bp','$sd','$nkh','$mng','$ot','$si','$dg','$kg','$ket','$tt','$kt')");
+$insert = mysqli_query($conn,"INSERT INTO `data_jemaat`(`no_induk`, `nama`, `jenis_kelamin`, `alamat`, `lahir`, `baptis`, `sidi`, `nikah`, `orang_tua`, `suami_istri`, `dari_gereja`, `ke_gereja`, `keterangan`, `tanggal_terdaftar`, `keterangan_tambahan`,`jabatan`) VALUES ('$ni','$nm','$jk','$al','$lh','$bp','$sd','$nkh','$mng','$ot','$si','$dg','$kg','$ket','$tt','$kt','$st')");
 if($insert){ 
   // $alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
   header("location:data_jemaat.php");
@@ -89,55 +90,70 @@ include 'sidebar_menu.php';
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
-                                    <label for="contact-number"><b>Lahir   :</b></label>
+                                    <label for="contact-number"><b>Tempat dan tanggal lahir   :</b></label>
                                     <input type="text" class="form-control" name="lahir">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
-                                    <label for="contact-name"><b>Baptis    :</b></label>
+                                    <label for="contact-name"><b>Sudah Baptis ? </b></label>
                                     <input type="text" class="form-control" name="baptis">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
-                                    <label for="contact-name"><b>Sidi  :</b></label>
+                                    <label for="contact-name"><b>Sudah Sidi ? </b></label>
                                     <input type="text" class="form-control" name="sidi">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
-                                    <label for="contact-name"><b>Nikah    :</b></label>
+                                    <label for="contact-name"><b> Sudah Nikah ?  </b></label>
                                     <input type="text" class="form-control" name="nikah">
                                 </div>
                             </div>
-                            <div class="col-12 col-lg-10">
+                            <!-- <div class="col-12 col-lg-10">
                                 <div class="form-group">
                                     <label for="contact-name"><b>Meninggal :</b></label>
                                     <input type="text" class="form-control" name="meninggal">
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
-                                    <label for="contact-name"><b>Orang Tua :</b></label>
+                                    <label for="contact-name"><b>Nama Orang Tua :</b></label>
                                     <input type="text" class="form-control" name="orang_tua">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
-                                    <label for="contact-name"><b>Suami/Istri   :</b></label>
+                                    <label for="contact-name"><b>Nama Suami/Istri   :</b></label>
                                     <input type="text" class="form-control" name="suami_istri">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
-                                    <label for="contact-name"><b>Asal Gereja   :</b></label>
+                                    <label for="contact-name"><b>Gereja Asal :</b></label>
                                     <input type="text" class="form-control" name="dari_gereja">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
-                                    <label for="contact-name"><b>Tujuan Gereja :</b></label>
+                                    <label for="contact-name"><b>Status   :</b></label>
+                                    <select name="status" id="">
+                                        <option value="">Belum Ada</option>
+                                        <?php
+                                        $tampilkan_data_struktur_majelis = mysqli_query ($conn,"SELECT * FROM `struktur_majelis`");
+                                        while ($ambil_data = mysqli_fetch_array ($tampilkan_data_struktur_majelis)){ ?>
+                                            <option value="<?= $ambil_data['id_struktur']?>"><?= $ambil_data['idjabatan_majelis']?></option>
+                            
+                                       <?php  }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <div class="form-group">
+                                    <label for="contact-name"><b>Tujuan pinda Gereja :</b></label>
                                     <input type="text" class="form-control" name="ke_gereja">
                                 </div>
                             </div>
@@ -149,14 +165,15 @@ include 'sidebar_menu.php';
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
-                                    <label for="contact-name"><b>Tanggal Terdaftar    :</b></label>
+                                    <label for="contact-name"><b>Tanggal Baptis    :</b></label>
                                     <input type="date" class="form-control" name="tanggal_terdaftar">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
-                                    <label for="contact-name"><b>Keterangan Tambahan    :</b></label>
-                                    <textarea col="3" cols="30" class="form-control" rows="3" name="keterangan_tambahan"></textarea>
+                                    <label for="contact-name"><b>Wilayah :</b></label>
+                                    <input type="text" class="form-control" name="keterangan_tambahan">
+                                    <!-- <textarea col="3" cols="30" class="form-control" rows="3" name="keterangan_tambahan"></textarea> -->
                                 </div>
                             </div>
                             </div>

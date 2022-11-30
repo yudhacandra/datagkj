@@ -8,16 +8,16 @@ $cari = $_POST['cari1'];
 
 if ($cari != null) {
 
-  $akun_majelis = mysqli_query($conn, "SELECT * FROM `akun_majelis` where `nama` like '%$cari%' or `id_majelis` like '%$cari%' ");
+  $akun_majelis = mysqli_query($conn, "SELECT * FROM `data_majelis` where `nama` like '%$cari%' or `id_majelis` like '%$cari%' ");
   $data = mysqli_fetch_array($akun_majelis);
 } else {
-  $akun_majelis = mysqli_query($conn, "SELECT * FROM `akun_majelis` ");
+  $akun_majelis = mysqli_query($conn, "SELECT * FROM `data_majelis` ");
   $data = mysqli_fetch_array($akun_majelis);
   
 }
 
 } else {
-  $akun_majelis = mysqli_query($conn, "SELECT * FROM `akun_majelis` ");
+  $akun_majelis = mysqli_query($conn, "SELECT * FROM `data_majelis` ");
   $data = mysqli_fetch_array($akun_majelis);
   
 }
@@ -88,7 +88,14 @@ include 'sidebar_menu.php';
 
                   </thead>
                   <tbody>
-                  <?php $i = 1; ?>
+                  <?php 
+                   function nama($name_)
+                   {
+                       global $conn;
+                       $sqly = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM struktur_majelis WHERE id_struktur='$name_'"));
+                       return $sqly['idjabatan_majelis'];
+                   }
+                  $i = 1; ?>
                   <?php foreach ($akun_majelis as $row) : ?>
                     <tr>
                       <td><a href="proses_edit_akun_majelis.php?id=<?= $row["id_majelis"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i></td>
@@ -96,7 +103,7 @@ include 'sidebar_menu.php';
                       <td><?= $row["nama"]; ?></td>
                       <td><?= $row["username"]; ?></td>
                       <td><?= $row["password"]; ?></td>
-                      <td><?= $row["jabatan_gerejawi"]; ?></td>
+                      <td><?= nama($row["jabatan_majelis"]); ?></td>
                       <td><?= $row["status"]; ?></td>
                     </tr>
                     <?php $i++; ?>

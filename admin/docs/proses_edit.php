@@ -10,6 +10,7 @@ $al=$_POST['alamat'];
 $lh=$_POST['lahir'];
 $bp=$_POST['baptis'];
 $si=$_POST['sidi'];
+$st=$_POST['status'];
 $ni=$_POST['nikah'];
 $men=$_POST['meninggal'];
 $ot=$_POST['orang_tua'];
@@ -20,7 +21,7 @@ $ket=$_POST['keterangan'];
 $tt=$_POST['tanggal_terdaftar'];
 $kt=$_POST['keterangan_tambahan'];
 
-$data_jemaat = mysqli_query($conn, "UPDATE `data_jemaat` SET `nama`='$nm',`jenis_kelamin`='$jk',`alamat`='$al',`lahir`='$lh',`baptis`='$bp',`sidi`='$si',`nikah`='$ni',`meninggal`='$men',`orang_tua`='$ot',`suami_istri`='$si',`dari_gereja`='$dg',`ke_gereja`='$kg',`keterangan`='$ket',`tanggal_terdaftar`='$tt',`keterangan_tambahan`='$kt' WHERE no_induk='$nik'");
+$data_jemaat = mysqli_query($conn, "UPDATE `data_jemaat` SET `nama`='$nm',`jabatan`='$st',`jenis_kelamin`='$jk',`alamat`='$al',`lahir`='$lh',`baptis`='$bp',`sidi`='$si',`nikah`='$ni',`meninggal`='$men',`orang_tua`='$ot',`suami_istri`='$si',`dari_gereja`='$dg',`ke_gereja`='$kg',`keterangan`='$ket',`tanggal_terdaftar`='$tt',`keterangan_tambahan`='$kt' WHERE no_induk='$nik'");
 if ($data_jemaat) {
     header("location:data_jemaat.php");
 }
@@ -87,50 +88,80 @@ include 'sidebar_menu.php';
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-number">Lahir:</label>
+                                    <label for="contact-number">Tempat dan tanggal lahir :</label>
                                     <input type="text" class="form-control" value="<?=  $data['lahir']; ?>"  name="lahir">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Baptis:</label>
+                                    <label for="contact-name">Sudah Baptis ?</label>
                                     <input type="text" class="form-control" value="<?=  $data['baptis']; ?>"  name="baptis">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Sidi:</label>
+                                    <label for="contact-name">Sudah Sidi ?</label>
                                     <input type="text" class="form-control" value="<?=  $data['sidi']; ?>"  name="sidi">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Nikah:</label>
+                                    <label for="contact-name">Sudah Nikah ?</label>
                                     <input type="text" class="form-control" value="<?=  $data['nikah']; ?>"  name="nikah">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Meninggal:</label>
+                                    <label for="contact-name">Status Meninggal:</label>
                                     <input type="text" class="form-control" value="<?=  $data['meninggal']; ?>"  name="meninggal">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Orang Tua:</label>
+                                    <label for="contact-name">Nama Orang Tua:</label>
                                     <input type="text" class="form-control" value="<?=  $data['orang_tua']; ?>"  name="orang_tua">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Suami/Istri:</label>
+                                    <label for="contact-name">Nama Suami/Istri:</label>
                                     <input type="text" class="form-control" value="<?=  $data['suami_istri']; ?>"  name="suami_istri">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Asal Gereja:</label>
+                                    <label for="contact-name">Gereja Asal :</label>
                                     <input type="text" class="form-control" value="<?=  $data['dari_gereja']; ?>"  name="dari_gereja">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <div class="form-group">
+                                    <label for="contact-name"><b>Status   :</b></label>
+                                    <select name="status" id="">
+                                        <option value="">Belum Ada</option>
+                                        <?php
+                                        $tampilkan_data_struktur_majelis = mysqli_query ($conn,"SELECT * FROM `struktur_majelis`");
+                                        while ($ambil_data = mysqli_fetch_array ($tampilkan_data_struktur_majelis)){ ?>
+                                            <option value="<?= $ambil_data['id_struktur']?>"><?= $ambil_data['idjabatan_majelis']?></option>
+                                       <?php  }
+                                        ?>
+                                    </select>
+                                    <h6>
+                                        <?php
+                                          function nama($name_)
+                                          {
+                                              global $conn;
+                                              $sqly = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM struktur_majelis WHERE id_struktur='$name_'"));
+                                              return $sqly['idjabatan_majelis'];
+                                          }
+                                        if($data['jabatan'] > 0) { ?>
+                                        <h5 class="text-primary"><?= nama($data['jabatan']); ?></h5>
+                                       <?php } else { ?>
+                                        <h5 class="text-danger">Status Belum diMasukan!</h5>
+                                      <?php  }
+                                        ?>
+                                        
+                                </h6>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
@@ -147,13 +178,13 @@ include 'sidebar_menu.php';
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Tanggal Terdaftar:</label>
+                                    <label for="contact-name">Tanggal Baptis :</label>
                                     <input type="date" class="form-control" value="<?=  $data['tanggal_terdaftar']; ?>"  name="tanggal_terdaftar">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Keterangan Tambahan:</label>
+                                    <label for="contact-name">Wilayah :</label>
                                     <textarea col="3" cols="30" class="form-control" rows="3"><?=  $data['keterangan_tambahan']; ?></textarea>
                                     <!-- <input type="text" class="form-control" value="<?=  $data['keterangan_tambahan']; ?>"  name="keterangan_tambahan" readonly> -->
                                 </div>

@@ -6,19 +6,17 @@ if(isset($_POST['edit_akun_majelis']))
 $idm=$_POST['id_majelis'];
 $nam=$_POST['nama'];
 $usrnm=$_POST['username'];
-$jbg=$_POST['jabatan_grejawi'];
+$jbg=$_POST['status2'];
 $psw=$_POST['password'];
 $st=$_POST['status'];
-
-
-$data_majelis = mysqli_query($conn, "UPDATE `akun_majelis` SET `id_majelis`='$idm',`nama`='$nam',`username`='$usrnm',`jabatan_grejawi`='$jbg',`password`='$psw',`status`='$st' WHERE id_majelis='$id'");
+$data_majelis = mysqli_query($conn, "UPDATE `akun_majelis` SET `nama`='$nam',`username`='$usrnm',`jabatan_majelis`='$jbg',`password`='$psw',`status`='$st' WHERE id_majelis='$id'");
 if ($data_majelis) {
     header("location:akun_majelis.php");
 }
 
 }
 
-$akun_majelis = mysqli_query($conn, "SELECT * FROM `akun_majelis` where id_majelis='$id'");
+$akun_majelis = mysqli_query($conn, "SELECT * FROM `data_majelis` where id_majelis='$id'");
 $data = mysqli_fetch_array($akun_majelis);
 ?>
 <!DOCTYPE html>
@@ -50,7 +48,7 @@ include 'sidebar_menu.php';
                         <div class="row">
                             <div class="col-12 col-lg-3">
                                 <div class="form-group">
-                                    <label for="contact-name"><b>Id Majelis :</b></label>
+                                    <!-- <label for="contact-name"><b>Id Majelis :</b></label> -->
                                     <input type="text" class="form-control"  value="<?=  $data['id_majelis']; ?>" name="id_majelis" readonly>
                                 </div>
                             </div>
@@ -75,18 +73,15 @@ include 'sidebar_menu.php';
                             
                             <div class="col-12 col-lg-10">
                                 <label class="control-label mt-1">Jabatan Grejawi</label>
-                                <select class="form-control col-30" name="jabatan_grejawi">
-                                <option value="#">~ Silahkan Pilih ~</option>
-                                <option value="ketua">ketua</option>
-                                <option value="wakil ketua">Wakil Ketua</option>
-                                <option value="Sekretaris">Sekretaris</option>
-                                <option value="Bendahara">Bendahara</option>
-                                <option value="Bidang KEESAAN">Bidang KEESAAN</option>
-                                <option value="Bidang PIWG">Bidanng PIWG</option>
-                                <option value="Bidang KESPEL">Bidanng KESPEL</option>
-                                <option value="Bidang Penata Layanan">Bidanng Penata Layanan</option>
-                                <option value="Bidang Kajian">Bidanng Kajian</option>
-                                <option value="Bidang Pembangunan">Bidanng Pembangunan</option>
+                                <select name="status2" id="">
+                                        <option value="">Belum Ada</option>
+                                        <?php
+                                        $tampilkan_data_struktur_majelis = mysqli_query ($conn,"SELECT * FROM `struktur_majelis`");
+                                        while ($ambil_data = mysqli_fetch_array ($tampilkan_data_struktur_majelis)){ ?>
+                                            <option value="<?= $ambil_data['id_struktur']?>"><?= $ambil_data['idjabatan_majelis']?></option>
+                                       <?php  }
+                                        ?>
+                                    </select>
                                 </select>
                             </div>
                             
