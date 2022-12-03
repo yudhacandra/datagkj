@@ -143,6 +143,20 @@ include 'sidebar_menu.php';
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
+                            <?php
+                                          function nama_komisi($name_komisi)
+                                          {
+                                              global $conn;
+                                              $sqly = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM struktur_komisi WHERE id_komisi='$name_komisi'"));
+                                              return $sqly['idnama_komisi'];
+                                          }
+                            ?>
+                                <div class="form-group">
+                                    <label for="contact-name">Bidang Komisi :</label>
+                                    <input type="text" class="form-control" value="<?=  nama_komisi($data['Id_komisi']); ?>"  name="dari_gereja" readonly>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-13">
                                 <div class="form-group">
                                     <label for="contact-name">Tujuan pindah Gereja:</label>
                                     <input type="text" class="form-control" value="<?=  $data['ke_gereja']; ?>"  name="ke_gereja" readonly>

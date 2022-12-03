@@ -20,8 +20,9 @@ $kg=$_POST['ke_gereja'];
 $ket=$_POST['keterangan'];
 $tt=$_POST['tanggal_terdaftar'];
 $kt=$_POST['keterangan_tambahan'];
+$_komisi=$_POST['status_komisi'];
 
-$data_jemaat = mysqli_query($conn, "UPDATE `data_jemaat` SET `nama`='$nm',`jabatan`='$st',`jenis_kelamin`='$jk',`alamat`='$al',`lahir`='$lh',`baptis`='$bp',`sidi`='$si',`nikah`='$ni',`meninggal`='$men',`orang_tua`='$ot',`suami_istri`='$si',`dari_gereja`='$dg',`ke_gereja`='$kg',`keterangan`='$ket',`tanggal_terdaftar`='$tt',`keterangan_tambahan`='$kt' WHERE no_induk='$nik'");
+$data_jemaat = mysqli_query($conn, "UPDATE `data_jemaat` SET `nama`='$nm',`jabatan`='$st',`jenis_kelamin`='$jk',`alamat`='$al',`lahir`='$lh',`baptis`='$bp',`sidi`='$si',`nikah`='$ni',`meninggal`='$men',`orang_tua`='$ot',`suami_istri`='$si',`dari_gereja`='$dg',`ke_gereja`='$kg',`keterangan`='$ket',`tanggal_terdaftar`='$tt',`keterangan_tambahan`='$kt',`Id_komisi`='$_komisi' WHERE no_induk='$nik'");
 if ($data_jemaat) {
     header("location:data_jemaat.php");
 }
@@ -143,6 +144,7 @@ include 'sidebar_menu.php';
                                         $tampilkan_data_struktur_majelis = mysqli_query ($conn,"SELECT * FROM `struktur_majelis`");
                                         while ($ambil_data = mysqli_fetch_array ($tampilkan_data_struktur_majelis)){ ?>
                                             <option value="<?= $ambil_data['id_struktur']?>"><?= $ambil_data['idjabatan_majelis']?></option>
+                            
                                        <?php  }
                                         ?>
                                     </select>
@@ -164,6 +166,7 @@ include 'sidebar_menu.php';
                                 </h6>
                                 </div>
                             </div>
+                            
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
                                     <label for="contact-name">Tujuan Gereja:</label>
@@ -185,8 +188,39 @@ include 'sidebar_menu.php';
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
                                     <label for="contact-name">Wilayah :</label>
-                                    <textarea col="3" cols="30" class="form-control" rows="3"><?=  $data['keterangan_tambahan']; ?></textarea>
+                                    <textarea col="3" name="keterangan_tambahan" cols="30" class="form-control" rows="3"><?=  $data['keterangan_tambahan']; ?></textarea>
                                     <!-- <input type="text" class="form-control" value="<?=  $data['keterangan_tambahan']; ?>"  name="keterangan_tambahan" readonly> -->
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <div class="form-group">
+                                    <label for="contact-name"><b>Komisi  :</b></label>
+                                    <select name="status_komisi" id="">
+                                        <option value="">Belum Ada</option>
+                                        <?php
+                                        $tampilkan_data_struktur_komisi = mysqli_query ($conn,"SELECT * FROM `struktur_komisi`");
+                                        while ($ambil_data_komisi = mysqli_fetch_array ($tampilkan_data_struktur_komisi)){ ?>
+                                            <option value="<?= $ambil_data_komisi['id_komisi']?>"><?= $ambil_data_komisi['idnama_komisi']?></option>
+                            
+                                       <?php  }
+                                        ?>
+                                    </select>
+                                    <h6>
+                                        <?php
+                                          function nama_komisi($name_komisi)
+                                          {
+                                              global $conn;
+                                              $sqly = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM struktur_komisi WHERE id_komisi='$name_komisi'"));
+                                              return $sqly['idnama_komisi'];
+                                          }
+                                        if($data['Id_komisi'] > 0) { ?>
+                                        <h5 class="text-primary"><?= nama_komisi($data['Id_komisi']); ?></h5>
+                                       <?php } else { ?>
+                                        <h5 class="text-danger">Komisi Belum diMasukan!</h5>
+                                      <?php  }
+                                        ?>
+                                        
+                                </h6>
                                 </div>
                             </div>
                             </div>

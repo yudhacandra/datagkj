@@ -1,23 +1,11 @@
 <?php
 include '../../database.php';
  #$alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
- if(isset($_POST['hapus'])){
-  $hapus = $_POST['hapus'];
-  $insert_datahapus = mysqli_query($conn,"DELETE FROM `data_jemaat` WHERE `no_induk`='$hapus'") or die("gagal". mysqli_error());
-  if($insert_datahapus){
-      echo "<script type='text/javascript'>
-      alert('Data Berhasil Di Hapus!');
-      </script>";
-  }
-}
+
 $id__ = $_GET['id'];
   $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` where `jabatan` = '$id__'");
   $data = mysqli_fetch_array($data_jemaat);
   
-
-
-
-
 $cek = mysqli_num_rows($data_jemaat);
 ?>
 
@@ -54,7 +42,7 @@ include 'sidebar_menu.php';
                       <th rowspan="2">Nama</th>
                       <th rowspan="2">Jenis Kelamin</th>
                       <th rowspan="2">Alamat</th>
-                      <th rowspan="2">Aksi</th>
+                      
                     </tr>
                     
                   </thead>
@@ -66,12 +54,7 @@ include 'sidebar_menu.php';
                       <td><?= $row["nama"]; ?></td>
                       <td><?= $row["jenis_kelamin"]; ?></td>
                       <td><?= $row["alamat"]; ?></td>
-                      <td>
-                       
-                  
-                      <form action="" method="POST">
-                        <button type="submit" name="hapus" value="<?= $row['no_induk']; ?>" class="btn btn-danger" onclick="return confirm('Yakin Hapus?')"><i class="fa fa-lg fa-trash"></i></button>
-                      </form>
+                      
                     </td>
                     </tr>
                     

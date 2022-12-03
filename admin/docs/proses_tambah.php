@@ -19,8 +19,9 @@ if(isset($_POST['simpan']))
     $ket=$_POST['keterangan'];
     $tt=$_POST['tanggal_terdaftar'];
     $kt=$_POST['keterangan_tambahan'];
+    $_komisi=$_POST['status_komisi'];
 
-$insert = mysqli_query($conn,"INSERT INTO `data_jemaat`(`no_induk`, `nama`, `jenis_kelamin`, `alamat`, `lahir`, `baptis`, `sidi`, `nikah`, `orang_tua`, `suami_istri`, `dari_gereja`, `ke_gereja`, `keterangan`, `tanggal_terdaftar`, `keterangan_tambahan`,`jabatan`) VALUES ('$ni','$nm','$jk','$al','$lh','$bp','$sd','$nkh','$mng','$ot','$si','$dg','$kg','$ket','$tt','$kt','$st')");
+$insert = mysqli_query($conn,"INSERT INTO `data_jemaat`(`no_induk`, `nama`, `jenis_kelamin`, `alamat`, `lahir`, `baptis`, `sidi`, `nikah`, `orang_tua`, `suami_istri`, `dari_gereja`, `ke_gereja`, `keterangan`, `tanggal_terdaftar`, `keterangan_tambahan`,`jabatan`,`Id_komisi`) VALUES ('$ni','$nm','$jk','$al','$lh','$bp','$sd','$nkh','$mng','$ot','$si','$dg','$kg','$ket','$tt','$kt','$st','$_komisi')");
 if($insert){ 
   // $alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
   header("location:data_jemaat.php");
@@ -145,6 +146,21 @@ include 'sidebar_menu.php';
                                         $tampilkan_data_struktur_majelis = mysqli_query ($conn,"SELECT * FROM `struktur_majelis`");
                                         while ($ambil_data = mysqli_fetch_array ($tampilkan_data_struktur_majelis)){ ?>
                                             <option value="<?= $ambil_data['id_struktur']?>"><?= $ambil_data['idjabatan_majelis']?></option>
+                            
+                                       <?php  }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <div class="form-group">
+                                    <label for="contact-name"><b>Komisi  :</b></label>
+                                    <select name="status_komisi" id="">
+                                        <option value="">Belum Ada</option>
+                                        <?php
+                                        $tampilkan_data_struktur_komisi = mysqli_query ($conn,"SELECT * FROM `struktur_komisi`");
+                                        while ($ambil_data_komisi = mysqli_fetch_array ($tampilkan_data_struktur_komisi)){ ?>
+                                            <option value="<?= $ambil_data_komisi['id_komisi']?>"><?= $ambil_data_komisi['idnama_komisi']?></option>
                             
                                        <?php  }
                                         ?>

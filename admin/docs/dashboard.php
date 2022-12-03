@@ -43,7 +43,7 @@ include 'sidebar_menu.php';
           <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
             <div class="info">
             <?php
-          $akun_majelis = mysqli_query($conn, "SELECT nama, COUNT(id_majelis) total FROM `akun_majelis`;");
+          $akun_majelis = mysqli_query($conn, "SELECT nama, COUNT(id_majelis) as total FROM `data_majelis`;");
             $data = mysqli_fetch_array($akun_majelis);
           ?>
               <h4><b>Data Majelis</b></h4>

@@ -93,7 +93,14 @@ include 'sidebar_menu.php';
                       <td><a href="proses_edit_struktur_komisi.php?id=<?= $row["idnama_komisi"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i></td>
                       <td><?= $row["idnama_komisi"]; ?></td>
                       <td><?= $row["periode_komisi"]; ?></td>
-                      <td><?= $row["jumlah_anggota"]; ?></td>
+                      <td>
+                      <?php
+                        $jumlahkomisi = mysqli_fetch_array(mysqli_query($conn, "SELECT COUNT(Id_komisi) as komisi FROM `data_jemaat` WHERE Id_komisi ='".$row["id_komisi"]."'"));
+                        ?>
+                        <a href="data_jemaat_majelis_komisi.php?id=<?=$row["id_komisi"]?>" class="btn btn-danger"><?= $jumlahkomisi["komisi"]; ?></a>
+                        
+                    
+                    </td>
                     </tr>
                     <?php $i++; ?>
                     <?php endforeach; 

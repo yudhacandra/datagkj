@@ -9,7 +9,8 @@ $usrnm=$_POST['username'];
 $jbg=$_POST['status2'];
 $psw=$_POST['password'];
 $st=$_POST['status'];
-$data_majelis = mysqli_query($conn, "UPDATE `akun_majelis` SET `nama`='$nam',`username`='$usrnm',`jabatan_majelis`='$jbg',`password`='$psw',`status`='$st' WHERE id_majelis='$id'");
+$data_majelis = mysqli_query($conn, "UPDATE `data_majelis` SET `nama`='$nam',`username`='$usrnm',`jabatan_majelis`='$jbg',`password`='$psw',`status`='$st' WHERE id_majelis='$id'");
+
 if ($data_majelis) {
     header("location:akun_majelis.php");
 }
@@ -49,7 +50,7 @@ include 'sidebar_menu.php';
                             <div class="col-12 col-lg-3">
                                 <div class="form-group">
                                     <!-- <label for="contact-name"><b>Id Majelis :</b></label> -->
-                                    <input type="text" class="form-control"  value="<?=  $data['id_majelis']; ?>" name="id_majelis" readonly>
+                                    <input type="hidden" class="form-control"  value="<?=  $data['id_majelis']; ?>" name="id_majelis" readonly>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">

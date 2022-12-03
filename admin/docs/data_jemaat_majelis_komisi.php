@@ -1,30 +1,27 @@
 <?php
 include '../../database.php';
-  ##$alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
-
-
-if (isset($_POST['cari'])) {
-$cari = $_POST['cari1'];
-
-if ($cari != null) {
-
-  $admin = mysqli_query($conn, "SELECT * FROM `admin` where `nama` like '%$cari%' or `id` like '%$cari%' ");
-  $data = mysqli_fetch_array($admin);
-} else {
-  $admin = mysqli_query($conn, "SELECT * FROM `admin` ");
-  $data = mysqli_fetch_array($admin);
-  
+ #$alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
+ if(isset($_POST['hapus'])){
+  $hapus = $_POST['hapus'];
+  $insert_datahapus = mysqli_query($conn,"UPDATE `data_jemaat` SET `Id_komisi` = '11' WHERE `data_jemaat`.`no_induk`='$hapus'") or die("gagal". mysqli_error());
+  if($insert_datahapus){
+      echo "<script type='text/javascript'>
+      alert('Data Berhasil Di Hapus!');
+      </script>";
+  }
 }
-
-} else {
-  $admin = mysqli_query($conn, "SELECT * FROM `admin` ");
-  $data = mysqli_fetch_array($admin);
+$id__ = $_GET['id'];
+  $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` where `Id_komisi` = '$id__'");
+  $data = mysqli_fetch_array($data_jemaat);
   
-}
+  function nama_komisi($name_komisi)
+  {
+      global $conn;
+      $sqly = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM struktur_komisi WHERE id_komisi='$name_komisi'"));
+      return $sqly['idnama_komisi'];
+  }
+$cek = mysqli_num_rows($data_jemaat);
 
-
-
-$cek = mysqli_num_rows($admin);
 ?>
 
 <!DOCTYPE html>
@@ -41,68 +38,48 @@ include 'sidebar_menu.php';
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-id-badge" aria-hidden="true"></i></i> Data Admin GKJ Boyolali</h1>
-          <p>Data Admin Gereja GKJ Boyolali</p>
+          <h1><i class="fa fa-address-card" aria-hidden="true"></i> Data Jemaat GKJ Boyolali</h1>
+          <p>Master Data Jemaat GKJ Boyolali -- <?= nama_komisi($id__); ?></p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><a href="dashboard.php"><i class="fa fa-dashboard"></a></i></li>
-          <li class="breadcrumb-item">Admin</li>
+          <li class="breadcrumb-item">Data Jemaat</li>
         </ul>
-      </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <div class="tile">
-            <div class="tile-body">
-              <form action="" method="POST">
-              <div class="form-inline">
-              <input type="text" name="cari1" class="form-control col-2 m-2">
-              <button type="submit" name="cari" class="btn btn-info"><i class="app-menu__icon fa fa-search" aria-hidden="true"></i></button>
-              <a href="proses_tambah_admin.php" class="btn btn-success ml-1 "><i class="app-menu__icon fa fa-plus" aria-hidden="true"></i></a>
-            </div>
-          </form>
-
               <div style="height: 600px;overflow: scroll;">
                 <table class=" table-hover table-bordered" >
-                  <?php
-                  if ($cek == 0) {
-                    echo "  <script>
-                    Swal.fire(
-                      '<strong>Maaf...!</strong>',
-                      'Kata Kunci yang anda masukan tidak ada',
-                      'question'
-                    )
-                   </script>";
-                  
-                  } else { ?>
-              
                   <thead>
                     <tr>
-                      <th rowspan="2">Opsi</th>
+                      <th rowspan="2">No Induk</th>
                       <th rowspan="2">Nama</th>
-                      <th rowspan="2">Username</th>
-                      <th rowspan="5">Password</th>
+                      <th rowspan="2">Jenis Kelamin</th>
                       <th rowspan="2">Alamat</th>
-                      <th rowspan="2">No Telpon</th>
-                      <th rowspan="2">Status</th>
+                      <!-- <th rowspan="2">Aksi</th> -->
                     </tr>
-
+                    
                   </thead>
                   <tbody>
                   <?php $i = 1; ?>
-                  <?php foreach ($admin as $row) : ?>
+                  <?php foreach ($data_jemaat as $row) : ?>
                     <tr>
-                      <td><a class="btn btn-primary m-1" href="proses_edit_admin.php?id=<?= $row["id"]; ?>"><i class="fa fa-lg fa-edit"></i></a><a class="btn btn-primary" href="proses_hapus_admin.php?id=<?= $row["id"]; ?>"><i class="fa fa-lg fa-trash"></i></a></td>
+                      <td><?= $row["no_induk"]; ?></td>
                       <td><?= $row["nama"]; ?></td>
-                      <td><?= $row["username"]; ?></td>
-                      <td><?= $row["password"]; ?></td>
+                      <td><?= $row["jenis_kelamin"]; ?></td>
                       <td><?= $row["alamat"]; ?></td>
-                      <td><?= $row["no_telpon"]; ?></td>
-                      <td><?= $row["status"]; ?></td>
+                      <!-- <td> -->
+                      <!-- <form action="" method="POST">
+                        <button type="submit" name="hapus" value="" class="btn btn-danger" onclick="return confirm('Yakin Hapus?')"><i class="fa fa-lg fa-trash"></i></button>
+                      </form> -->
+                    <!-- </td> -->
                     </tr>
+                    
+
                     <?php $i++; ?>
                     <?php endforeach; 
-                  }
+                  
                   ?>
                    
                   </tbody>
@@ -136,8 +113,6 @@ include 'sidebar_menu.php';
       	ga('send', 'pageview');
       }
     </script>
-    <?php
-include 'alert.php';
-    ?>
+
   </body>
 </html>
