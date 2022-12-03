@@ -4,7 +4,7 @@ if(isset($_POST['simpan']))
 {
     $ni=$_POST['no_induk'];
     $nm=$_POST['nama'];
-    $jbt=$_POST['jabatan'];
+    // $jbt=$_POST['jabatan'];
     $jk=$_POST['jenis_kelamin'];
     $al=$_POST['alamat'];
     $lh=$_POST['lahir'];
@@ -22,7 +22,7 @@ if(isset($_POST['simpan']))
     $kt=$_POST['keterangan_tambahan'];
     $_komisi=$_POST['status_komisi'];
 
-$insert = mysqli_query($conn,"INSERT INTO `data_jemaat`(`no_induk`, `nama`, `jabatan`, `jenis_kelamin`, `alamat`, `lahir`, `baptis`, `sidi`, `nikah`,`meninggal`, `orang_tua`, `suami_istri`, `dari_gereja`, `ke_gereja`, `keterangan`, `tanggal_terdaftar`, `keterangan_tambahan`,`Id_komisi`) VALUES ('$ni','$nm','$jk','$al','$lh','$bp','$sd','$st','$nkh','$mng','$ot','$si','$dg','$kg','$ket','$tt','$kt','$_komisi')");
+$insert = mysqli_query($conn,"INSERT INTO `data_jemaat`(`no_induk`, `nama`, `jabatan`, `jenis_kelamin`, `alamat`, `lahir`, `baptis`, `sidi`, `nikah`,`meninggal`, `orang_tua`, `suami_istri`, `dari_gereja`, `ke_gereja`, `keterangan`, `tanggal_terdaftar`, `keterangan_tambahan`,`Id_komisi`) VALUES ('$ni','$nm','$st','$jk','$al','$lh','$bp','$sd','$nkh','$mng','$ot','$si','$dg','$kg','$ket','$tt','$kt','$_komisi')");
 if($insert){ 
 
   // $alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
