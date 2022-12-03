@@ -59,6 +59,8 @@ include 'sidebar_menu.php';
               <input type="text" name="cari1" class="form-control col-2 m-2">
               <button type="submit" name="cari" class="btn btn-info"><i class="app-menu__icon fa fa-search" aria-hidden="true"></i></button>
               <a href="proses_tambah_keuangan.php" class="btn btn-info ml-2"><i class="app-menu__icon fa fa-plus" aria-hidden="true"></i></a>
+              <a href="laporan_keuangan.php" target="blank" class="btn btn-success ml-1 "><i class="app-menu__icon fa fa-download" aria-hidden="true"></i></a>
+
             </div>
           </form>
 
