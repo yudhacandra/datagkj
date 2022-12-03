@@ -29,7 +29,7 @@ tr:nth-child(even) {
   <h2>LAPORAN KEUANGAN GKJ BOYOLALI</h2>
   <a>Jl. Pahlawan No.60, Ngrancah, Siswodipuran, Kec. Boyolali, Kabupaten Boyolali, Jawa Tengah 57311</a>
   <p></p>
-  <a>(0276) 321696</a>
+  <a>Telepon (0276) 321696</a>
   <a href="data_jemaat.php" class="btn">Kembali</a>
 </center>
 <p></p>

@@ -4,6 +4,7 @@ if(isset($_POST['simpan']))
 {
     $ni=$_POST['no_induk'];
     $nm=$_POST['nama'];
+    $jbt=$_POST['jabatan'];
     $jk=$_POST['jenis_kelamin'];
     $al=$_POST['alamat'];
     $lh=$_POST['lahir'];
@@ -11,7 +12,7 @@ if(isset($_POST['simpan']))
     $sd=$_POST['sidi'];
     $st=$_POST['status'];
     $nkh=$_POST['nikah'];
-    // $mng=$_POST['meninggal'];
+    $mng=$_POST['meninggal'];
     $ot=$_POST['orang_tua'];
     $si=$_POST['suami_istri'];
     $dg=$_POST['dari_gereja'];
@@ -21,8 +22,9 @@ if(isset($_POST['simpan']))
     $kt=$_POST['keterangan_tambahan'];
     $_komisi=$_POST['status_komisi'];
 
-$insert = mysqli_query($conn,"INSERT INTO `data_jemaat`(`no_induk`, `nama`, `jenis_kelamin`, `alamat`, `lahir`, `baptis`, `sidi`, `nikah`, `orang_tua`, `suami_istri`, `dari_gereja`, `ke_gereja`, `keterangan`, `tanggal_terdaftar`, `keterangan_tambahan`,`jabatan`,`Id_komisi`) VALUES ('$ni','$nm','$jk','$al','$lh','$bp','$sd','$nkh','$mng','$ot','$si','$dg','$kg','$ket','$tt','$kt','$st','$_komisi')");
+$insert = mysqli_query($conn,"INSERT INTO `data_jemaat`(`no_induk`, `nama`, `jabatan`, `jenis_kelamin`, `alamat`, `lahir`, `baptis`, `sidi`, `nikah`,`meninggal`, `orang_tua`, `suami_istri`, `dari_gereja`, `ke_gereja`, `keterangan`, `tanggal_terdaftar`, `keterangan_tambahan`,`Id_komisi`) VALUES ('$ni','$nm','$jk','$al','$lh','$bp','$sd','$st','$nkh','$mng','$ot','$si','$dg','$kg','$ket','$tt','$kt','$_komisi')");
 if($insert){ 
+
   // $alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
   header("location:data_jemaat.php");
   }
@@ -113,12 +115,12 @@ include 'sidebar_menu.php';
                                     <input type="text" class="form-control" name="nikah">
                                 </div>
                             </div>
-                            <!-- <div class="col-12 col-lg-10">
+                            <div class="col-12 col-lg-10">
                                 <div class="form-group">
                                     <label for="contact-name"><b>Meninggal :</b></label>
                                     <input type="text" class="form-control" name="meninggal">
                                 </div>
-                            </div> -->
+                            </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
                                     <label for="contact-name"><b>Nama Orang Tua :</b></label>
@@ -169,7 +171,7 @@ include 'sidebar_menu.php';
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
-                                    <label for="contact-name"><b>Tujuan pinda Gereja :</b></label>
+                                    <label for="contact-name"><b>Tujuan Gereja :</b></label>
                                     <input type="text" class="form-control" name="ke_gereja">
                                 </div>
                             </div>
