@@ -78,7 +78,9 @@ include 'sidebar_menu.php';
                       <th rowspan="2">Opsi</th>
                       <th rowspan="2">Nama Ibadah</th>
                       <th rowspan="2">Tempat</th>
-                      <th rowspan="2">Jadwal Ibadah</th>
+                      <th rowspan="2">Tanggal</th>
+                      <th>Waktu Mulai</th>
+                      <th>Waktu Akhir</th>
                       <th rowspan="2">Pengkotbah</th>
                       <th rowspan="2">Organis</th>
                       <th rowspan="2">Pemandu Nyanyian Jemaat</th>
@@ -96,6 +98,8 @@ include 'sidebar_menu.php';
                       <td><?= $row["nama_ibadah"]; ?></td>
                       <td><?= $row["tempat"]; ?></td>
                       <td><?= $row["jadwal_ibadah"]; ?></td>
+                      <td><?= $row["jam_mulai"]; ?></td>
+                      <td><?= $row["jam_akhir"]; ?></td>
                       <td><?= $row["pengkotbah"]; ?></td>
                       <td><?= $row["organis"]; ?></td>
                       <td><?= $row["pemandu_nyanyian"]; ?></td>

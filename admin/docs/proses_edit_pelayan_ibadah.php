@@ -12,10 +12,11 @@ if(isset($_POST['edit_pelayan_ibadah']))
   $pn=$_POST['pemandu_nyanyian'];
   $bm=$_POST['bunga_mimbar'];
   $ktg=$_POST['keterangan'];
-  $pic=$_POST['penanggung_jawab'];
+  $jam_mulai=$_POST['jam_mulai'];
+  $jam_akhir=$_POST['jam_akhir'];
 
 
-$pelayan_ibadah = mysqli_query($conn, "UPDATE `pelayan_ibadah` SET `id_ibadah`='$idi',`nama_ibadah`='$ni',`tempat`='$tmp',`jadwal_ibadah`='$jdwi',`pengkotbah`='$peng',`organis`='$ogn',`pemandu_nyanyian`='$pn',`bunga_mimbar`='$bm',`keterangan`='$ktg',`penanggung_jawab`='$pic' WHERE id_ibadah='$id'");
+$pelayan_ibadah = mysqli_query($conn, "UPDATE `pelayan_ibadah` SET `id_ibadah`='$idi',`nama_ibadah`='$ni',`tempat`='$tmp',`jadwal_ibadah`='$jdwi',`pengkotbah`='$peng',`organis`='$ogn',`pemandu_nyanyian`='$pn',`bunga_mimbar`='$bm',`keterangan`='$ktg',`penanggung_jawab`='$pic',`jam_mulai`='$jam_mulai',`jam_akhir`='$jam_akhir' WHERE id_ibadah='$id'");
 if ($pelayan_ibadah) {
     header("location:pelayan_ibadah.php");
 }
@@ -52,14 +53,10 @@ include 'sidebar_menu.php';
             <div class="contact-form-area">
                     <form action="" method="POST" >
                         <div class="row">
-                            <div class="col-12 col-lg-3">
-                                <div class="form-group">
-                                    <label for="contact-name"><b>Id Ibadah :</b></label>
-                                    <input type="text" class="form-control"  value="<?=  $data['id_ibadah']; ?>" name="id_ibadah">
-                                </div>
-                            </div>
+                           
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
+                                    <input type="hidden" class="form-control"  value="<?=  $data['id_ibadah']; ?>" name="id_ibadah">
                                     <label for="contact-name"><b>Nama Ibadah :</b></label>
                                     <input type="text" class="form-control" value="<?=  $data['nama_ibadah']; ?>"  name="nama_ibadah">
                                 </div>
@@ -72,8 +69,20 @@ include 'sidebar_menu.php';
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
-                                    <label for="contact-name"><b>Jadwal Ibadah :</b></label>
-                                    <input type="text" class="form-control" value="<?=  $data['jadwal_ibadah']; ?>"  name="jadwal_ibadah">
+                                    <label for="contact-name"><b>Tanggal Ibadah :</b></label>
+                                    <input type="date" class="form-control" value="<?=  $data['jadwal_ibadah']; ?>"  name="jadwal_ibadah">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <div class="form-group">
+                                    <label for="contact-name"><b>Waktu Mulai :</b></label>
+                                    <input type="time" class="form-control" value="<?=  $data['jam_mulai']; ?>"  name="jam_mulai">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <div class="form-group">
+                                    <label for="contact-name"><b>Waktu Akhir :</b></label>
+                                    <input type="time" class="form-control" value="<?=  $data['jam_akhir']; ?>"  name="jam_akhir">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">
