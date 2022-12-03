@@ -139,7 +139,14 @@ include 'sidebar_menu.php';
                             ?>
                                 <div class="form-group">
                                     <label for="contact-name">Status :</label>
-                                    <input type="text" class="form-control" value="<?=  nama($data['jabatan']); ?>"  name="dari_gereja" readonly>
+                                    <input type="text" class="form-control" value="
+                                    <?php 
+                                    if($data['jabatan'] > 0) { ?>
+                                    <?=  nama($data['jabatan']); ?>
+                                   <?php } ?>
+                                    
+                                    
+                                    "  name="dari_gereja" readonly>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
@@ -153,7 +160,12 @@ include 'sidebar_menu.php';
                             ?>
                                 <div class="form-group">
                                     <label for="contact-name">Bidang Komisi :</label>
-                                    <input type="text" class="form-control" value="<?=  nama_komisi($data['Id_komisi']); ?>"  name="dari_gereja" readonly>
+                                    <input type="text" class="form-control" value="
+                                    <?php
+                                    if($data['Id_komisi'] > 0) { ?>
+                                        <?=  nama_komisi($data['Id_komisi']); ?>
+                                        <?php } ?>
+                                    "  name="dari_gereja" readonly>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
