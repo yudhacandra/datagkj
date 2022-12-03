@@ -25,13 +25,22 @@ tr:nth-child(even) {
 </style>
 </head>
 <body>
+
 <center>
-  <h1>JADWAL IBADAH GKJ BOYOLALI</h1>
-  <a>Jl. Pahlawan No.60, Ngrancah, Siswodipuran, Kec. Boyolali, Kabupaten Boyolali, Jawa Tengah 57311</a>
-    <p><a>Telepon (0276) 321696</a></p>
+<td width='940' align='center'>
+	<span style='font-size:25px; font-weight: bold;'>JADWAL IBADAH<br>
+  GEREJA KRISTEN JAWA BOYOLALI
+  </span><br>
+  <p></p>
+  Jl. Pahlawan No.60, Ngrancah, Siswodipuran, Kec. Boyolali, Kabupaten Boyolali, Jawa Tengah 57311 <br>
+	Telp. Telepon (0276) 321696 ,
+	Website: http://www.gkjboyolaliofficial.com, Email:  gkj.boyolali@gmail.com						
+</td>
+<br>
 <a href="pelayan_ibadah.php" class="btn">Kembali</a>
 </center>
 <p></p>
+<br>
 
 <table>
   <tr style="background-color:orange">
@@ -48,6 +57,7 @@ tr:nth-child(even) {
     <th><center>Keterangan</center></th>
     <th><center>PIC</center></th>
   </tr>
+
 
   <?php $i = 1; ?>
 <?php foreach ($pelayan_ibadah as $row) : ?>
@@ -71,6 +81,13 @@ tr:nth-child(even) {
                   ?>
   </tr>
 </table>
+
+<tr>
+  <br>
+  <br>
+		<td width='500' align='center'>Boyolali, <br><br><p>&nbsp;</p><br><u>Pdt. Pdt. Nur Bagus Aji Jatmiko, S.Pd.K.</u><br>Gembala Jemaat</td>
+	</tr>
+
 <script>
 		window.print();
 	</script>

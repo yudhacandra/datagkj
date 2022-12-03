@@ -108,10 +108,10 @@ include 'sidebar_menu.php';
                     <tr>
                       <td>
                         <a class="btn btn-primary m-1" href="proses_edit_akun_majelis.php?id=<?= $row["id_majelis"]; ?>"><i class="fa fa-lg fa-edit"></i></a>  
-                      <form action="" method="POST">
-                        <button type="submit" name="hapus" value="<?= $row['id_majelis']; ?>" class="btn btn-danger m-1" onclick="return confirm('Yakin Hapus?')"><i class="fa fa-lg fa-trash"></i></button>
-                      </form>
-                    </td>
+                        <form action="" method="POST">
+                          <button type="submit" name="hapus" value="<?= $row['id_majelis']; ?>" class="btn btn-danger m-1" onclick="return confirm('Yakin Hapus?')"><i class="fa fa-lg fa-trash"></i></button>
+                        </form>
+                      </td>
                       <td><?= $row["id_majelis"]; ?></td>
                       <td><?php 
                       $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` where `no_induk` ='".$row["id_majelis"]."'");
