@@ -1,7 +1,7 @@
 <?php
 include '../../database.php';
-$data_jemaat = mysqli_query($conn, "SELECT * FROM `struktur_komisi`");
-$data = mysqli_fetch_array($data_jemaat);
+$struktur_majelis = mysqli_query($conn, "SELECT * FROM `struktur_majelis` ");
+$data = mysqli_fetch_array($struktur_majelis);
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,33 +26,32 @@ tr:nth-child(even) {
 </head>
 <body>
 <center>
-  <h2>STRUKTUR KOMISI GKJ BOYOLALI</h2>
+  <h2>STRUKTUR MAJELIS GKJ BOYOLALI</h2>
   <a>Jl. Pahlawan No.60, Ngrancah, Siswodipuran, Kec. Boyolali, Kabupaten Boyolali, Jawa Tengah 57311</a>
     <a>Telepon (0276) 321696</a>
-<a href="struktur_komisi.php" class="btn">Kembali</a>
+  <a href="struktur_majelis.php" class="btn">Kembali</a>
 </center>
 <p></p>
 
 <table>
   <tr>
-  <th rowspan="2"><center>Nama Komisi</center></th>
-  <th rowspan="2"><center>Periode Komisi</center></th>
-  <th rowspan="2"><center>Jumlah Anggota</center></th>
+                      <th><center>Jabatan Bidang Majelis</center></th>
+                      <th><center>Periode Majelis</center></th>
+                      <th><center>Jumlah Anggota</center></th>
   </tr>
 
   <?php $i = 1; ?>
-<?php foreach ($data_jemaat as $row) : ?>
+<?php foreach ($struktur_majelis as $row) : ?>
   <tr>
                     <tr>
-                      <td><?= $row["idnama_komisi"]; ?></td>
-                      <td><?= $row["periode_komisi"]; ?></td>
-                      <td><?= $row["id_komisi"]; ?></td>
-                  
+                      <td><?= $row["idjabatan_majelis"]; ?></td>
+                      <td><center><?= $row["periode_majelis"]; ?></center></td>
+                      <td><center><?= $row["id_struktur"]; ?></center></td>
                       <?php $i++; ?>
                     <?php endforeach; 
                   
                   ?>
-  </tr>
+  </tr>    
 </table>
 <script>
 		window.print();

@@ -170,7 +170,7 @@ include 'sidebar_menu.php';
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Tujuan pindah Gereja:</label>
+                                    <label for="contact-name">Tujuan Gereja:</label>
                                     <input type="text" class="form-control" value="<?=  $data['ke_gereja']; ?>"  name="ke_gereja" readonly>
                                 </div>
                             </div>
@@ -188,7 +188,7 @@ include 'sidebar_menu.php';
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Keterangan :</label>
+                                    <label for="contact-name">Wilayah :</label>
                                     <textarea col="3" cols="30" class="form-control" rows="3" readonly><?=  $data['keterangan_tambahan']; ?></textarea>
                                     <!-- <input type="text" class="form-control" value="<?=  $data['keterangan_tambahan']; ?>"  name="keterangan_tambahan" readonly> -->
                                 </div>
