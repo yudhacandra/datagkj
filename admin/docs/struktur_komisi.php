@@ -95,7 +95,7 @@ include 'sidebar_menu.php';
                       <td><?= $row["periode_komisi"]; ?></td>
                       <td>
                       <?php
-                        $jumlahkomisi = mysqli_fetch_array(mysqli_query($conn, "SELECT COUNT(Id_komisi) as komisi FROM `data_jemaat` WHERE Id_komisi ='".$row["id_komisi"]."'"));
+                        $jumlahkomisi = mysqli_fetch_array(mysqli_query($conn, "SELECT COUNT(id_komisi) as komisi FROM `data_jemaat` WHERE Id_komisi ='".$row["id_komisi"]."'"));
                         ?>
                         <a href="data_jemaat_majelis_komisi.php?id=<?=$row["id_komisi"]?>" class="btn btn-danger"><?= $jumlahkomisi["komisi"]; ?></a>
                         

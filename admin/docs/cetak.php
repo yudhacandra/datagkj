@@ -26,16 +26,21 @@ tr:nth-child(even) {
 </head>
 <body>
 
-<h2>Data Jemaat GKJ Boyolali</h2>
+<h1>DATA JEMAAT GKJ Boyolali</h1>
+<h3>Jl. Pahlawan No.60, Ngrancah, Siswodipuran, Kec. Boyolali, Kabupaten Boyolali, Jawa Tengah 57311</h3>
 <a href="data_jemaat.php" class="btn">Kembali</a>
 <p></p>
 
 <table>
   <tr>
-  <th >No Induk</th>
-<th >Nama</th>
-<th >Jenis Kelamin</th>
-<th >Alamat</th>
+    <th >No Induk</th>
+    <th >Nama</th>
+    <th >Jenis Kelamin</th>
+    <th >Lahir</th>
+    <th >Alamat</th>
+    <th >Baptis</th>
+    <th >Sidi</th>
+    <th >Wilayah</th>
   </tr>
 
   <?php $i = 1; ?>
@@ -45,7 +50,11 @@ tr:nth-child(even) {
                       <td><?= $row["no_induk"]; ?></td>
                       <td><?= $row["nama"]; ?></td>
                       <td><?= $row["jenis_kelamin"]; ?></td>
+                      <td><?= $row["lahir"]; ?></td>
                       <td><?= $row["alamat"]; ?></td>
+                      <td><?= $row["baptis"]; ?></td>
+                      <td><?= $row["sidi"]; ?></td>
+                      <td><?= $row["keterangan_tambahan"]; ?></td>
                       <?php $i++; ?>
                     <?php endforeach; 
                   

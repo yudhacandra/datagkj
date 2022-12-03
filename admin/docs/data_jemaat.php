@@ -91,6 +91,7 @@ include 'sidebar_menu.php';
                       <th rowspan="2">Nama</th>
                       <th rowspan="2">Jenis Kelamin</th>
                       <th rowspan="2">Alamat</th>
+                      <th rowspan="2">Wilayah</th>
                       <th rowspan="2">Aksi</th>
                     </tr>
                     
@@ -103,6 +104,7 @@ include 'sidebar_menu.php';
                       <td><?= $row["nama"]; ?></td>
                       <td><?= $row["jenis_kelamin"]; ?></td>
                       <td><?= $row["alamat"]; ?></td>
+                      <td><?= $row["keterangan_tambahan"]; ?></td>
                       <td><a class="btn btn-primary m-1" href="proses_lihat.php?id=<?= $row["no_induk"]; ?>"><i class="fa fa-eye" aria-hidden="true"></i></a>
                       <a class="btn btn-primary m-1" href="proses_edit.php?id=<?= $row["no_induk"]; ?>"><i class="fa fa-lg fa-edit"></i></a>
                       <!-- <a class="btn btn-primary m-1" href="proses_hapus_data_jemaat.php?id=<?= $row["no_induk"]; ?>"><i class="fa fa-lg fa-trash"></i></a> -->

@@ -25,9 +25,13 @@ tr:nth-child(even) {
 </style>
 </head>
 <body>
-
-<h2>Laporan Keuangan</h2>
-<a href="data_jemaat.php" class="btn">Kembali</a>
+<center>
+  <h2>LAPORAN KEUANGAN GKJ BOYOLALI</h2>
+  <a>Jl. Pahlawan No.60, Ngrancah, Siswodipuran, Kec. Boyolali, Kabupaten Boyolali, Jawa Tengah 57311</a>
+  <p></p>
+  <a>(0276) 321696</a>
+  <a href="data_jemaat.php" class="btn">Kembali</a>
+</center>
 <p></p>
 
 <table>
@@ -59,10 +63,11 @@ tr:nth-child(even) {
                       $total = mysqli_fetch_array(mysqli_query($conn, "SELECT SUM(nominal) as totalharga FROM `keuangan`"));
                     ?>
                     <tr>
-                      <td><b>Total</b></td>
-                      <td colspan="4"><b>Rp.<?= number_format($total["totalharga"],2,',','.'); ?></b></td>
+                        <td><center><b>Total</b></center></td>
+                        <td colspan="4"><center><b>Rp.<?= number_format($total["totalharga"],2,',','.'); ?></center></b></td>
                     </tr>
                   </tfoot>
+               
 </table>
 <script>
 		window.print();

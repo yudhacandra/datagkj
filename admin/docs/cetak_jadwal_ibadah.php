@@ -26,7 +26,8 @@ tr:nth-child(even) {
 </head>
 <body>
 
-<h2>Jadwal Ibadah GKJ Boyolali</h2>
+<h1>JADWAL IBADAH GKJ BOYOLALI</h1>
+<h4>Jl. Pahlawan No.60, Ngrancah, Siswodipuran, Kec. Boyolali, Kabupaten Boyolali, Jawa Tengah 57311</h4>
 <a href="pelayan_ibadah.php" class="btn">Kembali</a>
 <p></p>
 

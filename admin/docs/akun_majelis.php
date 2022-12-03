@@ -78,7 +78,7 @@ include 'sidebar_menu.php';
                   <thead>
                     <tr>
                       <th rowspan="2">Opsi</th>
-                      <th rowspan="2">Id Majelis</th>
+                      <th rowspan="2">No Induk</th>
                       <th rowspan="2">Nama</th>
                       <th rowspan="2">Username</th>
                       <th rowspan="5">Password</th>
