@@ -2,14 +2,14 @@
 include '../../database.php';
 if(isset($_POST['simpan']))
 {
-$idm=$_POST['id_majelis'];
-$nam=$_POST['nama'];
+$idm=$_POST['majelis'];
+// $nam=$_POST['nama'];
 $usrnm=$_POST['username'];
-$jbg=$_POST['jabatan_grejawi'];
 $psw=$_POST['password'];
+$stj=$_POST['status'];
 $st='Tidak Aktif';
 
-$insert = mysqli_query($conn,"INSERT INTO `akun_majelis`(`id_majelis`, `nama`, `username`, `jabatan_grejawi`, `password`, `status`) VALUES ('$idm','$nam','$usrnm','$jbg','$psw','$st')");
+$insert = mysqli_query($conn,"INSERT INTO `data_majelis`(`id_majelis`,`username`, `jabatan_majelis`, `password`, `status`) VALUES ('$idm','$usrnm','$stj','$psw','$st')");
 if($insert){ 
   // $alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
   header("location:akun_majelis.php");
@@ -47,16 +47,22 @@ include 'sidebar_menu.php';
                         <div class="row">
                             <div class="col-12 col-lg-3">
                               <div class="form-group">
-                                <label for="contact-name"><b>ID Majelis :</b></label>
-                                <input type="text" class="form-control" id_majelis="contact-name" name="id_majelis">
+                                <label for="contact-name"><b>Pilih Jemaat :</b></label>
+                                <select name="majelis" id="">
+                                        <option value="">Belum Ada</option>
+                                        <?php
+                                        $tampilkan_data_jemaat = mysqli_query ($conn,"SELECT * FROM `data_jemaat`");
+                                        while ($ambil_data_jemaat = mysqli_fetch_array ($tampilkan_data_jemaat)){ ?>
+                                            <option value="<?= $ambil_data_jemaat['no_induk']?>"><?= $ambil_data_jemaat['nama']?></option>
+                                       <?php  }
+                                        ?>
+                                    </select>
+                                    
+            
                               </div>
                             </div>
-                            <div class="col-12 col-lg-10">
-                              <div class="form-group">
-                                <label for="contact-name"><b>Nama  Majelis:</b></label>
-                                <input type="text" class="form-control" name="nama">
-                              </div>
-                            </div>
+                            
+                           
                             <div class="col-12 col-lg-10">
                               <div class="form-group">
                                 <label for="contact-name"><b>Username :</b></label>
@@ -66,19 +72,16 @@ include 'sidebar_menu.php';
 
                             <div class="col-12 col-lg-10">
                               <label class="control-label mt-1"><b>Jabatan Grejawi</b></label>
-                              <select class="form-control col-30" name="jabatan_grejawi">
-                                <option value="#">- Silahkan Pilih -</option>
-                                <option value="ketua">ketua</option>
-                                <option value="wakil ketua">Wakil Ketua</option>
-                                <option value="Sekretaris">Sekretaris</option>
-                                <option value="Bendahara">Bendahara</option>
-                                <option value="Bidang KEESAAN">Bidang KEESAAN</option>
-                                <option value="Bidang PIWG">Bidanng PIWG</option>
-                                <option value="Bidang KESPEL">Bidanng KESPEL</option>
-                                <option value="Bidang Penata Layanan">Bidanng Penata Layanan</option>
-                                <option value="Bidang Kajian">Bidanng Kajian</option>
-                                <option value="Bidang Pembangunan">Bidanng Pembangunan</option>
-                              </select>
+                              <select name="status" id="">
+                                        <option value="">Belum Ada</option>
+                                        <?php
+                                        $tampilkan_data_struktur_majelis = mysqli_query ($conn,"SELECT * FROM `struktur_majelis`");
+                                        while ($ambil_data = mysqli_fetch_array ($tampilkan_data_struktur_majelis)){ ?>
+                                            <option value="<?= $ambil_data['id_struktur']?>"><?= $ambil_data['idjabatan_majelis']?></option>
+                            
+                                       <?php  }
+                                        ?>
+                                    </select>
                             </div>
                             
                             <div class="col-12 col-lg-10">

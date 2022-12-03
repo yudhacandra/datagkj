@@ -100,7 +100,14 @@ include 'sidebar_menu.php';
                     <tr>
                       <td><a href="proses_edit_akun_majelis.php?id=<?= $row["id_majelis"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i></td>
                       <td><?= $row["id_majelis"]; ?></td>
-                      <td><?= $row["nama"]; ?></td>
+                      <td><?php 
+                      $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` where `no_induk` ='".$row["id_majelis"]."'");
+                      $data = mysqli_fetch_array($data_jemaat); ?>
+                     <?= $data["nama"]; ?>
+                    
+                      
+                      <?php
+                      ?></td>
                       <td><?= $row["username"]; ?></td>
                       <td><?= $row["password"]; ?></td>
                       <td><?= nama($row["jabatan_majelis"]); ?></td>
