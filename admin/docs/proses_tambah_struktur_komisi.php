@@ -2,11 +2,10 @@
 include '../../database.php';
 if(isset($_POST['simpan']))
 {
-$ink=$_POST['idnama_komisi'];
+$ink=$_POST['nama_komisi'];
 $pk=$_POST['periode_komisi'];
-$jmla=$_POST['jumlah_anggota'];
 
-$insert = mysqli_query($conn,"INSERT INTO `struktur_komisi` (`idnama_komisi`, `periode_komisi`, `jumlah_anggota`) VALUES ('$ink', '$pk', '$jmla')");
+$insert = mysqli_query($conn,"INSERT INTO `struktur_komisi` (`idnama_komisi`,`periode_komisi`) VALUES ('$ink', '$pk')");
 if($insert){ 
   // $alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
   header("location:struktur_komisi.php");
@@ -48,42 +47,19 @@ include 'sidebar_menu.php';
                         <div class="row">
                             <div class="col-12 col-lg-10">
                               <label class="control-label mt-1"><b>Nama Komisi :</b></label>
-                              <select class="form-control col-30" name="idnama_komisi">
-                                <option value="#"></option>
-                                <option value="komisi Ibadah">komisi Ibadah</option>
-                                <option value="Komisi PAK dan Pendidikan">Komisi PAK dan Pendidikan</option>
-                                <option value="Komisi Anak">Komisi Anak</option>
-                                <option value="Komisi Pemuda dan Remaja">Komisi Pemuda dan Remaja</option>
-                                <option value="Komisi Keluarga Muda">Komisi Keluarga Muda</option>
-                                <option value="Komisi Keluarga Dewasa">Komisi Keluarga Dewasa</option>
-                                <option value="Komisi Adiyuswa">Komisi Adiyuswa</option>
-                                <option value="Komisi SBKM">Komisi SBKM</option>
-                                <option value="Komisi PEJ">Komisi PEJ</option>
-                                <option value="Komisi Pralenan">Komisi Pralenan</option>
-                                <option value="Komisi Rumah Tangga dan Inventaris Gereja">Komisi Rumah Tangga dan Inventaris Gereja</option>
-                                <option value="Pengurus PAUD">Pengurus PAUD</option>
-                                <option value="Pengurus Perpustakaan">Pengurus Perpustakaan</option>
-                                <option value="Tim Multimedia">Tim Multimedia</option>
-                                <option value="Tim Pengurangan Resiko Bencana">Tim Pengurangan Resiko Bencana</option>
-                                <option value="Tim Rip dan Renop">Tim Rip dan Renop</option>
-                                <option value="Panitia Pembangunan dan Renovasi Gedung Gereja">Panitia Pembangunan dan Renovasi Gedung Gereja</option>
-                              </select>
+                              <input type="text" class="form-control" name="nama_komisi">
+                              
                             </div>
 
                             <div class="col-12 col-lg-10">
                               <div class="form-group">
                                 <p></p>
                                 <label for="contact-name"><b>Periode Komisi :</b></label>
-                                <input type="" class="form-control" name="periode_komisi">
+                                <input type="text" class="form-control" name="periode_komisi">
                               </div>
                             </div>
                             
-                            <div class="col-12 col-lg-10">
-                              <div class="form-group">
-                                <label for="contact-name"><b>Jumlah Anggota :</b></label>
-                                <input type="text" class="form-control" name="jumlah_anggota">
-                              </div>
-                            </div>
+                          
                               
                               <div class="col-12 text-center">
                                 <button type="submit" name="simpan" class="btn btn-info">Tambah</button>
