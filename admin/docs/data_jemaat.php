@@ -16,7 +16,7 @@ $cari = $_POST['cari1'];
 
 if ($cari != null) {
 
-  $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` where `nama` like '%$cari%' or `no_induk` like '%$cari%' ");
+  $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` where `nama` like '%$cari%' or `no_induk` like '%$cari%' or `keterangan_tambahan` like '%$cari%' ");
   $data = mysqli_fetch_array($data_jemaat);
 } else {
   $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` ");
