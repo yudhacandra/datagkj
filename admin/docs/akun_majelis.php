@@ -1,7 +1,15 @@
 <?php
 include '../../database.php';
   ##$alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
-
+  if(isset($_POST['hapus'])){
+    $hapus = $_POST['hapus'];
+    $insert_datahapus = mysqli_query($conn,"DELETE FROM `data_majelis` WHERE `id_majelis`='$hapus'") or die("gagal". mysqli_error());
+    if($insert_datahapus){
+        echo "<script type='text/javascript'>
+        alert('Data Berhasil Di Hapus!');
+        </script>";
+    }
+  }
 
 if (isset($_POST['cari'])) {
 $cari = $_POST['cari1'];
@@ -98,7 +106,11 @@ include 'sidebar_menu.php';
                   $i = 1; ?>
                   <?php foreach ($akun_majelis as $row) : ?>
                     <tr>
-                      <td><a href="proses_edit_akun_majelis.php?id=<?= $row["id_majelis"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i></td>
+                      <td><a href="proses_edit_akun_majelis.php?id=<?= $row["id_majelis"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i>
+                      <form action="" method="POST">
+                        <button type="submit" name="hapus" value="<?= $row['id_majelis']; ?>" class="btn btn-danger m-1" onclick="return confirm('Yakin Hapus?')"><i class="fa fa-lg fa-trash"></i></button>
+                      </form>
+                    </td>
                       <td><?= $row["id_majelis"]; ?></td>
                       <td><?php 
                       $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` where `no_induk` ='".$row["id_majelis"]."'");

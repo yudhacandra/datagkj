@@ -54,10 +54,21 @@ include 'sidebar_menu.php';
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">
-                                <div class="form-group">
-                                    <label for="contact-name"><b>Nama  :</b></label>
-                                    <input type="text" class="form-control" value="<?=  $data['nama']; ?>"  name="nama">
-                                </div>
+                            <div class="form-group">
+                                <label for="contact-name"><b>Pilih Jemaat :</b></label>
+                                <select name="majelis" id="">
+                                        <option value="">Belum Ada</option>
+                                        <?php
+                                        $tampilkan_data_jemaat = mysqli_query ($conn,"SELECT * FROM `data_jemaat`");
+                                        while ($ambil_data_jemaat = mysqli_fetch_array ($tampilkan_data_jemaat)){ ?>
+                                            <option value="<?= $ambil_data_jemaat['no_induk']?>"><?= $ambil_data_jemaat['nama']?></option>
+                                       <?php  }
+                                        ?>
+                                    </select>
+                                    
+            
+                              </div>
+                            </div>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
