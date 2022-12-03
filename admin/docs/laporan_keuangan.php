@@ -30,7 +30,7 @@ tr:nth-child(even) {
   <a>Jl. Pahlawan No.60, Ngrancah, Siswodipuran, Kec. Boyolali, Kabupaten Boyolali, Jawa Tengah 57311</a>
   <p></p>
   <a>Telepon (0276) 321696</a>
-  <a href="data_jemaat.php" class="btn">Kembali</a>
+  <a href="keuangan.php" class="btn">Kembali</a>
 </center>
 <p></p>
 

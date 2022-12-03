@@ -26,9 +26,13 @@ tr:nth-child(even) {
 </head>
 <body>
 
-<h1>DATA JEMAAT GKJ Boyolali</h1>
-<h3>Jl. Pahlawan No.60, Ngrancah, Siswodipuran, Kec. Boyolali, Kabupaten Boyolali, Jawa Tengah 57311</h3>
-<a href="data_jemaat.php" class="btn">Kembali</a>
+<center>
+  <h2>LAPORAN KEUANGAN GKJ BOYOLALI</h2>
+  <a>Jl. Pahlawan No.60, Ngrancah, Siswodipuran, Kec. Boyolali, Kabupaten Boyolali, Jawa Tengah 57311</a>
+  <p></p>
+  <a>Telepon (0276) 321696</a>
+  <a href="data_jemaat.php" class="btn">Kembali</a>
+</center>
 <p></p>
 
 <table>
