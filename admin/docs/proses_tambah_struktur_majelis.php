@@ -2,10 +2,10 @@
 include '../../database.php';
 if(isset($_POST['simpan']))
 {
-$ijm=$_POST['idjabatan_majelis'];
+$ijm=$_POST['keterangan'];
 $pm=$_POST['periode_majelis'];
 
-$insert = mysqli_query($conn,"INSERT INTO `struktur_majelis` (`idjabatan_majelis`, `periode_majelis`) VALUES ('$ijm', '$pm')");
+$insert = mysqli_query($conn,"INSERT INTO `struktur_majelis` (`idjabatan_majelis`,`periode_majelis`) VALUES ('$ijm', '$pm')");
 if($insert){ 
   // $alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
   header("location:struktur_majelis.php");
@@ -47,19 +47,7 @@ include 'sidebar_menu.php';
                         <div class="row">
                             <div class="col-12 col-lg-10">
                               <label class="control-label mt-1"><b>Jabatan Majelis :</b></label>
-                              <select class="form-control col-30" name="idjabatan_majelis">
-                                <option value="ketua"></option>
-                                <option value="ketua">ketua</option>
-                                <option value="wakil ketua">Wakil Ketua</option>
-                                <option value="Sekretaris">Sekretaris</option>
-                                <option value="Bendahara">Bendahara</option>
-                                <option value="Bidang KEESAAN">Bidang KEESAAN</option>
-                                <option value="Bidang PIWG">Bidang PIWG</option>
-                                <option value="Bidang KESPEL">Bidang KESPEL</option>
-                                <option value="Bidang Penata Layanan">Bidang Penata Layanan</option>
-                                <option value="Bidang Kajian">Bidang Kajian</option>
-                                <option value="Bidang Pembangunan">Bidang Pembangunan</option>
-                              </select>
+                              <input type="text" class="form-control" name="keterangan">
                             </div>
 
                             <div class="col-12 col-lg-10">
