@@ -90,7 +90,7 @@ include 'sidebar_menu.php';
                   <?php $i = 1; ?>
                   <?php foreach ($struktur_komisi as $row) : ?>
                     <tr>
-                      <td><a href="proses_edit_struktur_komisi.php?id=<?= $row["idnama_komisi"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i></td>
+                      <td><a href="proses_edit_struktur_komisi.php?id=<?= $row["id_komisi"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i></td>
                       <td><?= $row["idnama_komisi"]; ?></td>
                       <td><?= $row["periode_komisi"]; ?></td>
                       <td>

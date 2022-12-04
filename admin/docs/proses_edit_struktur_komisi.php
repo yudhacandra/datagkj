@@ -3,19 +3,18 @@ include '../../database.php';
 $id = $_GET['id'];
 if(isset($_POST['edit_struktur_komisi']))
 {
-$ink=$_POST['idnama_komisi'];
+$ink=$_POST['nama_komisi'];
 $pk=$_POST['periode_komisi'];
-$ja=$_POST['jumlah_anggota'];
 
 
-$struktur_komisi = mysqli_query($conn, "UPDATE `struktur_komisi` SET `idnama_komisi`='$ink',`periode_komisi`='$pk',`jumlah_anggota`='$ja' WHERE idnama_komisi='$id'");
+$struktur_komisi = mysqli_query($conn, "UPDATE `struktur_komisi` SET `idnama_komisi`='$ink',`periode_komisi`='$pk' WHERE id_komisi='$id'");
 if ($struktur_komisi) {
     header("location:struktur_komisi.php");
 }
 
 }
 
-$struktur_komisi = mysqli_query($conn, "SELECT * FROM `struktur_komisi` where idnama_komisi='$id'");
+$struktur_komisi = mysqli_query($conn, "SELECT * FROM `struktur_komisi` where id_komisi='$id'");
 $data = mysqli_fetch_array($struktur_komisi);
 ?>
 <!DOCTYPE html>
@@ -46,26 +45,7 @@ include 'sidebar_menu.php';
                     <form action="" method="POST" >
                             <div class="col-12 col-lg-10">
                               <label class="control-label mt-1"><b>Nama Komisi :</b></label>
-                              <select class="form-control col-30" name="idnama_komisi">
-                                <option value="#"></option>
-                                <option value="komisi Ibadah">komisi Ibadah</option>
-                                <option value="Komisi PAK dan Pendidikan">Komisi PAK dan Pendidikan</option>
-                                <option value="Komisi Anak">Komisi Anak</option>
-                                <option value="Komisi Pemuda dan Remaja">Komisi Pemuda dan Remaja</option>
-                                <option value="Komisi Keluarga Muda">Komisi Keluarga Muda</option>
-                                <option value="Komisi Keluarga Dewasa">Komisi Keluarga Dewasa</option>
-                                <option value="Komisi Adiyuswa">Komisi Adiyuswa</option>
-                                <option value="Komisi SBKM">Komisi SBKM</option>
-                                <option value="Komisi PEJ">Komisi PEJ</option>
-                                <option value="Komisi Pralenan">Komisi Pralenan</option>
-                                <option value="Komisi Rumah Tangga dan Inventaris Gereja">Komisi Rumah Tangga dan Inventaris Gereja</option>
-                                <option value="Pengurus PAUD">Pengurus PAUD</option>
-                                <option value="Pengurus Perpustakaan">Pengurus Perpustakaan</option>
-                                <option value="Tim Multimedia">Tim Multimedia</option>
-                                <option value="Tim Pengurangan Resiko Bencana">Tim Pengurangan Resiko Bencana</option>
-                                <option value="Tim Rip dan Renop">Tim Rip dan Renop</option>
-                                <option value="Panitia Pembangunan dan Renovasi Gedung Gereja">Panitia Pembangunan dan Renovasi Gedung Gereja</option>
-                              </select>
+                            <input type="text" name="nama_komisi" class="form-control" value="<?=  $data['idnama_komisi']; ?>">
                             </div>
 
                             <div class="col-12 col-lg-10">
@@ -75,12 +55,7 @@ include 'sidebar_menu.php';
                                 </div>
                             </div>
 
-                            <div class="col-12 col-lg-10">
-                                <div class="form-group">
-                                    <label for="contact-name"><b>Jumlah Anggota   :</b></label>
-                                    <input type="text" class="form-control" value="<?=  $data['jumlah_anggota']; ?>"  name="jumlah_anggota">
-                                </div>
-                            </div>
+                         
                             
                             </div>
                             <div class="col-12 text-center">
