@@ -81,8 +81,8 @@ if (!isset($_SESSION['role'])) {
       <div class="navigation">
         <div class="container">
             <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="index.html">
-                    <img src="img/logo.png" alt="Logo">
+                <a class="navbar-brand" href="index.php">
+                    <img src="img/logo_gkj.png" alt="Logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="toggler-icon"></span>
@@ -140,7 +140,7 @@ if (!isset($_SESSION['role'])) {
         <div class="section-header">          
           <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Warta</h2>
           <hr class="lines wow zoomIn" data-wow-delay="0.3s">
-          <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p>
+          <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Silahkan anda dapat mendownload warta di bawah ini <br>" Klik Download Pada Ikon Download "</p>
         </div>
 
         <div class="row">
@@ -171,13 +171,13 @@ if (!isset($_SESSION['role'])) {
         </div>
       </div>
     </section>
-
+<p></p><p></p>
     <section id="Jemaat" class="section">
       <div class="container">
         <div class="section-header">          
-          <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Jemaat</h2>
+          <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Data Jemaat</h2>
           <hr class="lines wow zoomIn" data-wow-delay="0.3s">
-          <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Tabel Jemaat</p>
+          <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Data Jemaat<br>Gereja Kristen Jawa Boyolali</br></p>
         </div>
 
         <div class="row">
@@ -222,7 +222,7 @@ if (!isset($_SESSION['role'])) {
         <div class="section-header">          
           <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Jadwal Ibadah</h2>
           <hr class="lines wow zoomIn" data-wow-delay="0.3s">
-          <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Tabel Jadwal Ibadah</p>
+          <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Jadwal Ibadah<br>Gereja Kristen Jawa Boyolali</br></p>
         </div>
 
         <div class="row">
@@ -269,7 +269,7 @@ if (!isset($_SESSION['role'])) {
         <div class="section-header">          
           <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Keuangan</h2>
           <hr class="lines wow zoomIn" data-wow-delay="0.3s">
-          <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Tabel Keuangan</p>
+          <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Laporan Keuangan<br>Gereja Kristen Jawa Boyolali</br></p>
         </div>
 
         <div class="row">
@@ -324,13 +324,13 @@ if (!isset($_SESSION['role'])) {
           <div class="row">     
             <div class="col-lg-6 col-sm-6 col-xs-12">
               <div class="contact-us">
-                <h3>Contact With us</h3>
+                <h3>Kontak Dengan Kami</h3>
                 <div class="contact-address">
-                  <p>Centerville Road, DE 19808, US </p>
-                  <p class="phone">Phone: <span>(+94 123 456 789)</span></p>
-                  <p class="email">E-mail: <span>(contact@mate.com)</span></p>
+                  <p>Jl. Pahlawan No.60, Ngrancah, Siswodipuran, Kec. Boyolali, Kabupaten Boyolali, Jawa Tengah 57311</p>
+                  <p class="phone">Phone: <span>(0276) 321696</span></p>
+                  <p class="email">E-mail: <span>(gkjboyolaliofficial@gmail.com)</span></p>
                 </div>
-                <div class="social-icons">
+                <!--<div class="social-icons">
                   <ul>
                     <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
                     <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -338,7 +338,7 @@ if (!isset($_SESSION['role'])) {
                     <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
                     <li class="dribbble"><a href="#"><i class="fa fa-dribbble"></i></a></li>
                   </ul>
-                </div>
+                </div>-->
               </div>
             </div>     
             <div class="col-lg-6 col-sm-6 col-xs-12">
@@ -347,23 +347,23 @@ if (!isset($_SESSION['role'])) {
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Masukan Nama" required data-error="Mohon masukan nama dahulu !">
                         <div class="help-block with-errors"></div>
                       </div>                                 
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
-                        <input type="text" placeholder="Your Email" id="email" class="form-control" name="name" required data-error="Please enter your email">
+                        <input type="text" placeholder="Masukan E-mail" id="email" class="form-control" name="name" required data-error="Mohon masukan e-mail dahulu !">
                         <div class="help-block with-errors"></div>
                       </div> 
                     </div>
                     <div class="col-md-12">
                       <div class="form-group"> 
-                        <textarea class="form-control" id="message" placeholder="Your Message" rows="8" data-error="Write your message" required></textarea>
+                        <textarea class="form-control" id="message" placeholder="Masukan Pesan" rows="8" data-error="Mohon masukan pesan !" required></textarea>
                         <div class="help-block with-errors"></div>
                       </div>
                       <div class="submit-button text-center">
-                        <button class="btn btn-common" id="submit" type="submit">Send Message</button>
+                        <button class="btn btn-common" id="submit" type="submit">Kirim Pesan</button>
                         <div id="msgSubmit" class="h3 text-center hidden"></div> 
                         <div class="clearfix"></div> 
                       </div>
@@ -382,27 +382,12 @@ if (!isset($_SESSION['role'])) {
     <footer>          
       <div class="container">
         <div class="row">
-          <!-- Footer Links -->
-          <div class="col-lg-6 col-sm-6 col-xs-12">
-            <ul class="footer-links">
-              <li>
-                <a href="#">Homepage</a>
-              </li>
-              <li>
-                <a href="#">Services</a>
-              </li>
-              <li>
-                <a href="#">About Us</a>
-              </li>
-              <li>
-                <a href="#">Contact</a>
-              </li>
-            </ul>
-          </div>
+       
           <div class="col-lg-6 col-sm-6 col-xs-12">
             <div class="copyright">
-              <p>All copyrights reserved &copy; 2022 - Designed & Developed by <a rel="nofollow" href="https://uideck.com">UIdeck</a></p>
-            </div>
+              <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Copyright ©2022 gkjboyolaliofficial  - H.Yudha - Teknik Informatika - Universitas Kristen Surakarta -</p>
           </div>  
         </div>
       </div>
