@@ -123,7 +123,14 @@ include 'sidebar_menu.php';
                       ?></td>
                       <td><?= $row["username"]; ?></td>
                       <td><?= $row["password"]; ?></td>
-                      <td><?= nama($row["jabatan_majelis"]); ?></td>
+                      <td>
+                        <?php 
+                          if ($row["jabatan_majelis"] > 0 ){ ?>
+<?= nama($row["jabatan_majelis"]); ?>
+                        <?php  }
+                        ?>
+                      
+                      </td>
                       <td><?= $row["status"]; ?></td>
                     </tr>
                     <?php $i++; ?>
