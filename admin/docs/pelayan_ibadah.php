@@ -1,7 +1,15 @@
 <?php
 include '../../database.php';
   ##$alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
-
+  if(isset($_POST['hapus'])){
+    $hapus = $_POST['hapus'];
+    $insert_datahapus = mysqli_query($conn,"DELETE FROM `pelayan_ibadah` WHERE `id_ibadah`='$hapus'") or die("gagal". mysqli_error());
+    if($insert_datahapus){
+        echo "<script type='text/javascript'>
+        alert('Data Berhasil Di Hapus!');
+        </script>";
+    }
+  }
 
 if (isset($_POST['cari'])) {
 $cari = $_POST['cari1'];
@@ -95,7 +103,12 @@ include 'sidebar_menu.php';
                   <?php $i = 1; ?>
                   <?php foreach ($pelayan_ibadah as $row) : ?>
                     <tr>
-                      <td><a href="proses_edit_pelayan_ibadah.php?id=<?= $row["id_ibadah"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i></td>
+                      <td>
+                        <a href="proses_edit_pelayan_ibadah.php?id=<?= $row["id_ibadah"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i>
+                        <form action="" method="POST">
+                        <button type="submit" name="hapus" value="<?= $row['id_ibadah']; ?>" class="btn btn-danger m-1" onclick="return confirm('Yakin Hapus?')"><i class="fa fa-lg fa-trash"></i></button>
+                      </form>
+                      </td>
                       <td><?= $row["nama_ibadah"]; ?></td>
                       <td><?= $row["tempat"]; ?></td>
                       <td><?= $row["jadwal_ibadah"]; ?></td>

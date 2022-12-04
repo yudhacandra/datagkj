@@ -1,6 +1,15 @@
 <?php
 include '../../database.php';
   ##$alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
+  if(isset($_POST['hapus'])){
+    $hapus = $_POST['hapus'];
+    $insert_datahapus = mysqli_query($conn,"DELETE FROM `keuangan` WHERE `id_keuangan`='$hapus'") or die("gagal". mysqli_error());
+    if($insert_datahapus){
+        echo "<script type='text/javascript'>
+        alert('Data Berhasil Di Hapus!');
+        </script>";
+    }
+  }
 
 
 if (isset($_POST['cari'])) {
@@ -95,7 +104,11 @@ include 'sidebar_menu.php';
                     $harga =$row["nominal"];
                     ?>
                     <tr>
-                      <td><a href="proses_edit_keuangan.php?id=<?= $row["jenis_persembahan"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i></td>
+                      <td><a href="proses_edit_keuangan.php?id=<?= $row["jenis_persembahan"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i>
+                      <form action="" method="POST">
+                        <button type="submit" name="hapus" value="<?= $row['id_keuangan']; ?>" class="btn btn-danger m-1" onclick="return confirm('Yakin Hapus?')"><i class="fa fa-lg fa-trash"></i></button>
+                      </form>
+                    </td>
                       <td><?= $row["jadwal"]; ?></td>
                       <td><?= $row["jenis_persembahan"]; ?></td>
                       <td>Rp. <?=number_format($harga,2,',','.');?></td>
