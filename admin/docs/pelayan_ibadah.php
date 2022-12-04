@@ -104,11 +104,19 @@ include 'sidebar_menu.php';
                   <?php foreach ($pelayan_ibadah as $row) : ?>
                     <tr>
                       <td>
+<<<<<<< HEAD
                         <a href="proses_edit_pelayan_ibadah.php?id=<?= $row["id_ibadah"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i>
                         <form action="" method="POST">
                         <button type="submit" name="hapus" value="<?= $row['id_ibadah']; ?>" class="btn btn-danger m-1" onclick="return confirm('Yakin Hapus?')"><i class="fa fa-lg fa-trash"></i></button>
                       </form>
                       </td>
+=======
+                          <a class="btn btn-primary m-1" href="proses_edit_pelayan_ibadah.php?id=<?= $row["id_ibadah"]; ?>"><i class="fa fa-lg fa-edit"></i></a>
+                        <form action="" method="POST">
+                          <button type="submit" name="hapus" value="<?= $row['id_ibadah']; ?>" class="btn btn-danger" onclick="return confirm('Yakin Hapus?')"><i class="fa fa-lg fa-trash"></i></button>
+                        </form>
+
+>>>>>>> 4adab4e322f9eec2ba7c55978f76184989135ce3
                       <td><?= $row["nama_ibadah"]; ?></td>
                       <td><?= $row["tempat"]; ?></td>
                       <td><?= $row["jadwal_ibadah"]; ?></td>

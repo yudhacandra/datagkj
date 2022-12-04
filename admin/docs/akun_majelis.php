@@ -65,7 +65,7 @@ include 'sidebar_menu.php';
               <div class="form-inline">
               <input type="text" name="cari1" class="form-control col-2 m-2">
               <button type="submit" name="cari" class="btn btn-info"><i class="app-menu__icon fa fa-search" aria-hidden="true"></i></button>
-              <a href="proses_tambah_akun_majelis.php" class="btn btn-info ml-2"><i class="app-menu__icon fa fa-plus" aria-hidden="true"></i></a>
+              <a href="proses_tambah_akun_majelis.php" class="btn btn-success ml-1 "><i class="app-menu__icon fa fa-plus" aria-hidden="true"></i></a>
             </div>
           </form>
 
@@ -106,11 +106,12 @@ include 'sidebar_menu.php';
                   $i = 1; ?>
                   <?php foreach ($akun_majelis as $row) : ?>
                     <tr>
-                      <td><a href="proses_edit_akun_majelis.php?id=<?= $row["id_majelis"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i>
-                      <form action="" method="POST">
-                        <button type="submit" name="hapus" value="<?= $row['id_majelis']; ?>" class="btn btn-danger m-1" onclick="return confirm('Yakin Hapus?')"><i class="fa fa-lg fa-trash"></i></button>
-                      </form>
-                    </td>
+                      <td>
+                        <a class="btn btn-primary m-1" href="proses_edit_akun_majelis.php?id=<?= $row["id_majelis"]; ?>"><i class="fa fa-lg fa-edit"></i></a>  
+                        <form action="" method="POST">
+                          <button type="submit" name="hapus" value="<?= $row['id_majelis']; ?>" class="btn btn-danger m-1" onclick="return confirm('Yakin Hapus?')"><i class="fa fa-lg fa-trash"></i></button>
+                        </form>
+                      </td>
                       <td><?= $row["id_majelis"]; ?></td>
                       <td><?php 
                       $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` where `no_induk` ='".$row["id_majelis"]."'");

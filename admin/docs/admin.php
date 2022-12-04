@@ -92,7 +92,10 @@ include 'sidebar_menu.php';
                   <?php $i = 1; ?>
                   <?php foreach ($admin as $row) : ?>
                     <tr>
-                      <td><a class="btn btn-primary m-1" href="proses_edit_admin.php?id=<?= $row["id"]; ?>"><i class="fa fa-lg fa-edit"></i></a><a class="btn btn-primary" href="proses_hapus_admin.php?id=<?= $row["id"]; ?>"><i class="fa fa-lg fa-trash"></i></a></td>
+                      <td><a class="btn btn-primary m-1" href="proses_edit_admin.php?id=<?= $row["id"]; ?>"><i class="fa fa-lg fa-edit"></i></a>
+                      <form action="" method="POST">
+                        <button type="submit" name="hapus" value="<?= $row['id']; ?>" class="btn btn-danger m-1" onclick="return confirm('Yakin Hapus?')"><i class="fa fa-lg fa-trash"></i></button>
+                      </form>
                       <td><?= $row["nama"]; ?></td>
                       <td><?= $row["username"]; ?></td>
                       <td><?= $row["password"]; ?></td>

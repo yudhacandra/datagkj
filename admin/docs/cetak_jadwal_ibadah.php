@@ -26,26 +26,38 @@ tr:nth-child(even) {
 </head>
 <body>
 
-<h1>JADWAL IBADAH GKJ BOYOLALI</h1>
-<h4>Jl. Pahlawan No.60, Ngrancah, Siswodipuran, Kec. Boyolali, Kabupaten Boyolali, Jawa Tengah 57311</h4>
+<center>
+<td width='940' align='center'>
+	<span style='font-size:25px; font-weight: bold;'>JADWAL IBADAH<br>
+  GEREJA KRISTEN JAWA BOYOLALI
+  </span><br>
+  <p></p>
+  Jl. Pahlawan No.60, Ngrancah, Siswodipuran, Kec. Boyolali, Kabupaten Boyolali, Jawa Tengah 57311 <br>
+	Telp. Telepon (0276) 321696 ,
+	Website: http://www.gkjboyolaliofficial.com, Email:  gkj.boyolali@gmail.com						
+</td>
+<br>
 <a href="pelayan_ibadah.php" class="btn">Kembali</a>
+</center>
 <p></p>
+<br>
 
 <table>
   <tr style="background-color:orange">
 
-    <th>Nama Ibadah</th>
-    <th>Tempat</th>
-    <th>Tanggal</th>
-    <th>Waktu Mulai</th>
-    <th>Waktu Akhir</th>
-    <th>Pengkotbah</th>
-    <th>Organis</th>
-    <th>Pemandu Nyanyian Jemaat</th>
-    <th>Bunga Mimbar</th>
-    <th>Keterangan</th>
-    <th>PIC</th>
+    <th><center>Nama Ibadah</center></th>
+    <th><center>Tempat</center></th>
+    <th><center>Tanggal</center></th>
+    <th><center>Waktu Mulai</center></th>
+    <th><center>Waktu Akhir</center></th>
+    <th><center>Pengkotbah</center></th>
+    <th><center>Organis</center></th>
+    <th><center>Pemandu Nyanyian Jemaat</center></th>
+    <th><center>Bunga Mimbar</center></th>
+    <th><center>Keterangan</center></th>
+    <th><center>PIC</center></th>
   </tr>
+
 
   <?php $i = 1; ?>
 <?php foreach ($pelayan_ibadah as $row) : ?>
@@ -54,9 +66,9 @@ tr:nth-child(even) {
                     
                       <td><?= $row["nama_ibadah"]; ?></td>
                       <td><?= $row["tempat"]; ?></td>
-                      <td><?= $row["jadwal_ibadah"]; ?></td>
-                      <td><?= $row["jam_mulai"]; ?></td>
-                      <td><?= $row["jam_akhir"]; ?></td>
+                      <td><center><?= $row["jadwal_ibadah"]; ?></center></td>
+                      <td><center><?= $row["jam_mulai"]; ?></center></td>
+                      <td><center><?= $row["jam_akhir"]; ?></center></td>
                       <td><?= $row["pengkotbah"]; ?></td>
                       <td><?= $row["organis"]; ?></td>
                       <td><?= $row["pemandu_nyanyian"]; ?></td>
@@ -69,6 +81,13 @@ tr:nth-child(even) {
                   ?>
   </tr>
 </table>
+
+<tr>
+  <br>
+  <br>
+		<td width='500' align='center'>Boyolali, <br><br><p>&nbsp;</p><br><u>Pdt. Pdt. Nur Bagus Aji Jatmiko, S.Pd.K.</u><br>Gembala Jemaat</td>
+	</tr>
+
 <script>
 		window.print();
 	</script>
