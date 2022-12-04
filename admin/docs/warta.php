@@ -97,7 +97,7 @@ include 'sidebar_menu.php';
                   <?php $i = 1; ?>
                   <?php foreach ($warta as $row) : ?>
                     <tr>
-                      <td><a href="proses_edit_warta.php?id=<?= $row["judul"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i>
+                      <td><a href="proses_edit_warta.php?id=<?= $row["id_warta"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i>
                       <form action="" method="POST">
                         <button type="submit" name="hapus" value="<?= $row['id_warta']; ?>" class="btn btn-danger m-1" onclick="return confirm('Yakin Hapus?')"><i class="fa fa-lg fa-trash"></i></button>
                       </form>

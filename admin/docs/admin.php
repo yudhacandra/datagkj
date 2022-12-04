@@ -1,7 +1,15 @@
 <?php
 include '../../database.php';
   ##$alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
-
+  if(isset($_POST['hapus'])){
+    $hapus = $_POST['hapus'];
+    $insert_datahapus = mysqli_query($conn,"DELETE FROM `admin` WHERE `id`='$hapus'") or die("gagal". mysqli_error());
+    if($insert_datahapus){
+        echo "<script type='text/javascript'>
+        alert('Data Berhasil Di Hapus!');
+        </script>";
+    }
+  }
 
 if (isset($_POST['cari'])) {
 $cari = $_POST['cari1'];

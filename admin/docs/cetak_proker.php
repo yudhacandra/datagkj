@@ -25,14 +25,22 @@ tr:nth-child(even) {
 </style>
 </head>
 <body>
+
 <center>
-  <h2>LAPORAN PROGRAM KERJA TAHUNAN</h2>
-  <h2>GKJ BOYOLALI</h2>
-  <a>Jl. Pahlawan No.60, Ngrancah, Siswodipuran, Kec. Boyolali, Kabupaten Boyolali, Jawa Tengah 57311</a>
-    <a>Telepon (0276) 321696</a>
-  <a href="proker.php" class="btn">Kembali</a>
+<td width='940' align='center'>
+	<span style='font-size:25px; font-weight: bold;'>PROGRAM KERJA TAHUNAN<br>
+  GEREJA KRISTEN JAWA BOYOLALI
+  </span><br>
+  <p></p>
+  Jl. Pahlawan No.60, Ngrancah, Siswodipuran, Kec. Boyolali, Kabupaten Boyolali, Jawa Tengah 57311 <br>
+	Telp. Telepon (0276) 321696 ,
+	Website: http://www.gkjboyolaliofficial.com, Email:  gkj.boyolali@gmail.com						
+</td>
+<br>
+<a href="proker.php" class="btn">Kembali</a>
 </center>
 <p></p>
+<br>
 
 <table>
   <tr>
@@ -58,6 +66,18 @@ tr:nth-child(even) {
                   ?>
   </tr>    
 </table>
+
+<tr>
+  <br>
+  <br>
+		<h4 width='500' align='right'>Boyolali,
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <br><br><p></p><br><u>Pdt. Pdt. Nur Bagus Aji Jatmiko, S.Pd.K.</u><br>
+    Gembala Jemaat&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+	</tr>
+
 <script>
 		window.print();
 	</script>

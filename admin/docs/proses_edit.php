@@ -75,7 +75,7 @@ include 'sidebar_menu.php';
                                 <div class="form-group">
                                     <label for="contact-number">Jenis Kelamin:</label>
                                     <select name="jenis_kelamin" class="form-control" value="<?=  $data['jenis_kelamin']; ?>" >
-                                    <option value="P"></option>
+                                    <option value=""></option>
                                     <option value="P">Perempuan</option>
                                     <option value="L">Laki-laki</option>
                                     </select>

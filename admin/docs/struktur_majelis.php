@@ -1,7 +1,18 @@
 <?php
 include '../../database.php';
   ##$alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
-
+  if(isset($_POST['hapus'])){
+    $hapus = $_POST['hapus'];
+    $jbt = "";
+    $data_jemaat = mysqli_query($conn, "UPDATE `data_jemaat` SET `jabatan` = '$jbt' WHERE `data_jemaat`.`jabatan` = '$hapus'");
+    $data = mysqli_fetch_array($data_jemaat);
+    $insert_datahapus = mysqli_query($conn,"DELETE FROM `struktur_majelis` WHERE `id_struktur`='$hapus'") or die("gagal". mysqli_error());
+    if($insert_datahapus){
+        echo "<script type='text/javascript'>
+        alert('Data Berhasil Di Hapus!');
+        </script>";
+    }
+  }
 
 if (isset($_POST['cari'])) {
 $cari = $_POST['cari1'];
@@ -90,7 +101,12 @@ include 'sidebar_menu.php';
                   <?php $i = 1; ?>
                   <?php foreach ($struktur_majelis as $row) : ?>
                     <tr>
-                      <td><a class="btn btn-primary" href="proses_edit_struktur_majelis.php?id=<?= $row["idjabatan_majelis"]; ?>"><i class="fa fa-lg fa-edit"></i></a><a class="btn btn-primary m-1" href="proses_hapus_struktur_majelis.php?id=<?= $row["idjabatan_majelis"]; ?>"><i class="fa fa-lg fa-trash"></i></a></td>
+                      <td>
+                        <a class="btn btn-primary" href="proses_edit_struktur_majelis.php?id=<?= $row["idjabatan_majelis"]; ?>"><i class="fa fa-lg fa-edit"></i></a>
+                        <form action="" method="POST">
+                        <button type="submit" name="hapus" value="<?= $row['id_struktur']; ?>" class="btn btn-danger m-1" onclick="return confirm('Yakin Hapus?')"><i class="fa fa-lg fa-trash"></i></button>
+                      </form>
+                        <!-- <a class="btn btn-primary m-1" href="proses_hapus_struktur_majelis.php?id=<?= $row["idjabatan_majelis"]; ?>"><i class="fa fa-lg fa-trash"></i></a></td> -->
                       <td><?= $row["idjabatan_majelis"]; ?></td>
                       <td><?= $row["periode_majelis"]; ?></td>
                       <td>

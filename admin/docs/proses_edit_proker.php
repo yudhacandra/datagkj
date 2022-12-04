@@ -105,7 +105,7 @@ include 'sidebar_menu.php';
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
                                     <label for="contact-number"><b>Keterangan   :</b></label>
-                                    <input type="date" class="form-control" value="<?=  $data['keterangan']; ?>"  name="keterangan">
+                                    <input type="text" class="form-control" value="<?=  $data['keterangan']; ?>"  name="keterangan">
                                 </div>
                             </div>
                             </div>

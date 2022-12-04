@@ -16,7 +16,7 @@ $cari = $_POST['cari1'];
 
 if ($cari != null) {
 
-  $proker = mysqli_query($conn, "SELECT * FROM `proker` where `nama_proker` like '%$cari%' or `id_proker` like '%$cari%' ");
+  $proker = mysqli_query($conn, "SELECT * FROM `proker` where `nama_proker` like '%$cari%' or `id_proker` like '%$cari%' or `bidang` like '%$cari%' ");
   $data = mysqli_fetch_array($proker);
 } else {
   $proker = mysqli_query($conn, "SELECT * FROM `proker` ");

@@ -50,13 +50,6 @@ include 'sidebar_menu.php';
                     <form action="" method="POST" >
                       <div class="row">
                         <div class="col-12 col-lg-10">
-                          <div class="form-group"><p></p>
-                            <label for="contact-name"><b>Id Program :</b></label>
-                            <input type="text" class="form-control" name="id_proker">
-                          </div>
-                        </div>
-
-                        <div class="col-12 col-lg-10">
                               <label class="control-label mt-1"><b>Bidang :</b></label>
                               <select class="form-control col-30" name="bidang">
                                 <option value="#"></option>
