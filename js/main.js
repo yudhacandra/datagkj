@@ -2,51 +2,61 @@
   
   "use strict";
 
-  // Sticky Nav
-    $(window).on('scroll', function() {
-        if ($(window).scrollTop() > 200) {
-            $('.scrolling-navbar').addClass('top-nav-collapse');
-        } else {
-            $('.scrolling-navbar').removeClass('top-nav-collapse');
+  //===== Sticky
+    
+    $(window).on('scroll', function(event) {    
+        var scroll = $(window).scrollTop();
+        if (scroll < 20) {
+            $(".navigation").removeClass("sticky");
+        } else{
+            $(".navigation").addClass("sticky");
         }
     });
+    
+    
+    //===== Section Menu Active
 
+    var scrollLink = $('.page-scroll');
+        // Active link switching
+        $(window).scroll(function() {
+        var scrollbarLocation = $(this).scrollTop();
+
+        scrollLink.each(function() {
+
+          var sectionOffset = $(this.hash).offset().top - 73;
+
+          if ( sectionOffset <= scrollbarLocation ) {
+            $(this).parent().addClass('active');
+            $(this).parent().siblings().removeClass('active');
+          }
+        });
+    });
+    
+    
+    //===== close navbar-collapse when a  clicked
+    
+    $(".navbar-nav a").on('click', function () {
+        $(".navbar-collapse").removeClass("show");
+    });
+    
+    
+    //===== Mobile Menu
+    
+    $(".navbar-toggler").on('click', function(){
+        $(this).toggleClass("active");
+    });
+    
+    $(".navbar-nav a").on('click', function() {
+        $(".navbar-toggler").removeClass('active');
+    });
+    
+
+    
     /* 
-   One Page Navigation & wow js
+   & wow js
    ========================================================================== */
     //Initiat WOW JS
     new WOW().init();
-
-    // one page navigation 
-    $('.main-navigation').onePageNav({
-            currentClass: 'active'
-    }); 
-
-    $(window).on('load', function() {
-       
-        $('body').scrollspy({
-            target: '.navbar-collapse',
-            offset: 195
-        });
-
-        $(window).on('scroll', function() {
-            if ($(window).scrollTop() > 200) {
-                $('.fixed-top').addClass('menu-bg');
-            } else {
-                $('.fixed-top').removeClass('menu-bg');
-            }
-        });
-
-    });
-
-    // Slick Nav 
-    $('.mobile-menu').slicknav({
-      prependTo: '.navbar-header',
-      parentTag: 'span',
-      allowParentLinks: true,
-      duplicate: false,
-      label: '',
-    });
 
 
 /* 

@@ -58,9 +58,93 @@ $letter-spacing: 0px;
  /* ==========================================================================
    2. GENERAL
    ========================================================================== */
+
+
+@mixin transition($time) {
+	-webkit-transition: all $time ease-out 0s;
+	-moz-transition: all $time ease-out 0s;
+	-ms-transition: all $time ease-out 0s;
+	-o-transition: all $time ease-out 0s;
+	transition: all $time ease-out 0s;
+}
+
+
+@mixin transform($value) {
+  -webkit-transform: $value;
+     -moz-transform: $value;
+      -ms-transform: $value;
+       -o-transform: $value;
+          transform: $value;
+}
+
+@mixin user-select($value) {
+  -webkit-user-select: $value;
+     -moz-user-select: $value;
+      -ms-user-select: $value;
+          user-select: $value;
+}
+
+
+@mixin box-sizing($value) {
+  -webkit-box-sizing: $value;
+     -moz-box-sizing: $value;
+          box-sizing: $value;
+}
+
+
+@mixin animation($value) {
+  -webkit-animation: $value;
+     -moz-animation: $value;
+       -o-animation: $value;
+          animation: $value;
+}
+
+
+@mixin animation-delay($value) {
+  -webkit-animation-delay: $value;
+     -moz-animation-delay: $value;
+       -o-animation-delay: $value;
+          animation-delay: $value;
+}
+
+
+
+@mixin box-shadow($value) {
+  -webkit-box-shadow: $value;
+     -moz-box-shadow: $value;
+          box-shadow: $value;
+}
+
+
+// Placeholder Mixins
+@mixin placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+
+
+// Colors ---------------
+$white: #fff;
+$black: #222;
+
+
+// Responsive Variables
+$desktop: 'only screen and (min-width: 1400px)';
+$laptop: 'only screen and (min-width: 1200px) and (max-width: 1399px)';
+$lg : 'only screen and (min-width: 992px) and (max-width: 1199px)';
+$md:'only screen and (min-width: 768px) and (max-width: 991px)';
+$xs:'(max-width: 767px)';
+$sm: 'only screen and (min-width: 576px) and (max-width: 767px)';
+
+
+
+
+
 	body{
 		font-family: 'Poppins', sans-serif;
-		color: rgb(255, 255, 255);
+		color: #333;
 		font-size: 14px;
 		font-weight: 400;
 		background: #fff;
@@ -111,7 +195,7 @@ $letter-spacing: 0px;
    2.1 Section Title
    ========================================================================== */
 	.section{
-		padding: 750px 0;
+		padding: 80px 0;
 	}
 	.section-header{
 		color: #fff;
@@ -121,7 +205,7 @@ $letter-spacing: 0px;
 			font-size: 42px;
 			margin-top: 0;
 			text-transform: uppercase;
-			font-weight: 750;
+			font-weight: 700;
 			color: #333;
 			position: relative;
 			span{
@@ -421,120 +505,143 @@ $letter-spacing: 0px;
 /* ==========================================================================
    4. Navbar Style
    ========================================================================== */
-	.navbar-brand{
-	  position: relative;
-	  padding: 0px;
-	}
-	.top-nav-collapse{
-	  background: #fff;
-	  z-index: 999999;
-	  top: 0px!important;
-	  padding: 0;
-	  box-shadow: 0px 3px 6px 3px rgba(0, 0, 0, 0.06);
-	  -webkit-animation-duration: 1s;
-	  animation-duration: 1s;
-	  -webkit-animation-fill-mode: both;
-	  animation-fill-mode: both;
-	  -webkit-animation-name: fadeInDown;
-	  animation-name: fadeInDown;
-	  .navbar-brand{
-	    top: 0px;
-	  }
-	  background: #fff!important;
-	  .navbar-nav .nav-link{
-	    color: #333 !important;
-	    margin-top: 0px!important;
-	    margin-bottom: 0px!important;
-	    &:hover{
-	    	color: $preset!important;
-	    }
-	  }
-		.navbar-nav .nav-link.active{
-			color: #fff!important;
-		}
-	}
-	.indigo{
-	  background: transparent;
-	}
-	.navbar-expand-lg .navbar-nav .nav-link{
-	  color: #fff;
-	  padding: 750 22px;
-	  margin-top: 20px;
-	  margin-bottom: 20px;
-	  line-height: 40px;
-	  border-radius: 30px;
-	  background: transparent;
-	  -webkit-transition: all 0.3s ease-in-out;
-	  -moz-transition: all 0.3s ease-in-out;
-	  transition: all 0.3s ease-in-out;
-	}
-	.navbar-expand-lg .navbar-nav li a:hover, 
-	.navbar-expand-lg .navbar-nav li .active > a, 
-	.navbar-expand-lg .navbar-nav li a:focus{
-	  color: $preset;
-	}
-	.navbar .nav-link.active{
-		color: #fff!important;
-		background: $preset;
-	}
-	.dropdown-toggle::after{
-	  display: none;
-	}
-	.slicknav_btn{
-	  border-color: $preset;
-	}
-	.slicknav_menu .slicknav_icon-bar{
-	  background: $preset;
-	}
-	/* only small tablets */
-	@media (min-width: 768px) and (max-width: 991px) {
-	   #nav-main li a.nav-link{
-	    padding-top: 18px;
-	  }
-	}
-	.navbar-toggler{
-	  display: none;
-	}
-	// Mobile Menu
-	.mobile-menu{
-	  display: none;
-	}
-	.slicknav_menu {
-	  display:none;
-	}
 
-	@media screen and (max-width: 768px) {
-	  .navbar-header{
-	    width: 100%;
-	  }
-	  .navbar-brand{
-	    position: absolute;
-	    padding: 15px;
-	    top: 0;
-	    img{
-	      width: 70%;
-	    }
-	}
-	  #mobile-menu {
-	    display:none;
-	  }
-	  
-	  .slicknav_menu {
-	    display:block;
-	  }
-	  .slicknav_nav .active a{
-	    background: $preset;
-	    color: #fff;
-	  }
-	  .slicknav_nav a:hover, .slicknav_nav .active{
-	    color: $preset;
-	    background: #f8f9fa;
-	  }
-	  .slicknav_nav .dropdown li a.active{
-	    background: #f8f9fa;
-	    color: $preset;
-	  }
-	}
+
+
+.navigation{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    @include transition(0.3s);
+    
+    &.sticky{
+        position: fixed;
+        background-color: $white;
+        @include box-shadow (0px 3px 6px 3px rgba(0, 0, 0, 0.06));
+    }
+}
+
+.navbar{}
+
+.navbar-toggler{
+    padding: 0;
+    cursor: pointer;
+    
+    & .toggler-icon{
+        width: 30px;
+        height: 2px;
+        background-color: $white;
+        display: block;
+        margin: 6px 0;
+        position: relative;
+        @include transition(0.3s);
+    }
+    
+    &.active{
+        & .toggler-icon{
+            &:nth-of-type(1){
+                @include transform(rotate(45deg));
+                top: 7px;
+            }
+            &:nth-of-type(2){
+                opacity: 0;
+            }
+            &:nth-of-type(3){
+                @include transform(rotate(135deg));
+                top: -8px;
+            }
+        }
+    }
+}
+
+
+.navbar-collapse{
+     @media #{$md} {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: $white;
+        z-index: 8;
+        @include box-shadow (0px 3px 6px 3px rgba(0, 0, 0, 0.06));
+    }
+
+    @media #{$xs} {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: $white;
+        z-index: 8;
+    }
+}
+
+.navbar-nav{
+    & .nav-item{
+        
+        & a{
+            color: #fff;
+            padding: 6px 22px;
+            border-radius: 30px;
+            background: transparent;
+            @include transition(0.3s);
+            position: relative;
+            
+            @media #{$md} {
+                color: #212121;
+                display: block;
+                padding: 4px 16px;
+            }
+            @media #{$xs} {
+                color: #212121;
+                display: block;
+                padding: 4px 16px;
+            }
+        }
+        
+        &:hover,
+        &.active{
+            & a{
+                color: $preset;
+                
+                 &::before{
+                    @include transform(scale3d(1, 1, 1));
+                }
+            }
+        }
+        &.active{
+            & a{
+                color: #fff!important;
+                background: $preset; 
+                
+                @media #{$md} {
+                    border-radius: 0;
+                }
+            }
+        }
+    }
+}
+
+.sticky{
+    
+    .navbar-toggler{
+        & .toggler-icon{
+            background-color: #212121;
+        }
+    }
+    
+    & .navbar-nav{
+        & .nav-item{
+            & a{
+                color: #212121;
+            }
+        }
+    }
+}
+
+
 
 /* ==========================================================================
   5. Services section
@@ -565,7 +672,7 @@ $letter-spacing: 0px;
    		}
    		h4{
    			font-size: 20px;
-   			font-weight: 750;
+   			font-weight: 700;
    			margin-bottom: 10px;
    		}
    	}
@@ -601,7 +708,7 @@ $letter-spacing: 0px;
 			z-index: 1;
 		}
 		.box-item {
-			padding: 210px 0;
+			padding: 15px 0;
 			.icon {
 				border: 1px solid $preset;
 				text-align: center;
