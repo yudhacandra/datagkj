@@ -1,24 +1,26 @@
 <?php
 include '../../database.php';
-  ##$alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
+##$alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
 
 
 if (isset($_POST['cari'])) {
-$cari = $_POST['cari1'];
-
-if ($cari != null) {
-
-  $struktur_majelis = mysqli_query($conn, "SELECT * FROM `struktur_majelis` where `idjabatan_majelis` like '%$cari%' or `idjabatan_majelis` like '%$cari%' ");
-  $data = mysqli_fetch_array($struktur_majelis);
-} else {
-  $struktur_majelis = mysqli_query($conn, "SELECT * FROM `struktur_majelis` ");
-  $data = mysqli_fetch_array($struktur_majelis);
+  $cari = $_POST['cari1'];
   
-}
-
+  if ($cari != null) {
+    
+    $struktur_majelis = mysqli_query($conn, "SELECT * FROM `data_majelis` where `idjabatan_majelis` like '%$cari%' or `idjabatan_majelis` like '%$cari%' ");
+    $data = mysqli_fetch_array($struktur_majelis);
+  } else {
+    $struktur_majelis = mysqli_query($conn, "SELECT * FROM `data_majelis` ");
+    $data = mysqli_fetch_array($struktur_majelis);
+    
+  }
+  
 } else {
-  $struktur_majelis = mysqli_query($conn, "SELECT * FROM `struktur_majelis` ");
+  include 'session-majelis.php';
+  $struktur_majelis = mysqli_query($conn, "SELECT * FROM `data_majelis` where id_majelis ='$id'");
   $data = mysqli_fetch_array($struktur_majelis);
+  $ambi_jbt =$data['jabatan_majelis'];
   
 }
 
@@ -42,12 +44,12 @@ include 'sidebar_menu.php';
       <div class="app-title">
         <div>
           <h1><i class="fa fa-universal-access" aria-hidden="true"></i></i> Struktur Majelis GKJ Boyolali</h1>
-          <p>Struktur Majelis Gereja GKJ Boyolali</p>
+          <p>Struktur anggota dari Majelis Gereja GKJ Boyolali</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><a href="dashboard_majelis.php"><i class="fa fa-dashboard"></a></i></li>
           <li class="breadcrumb-item">Bidang Majelis</li>
-          <li class="breadcrumb-item">Struktur Majelis</li>
+          <li class="breadcrumb-item">Anggota Majelis</li>
         </ul>
       </div>
       <div class="row">
@@ -58,7 +60,7 @@ include 'sidebar_menu.php';
               <div class="form-inline">
               <input type="text" name="cari1" class="form-control col-2 m-2">
               <button type="submit" name="cari" class="btn btn-info"><i class="app-menu__icon fa fa-search" aria-hidden="true"></i></button>
-              <a href="proses_tambah_struktur_majelis.php" class="btn btn-info ml-2"><i class="app-menu__icon fa fa-plus" aria-hidden="true"></i></a>
+              <!-- <a href="proses_tambah_struktur_majelis.php" class="btn btn-info ml-2"><i class="app-menu__icon fa fa-plus" aria-hidden="true"></i></a> -->
             </div>
           </form>
 
@@ -78,21 +80,26 @@ include 'sidebar_menu.php';
               
                   <thead>
                     <tr>
-                      <th rowspan="2">Opsi</th>
-                      <th rowspan="2">Jabatan Bidang Majelis</th>
-                      <th rowspan="2">Periode Majelis</th>
-                      <th rowspan="2">Jumlah Anggota</th>
+                 
+                      <th rowspan="2">No Induk</th>
+                      <th rowspan="2">Nama Anggota</th>
                     </tr>
 
                   </thead>
                   <tbody>
-                  <?php $i = 1; ?>
-                  <?php foreach ($struktur_majelis as $row) : ?>
+                  <?php 
+                   $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` WHERE jabatan='$ambi_jbt';");
+                  
+                  $i = 1; ?>
+                  <?php foreach ($data_jemaat as $row) : ?>
                     <tr>
-                      <td><a href="proses_edit_struktur_majelis.php?id=<?= $row["idjabatan_majelis"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i></td>
-                      <td><?= $row["idjabatan_majelis"]; ?></td>
-                      <td><?= $row["periode_majelis"]; ?></td>
-                      <td><?= $row["jumlah_anggota_majelis"]; ?></td>
+                    
+                      <td>
+                        <?= $row["no_induk"]; ?>
+                      </td>
+                      <td>
+                        <?= $row["nama"]; ?>
+                      </td>
                     </tr>
                     <?php $i++; ?>
                     <?php endforeach; 

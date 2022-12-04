@@ -1,7 +1,15 @@
 <?php
 include '../../database.php';
   ##$alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
-
+  if(isset($_POST['hapus'])){
+    $hapus = $_POST['hapus'];
+    $insert_datahapus = mysqli_query($conn,"DELETE FROM `pelayan_ibadah` WHERE `id_ibadah`='$hapus'") or die("gagal". mysqli_error());
+    if($insert_datahapus){
+        echo "<script type='text/javascript'>
+        alert('Data Berhasil Di Hapus!');
+        </script>";
+    }
+  }
 
 if (isset($_POST['cari'])) {
 $cari = $_POST['cari1'];
@@ -43,7 +51,7 @@ include 'sidebar_menu.php';
           <p>Pelayan Ibadah Gereja Keristen Jawa Boyolali</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
-          <li class="breadcrumb-item"><a href="dashboard_majelis.php"><i class="fa fa-dashboard"></a></i></li>
+          <li class="breadcrumb-item"><a href="dashboard.php"><i class="fa fa-dashboard"></a></i></li>
           <li class="breadcrumb-item">Jadwal Ibadah</li>
         </ul>
       </div>
@@ -56,6 +64,7 @@ include 'sidebar_menu.php';
               <input type="text" name="cari1" class="form-control col-2 m-2">
               <button type="submit" name="cari" class="btn btn-info"><i class="app-menu__icon fa fa-search" aria-hidden="true"></i></button>
               <a href="proses_tambah_pelayan_ibadah.php" class="btn btn-info ml-2"><i class="app-menu__icon fa fa-plus" aria-hidden="true"></i></a>
+              <!-- <a href="cetak_jadwal_ibadah.php" target="blank" class="btn btn-success ml-1 "><i class="app-menu__icon fa fa-download" aria-hidden="true"></i></a> -->
             </div>
           </form>
 
@@ -78,7 +87,9 @@ include 'sidebar_menu.php';
                       <th rowspan="2">Opsi</th>
                       <th rowspan="2">Nama Ibadah</th>
                       <th rowspan="2">Tempat</th>
-                      <th rowspan="2">Jadwal Ibadah</th>
+                      <th rowspan="2">Tanggal</th>
+                      <th>Waktu Mulai</th>
+                      <th>Waktu Akhir</th>
                       <th rowspan="2">Pengkotbah</th>
                       <th rowspan="2">Organis</th>
                       <th rowspan="2">Pemandu Nyanyian Jemaat</th>
@@ -92,10 +103,18 @@ include 'sidebar_menu.php';
                   <?php $i = 1; ?>
                   <?php foreach ($pelayan_ibadah as $row) : ?>
                     <tr>
-                      <td><a href="proses_edit_pelayan_ibadah.php?id=<?= $row["id_ibadah"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i></td>
+                      <td>
+                        <a href="proses_edit_pelayan_ibadah.php?id=<?= $row["id_ibadah"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i>
+                        <form action="" method="POST">
+                        <button type="submit" name="hapus" value="<?= $row['id_ibadah']; ?>" class="btn btn-danger m-1" onclick="return confirm('Yakin Hapus?')"><i class="fa fa-lg fa-trash"></i></button>
+                      </form>
+                      </td>
+      
                       <td><?= $row["nama_ibadah"]; ?></td>
                       <td><?= $row["tempat"]; ?></td>
                       <td><?= $row["jadwal_ibadah"]; ?></td>
+                      <td><?= $row["jam_mulai"]; ?></td>
+                      <td><?= $row["jam_akhir"]; ?></td>
                       <td><?= $row["pengkotbah"]; ?></td>
                       <td><?= $row["organis"]; ?></td>
                       <td><?= $row["pemandu_nyanyian"]; ?></td>

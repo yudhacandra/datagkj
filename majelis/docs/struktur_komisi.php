@@ -3,28 +3,33 @@ include '../../database.php';
   ##$alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
 
 
-if (isset($_POST['cari'])) {
-$cari = $_POST['cari1'];
-
-if ($cari != null) {
-
-  $struktur_komisi = mysqli_query($conn, "SELECT * FROM `struktur_komisi` where `idnama_komisi` like '%$cari%' or `idnama_komisi` like '%$cari%' ");
-  $data = mysqli_fetch_array($struktur_komisi);
-} else {
-  $struktur_komisi = mysqli_query($conn, "SELECT * FROM `struktur_komisi` ");
-  $data = mysqli_fetch_array($struktur_komisi);
+  if (isset($_POST['cari'])) {
+    $cari = $_POST['cari1'];
+    
+    if ($cari != null) {
+      
+      $struktur_majelis = mysqli_query($conn, "SELECT * FROM `data_majelis` where `idjabatan_majelis` like '%$cari%' or `idjabatan_majelis` like '%$cari%' ");
+      $data = mysqli_fetch_array($struktur_majelis);
+    } else {
+      $struktur_majelis = mysqli_query($conn, "SELECT * FROM `data_majelis` ");
+      $data = mysqli_fetch_array($struktur_majelis);
+      
+    }
+    
+  } else {
+    include 'session-majelis.php';
+    $struktur_majelis = mysqli_query($conn, "SELECT * FROM `data_majelis` where id_majelis ='$id'");
+    $data = mysqli_fetch_array($struktur_majelis);
+    $ambi_jbt =$data['komisi'];
+    $struktur_komisi= mysqli_query($conn, "SELECT * FROM `struktur_komisi` where id_komisi ='$ambi_jbt'");
+    $data_komisi = mysqli_fetch_array($struktur_komisi);
   
-}
-
-} else {
-  $struktur_komisi = mysqli_query($conn, "SELECT * FROM `struktur_komisi` ");
-  $data = mysqli_fetch_array($struktur_komisi);
-  
-}
+    
+  }
 
 
 
-$cek = mysqli_num_rows($struktur_komisi);
+$cek = mysqli_num_rows($struktur_majelis);
 ?>
 
 <!DOCTYPE html>
@@ -42,11 +47,11 @@ include 'sidebar_menu.php';
       <div class="app-title">
         <div>
           <h1><i class="fa fa-universal-access" aria-hidden="true"></i></i> Data Komisi GKJ Boyolali</h1>
-          <p>Data Komisi Gereja GKJ Boyolali</p>
+          <p>Anggota <?= $data_komisi['idnama_komisi']; ?> Gereja GKJ Boyolali</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><a href="dashboard_majelis.php"><i class="fa fa-dashboard"></a></i></li>
-          <li class="breadcrumb-item">Bidang Komisi</li>
+          <li class="breadcrumb-item">Anggota <?= $data_komisi['idnama_komisi']; ?> </li>
         </ul>
       </div>
       <div class="row">
@@ -57,7 +62,7 @@ include 'sidebar_menu.php';
               <div class="form-inline">
               <input type="text" name="cari1" class="form-control col-2 m-2">
               <button type="submit" name="cari" class="btn btn-info"><i class="app-menu__icon fa fa-search" aria-hidden="true"></i></button>
-              <a href="proses_tambah_struktur_komisi.php" class="btn btn-info ml-2"><i class="app-menu__icon fa fa-plus" aria-hidden="true"></i></a>
+              <!-- <a href="proses_tambah_struktur_komisi.php" class="btn btn-info ml-2"><i class="app-menu__icon fa fa-plus" aria-hidden="true"></i></a> -->
             </div>
           </form>
 
@@ -77,21 +82,25 @@ include 'sidebar_menu.php';
               
                   <thead>
                     <tr>
-                      <th rowspan="2">Opsi</th>
-                      <th rowspan="2">Nama Komisi</th>
-                      <th rowspan="2">Periode Komisi</th>
-                      <th rowspan="2">Jumlah Anggota</th>
+                    <th rowspan="2">No Induk</th>
+                      <th rowspan="2">Nama Anggota</th>
                     </tr>
 
                   </thead>
                   <tbody>
-                  <?php $i = 1; ?>
-                  <?php foreach ($struktur_komisi as $row) : ?>
+                  <?php 
+                   $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` WHERE Id_komisi='$ambi_jbt'");
+                  
+                  $i = 1; ?>
+                  <?php foreach ($data_jemaat as $row) : ?>
                     <tr>
-                      <td><a href="proses_edit_struktur_komisi.php?id=<?= $row["idnama_komisi"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i></td>
-                      <td><?= $row["idnama_komisi"]; ?></td>
-                      <td><?= $row["periode_komisi"]; ?></td>
-                      <td><?= $row["jumlah_anggota"]; ?></td>
+                    
+                      <td>
+                        <?= $row["no_induk"]; ?>
+                      </td>
+                      <td>
+                        <?= $row["nama"]; ?>
+                      </td>
                     </tr>
                     <?php $i++; ?>
                     <?php endforeach; 

@@ -2,7 +2,7 @@
 include '../../database.php';
 if(isset($_POST['simpan']))
 {
-$idi=$_POST['id_ibadah'];
+// $idi=$_POST['id_ibadah'];
 $ni=$_POST['nama_ibadah'];
 $tmp=$_POST['tempat'];
 $jdwi=$_POST['jadwal_ibadah'];
@@ -12,8 +12,10 @@ $pn=$_POST['pemandu_nyanyian'];
 $bm=$_POST['bunga_mimbar'];
 $ktg=$_POST['keterangan'];
 $pic=$_POST['penanggung_jawab'];
+$jam_mulai=$_POST['jam_mulai'];
+$jam_akhir=$_POST['jam_akhir'];
 
-$insert = mysqli_query($conn,"INSERT INTO `pelayan_ibadah` (`id_ibadah`, `nama_ibadah`, `tempat`, `jadwal_ibadah`, `pengkotbah`, `organis`, `pemandu_nyanyian`, `bunga_mimbar`, `keterangan`, `penanggung_jawab`) VALUES ('$idi', '$ni', '$tmp', '$jdwi', '$peng', '$ogn', '$pn', '$bm', '$ktg', '$pic');");
+$insert = mysqli_query($conn,"INSERT INTO `pelayan_ibadah` (`id_ibadah`, `nama_ibadah`, `tempat`, `jadwal_ibadah`, `pengkotbah`, `organis`, `pemandu_nyanyian`, `bunga_mimbar`, `keterangan`, `penanggung_jawab`,`jam_mulai`,`jam_akhir`) VALUES ('$idi', '$ni', '$tmp', '$jdwi', '$peng', '$ogn', '$pn', '$bm', '$ktg', '$pic','$jam_mulai','$jam_akhir');");
 if($insert){ 
   // $alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
   header("location:pelayan_ibadah.php");
@@ -53,12 +55,12 @@ include 'sidebar_menu.php';
             <div class="contact-form-area">
                     <form action="" method="POST" >
                         <div class="row">
-                            <div class="col-12 col-lg-3">
+                            <!-- <div class="col-12 col-lg-3">
                               <div class="form-group">
                                 <label for="contact-name"><b>ID Ibadah :</b></label>
                                 <input type="text" class="form-control" id_ibadah="contact-name" name="id_ibadah">
                               </div>
-                            </div>
+                            </div> -->
                             <div class="col-12 col-lg-10">
                               <div class="form-group">
                                 <label for="contact-name"><b>Nama Ibadah :</b></label>
@@ -75,6 +77,18 @@ include 'sidebar_menu.php';
                               <div class="form-group">
                                 <label for="contact-name"><b>Jadwal Ibadah :</b></label>
                                 <input type="date" class="form-control" name="jadwal_ibadah">
+                              </div>
+                            </div>
+                            <div class="col-12 col-lg-10">
+                              <div class="form-group">
+                                <label for="contact-name"><b>Waktu Mulai :</b></label>
+                                <input type="time" class="form-control" name="jam_mulai">
+                              </div>
+                            </div>
+                            <div class="col-12 col-lg-10">
+                              <div class="form-group">
+                                <label for="contact-name"><b>Waktu Berakhir :</b></label>
+                                <input type="time" class="form-control" name="jam_akhir">
                               </div>
                             </div>
                             <div class="col-12 col-lg-10">

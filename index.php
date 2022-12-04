@@ -399,12 +399,7 @@ if (!isset($_SESSION['role'])) {
       <i class="lnr lnr-arrow-up"></i>
     </a>
     
-    <div id="loader">
-      <div class="spinner">
-        <div class="double-bounce1"></div>
-        <div class="double-bounce2"></div>
-      </div>
-    </div>     
+    
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="js/jquery-min.js"></script>

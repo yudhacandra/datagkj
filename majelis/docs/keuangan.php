@@ -1,6 +1,15 @@
 <?php
 include '../../database.php';
   ##$alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
+  if(isset($_POST['hapus'])){
+    $hapus = $_POST['hapus'];
+    $insert_datahapus = mysqli_query($conn,"DELETE FROM `keuangan` WHERE `id_keuangan`='$hapus'") or die("gagal". mysqli_error());
+    if($insert_datahapus){
+        echo "<script type='text/javascript'>
+        alert('Data Berhasil Di Hapus!');
+        </script>";
+    }
+  }
 
 
 if (isset($_POST['cari'])) {
@@ -45,7 +54,7 @@ include 'sidebar_menu.php';
           <p>Data Keuangan Gereja GKJ Boyolali</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
-          <li class="breadcrumb-item"><a href="dashboard_majelis.php"><i class="fa fa-dashboard"></a></i></li>
+          <li class="breadcrumb-item"><a href="dashboard.php"><i class="fa fa-dashboard"></a></i></li>
           <li class="breadcrumb-item">Keuangan</li>
         </ul>
       </div>
@@ -59,6 +68,8 @@ include 'sidebar_menu.php';
               <input type="text" name="cari1" class="form-control col-2 m-2">
               <button type="submit" name="cari" class="btn btn-info"><i class="app-menu__icon fa fa-search" aria-hidden="true"></i></button>
               <a href="proses_tambah_keuangan.php" class="btn btn-info ml-2"><i class="app-menu__icon fa fa-plus" aria-hidden="true"></i></a>
+              <!-- <a href="laporan_keuangan.php" target="blank" class="btn btn-success ml-1 "><i class="app-menu__icon fa fa-download" aria-hidden="true"></i></a> -->
+
             </div>
           </form>
 
@@ -93,7 +104,11 @@ include 'sidebar_menu.php';
                     $harga =$row["nominal"];
                     ?>
                     <tr>
-                      <td><a href="proses_edit_keuangan.php?id=<?= $row["jenis_persembahan"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i></td>
+                      <td><a href="proses_edit_keuangan.php?id=<?= $row["jenis_persembahan"]; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i>
+                      <form action="" method="POST">
+                        <button type="submit" name="hapus" value="<?= $row['id_keuangan']; ?>" class="btn btn-danger m-1" onclick="return confirm('Yakin Hapus?')"><i class="fa fa-lg fa-trash"></i></button>
+                      </form>
+                    </td>
                       <td><?= $row["jadwal"]; ?></td>
                       <td><?= $row["jenis_persembahan"]; ?></td>
                       <td>Rp. <?=number_format($harga,2,',','.');?></td>
