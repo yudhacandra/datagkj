@@ -7,9 +7,10 @@ $idm=$_POST['majelis'];
 $usrnm=$_POST['username'];
 $psw=$_POST['password'];
 $stj=$_POST['status'];
-$st='Tidak Aktif';
+$st=['status_akun'];
+$_komisi=$_POST['status_komisi'];
 
-$insert = mysqli_query($conn,"INSERT INTO `data_majelis`(`id_majelis`,`username`, `jabatan_majelis`, `password`, `status`) VALUES ('$idm','$usrnm','$stj','$psw','$st')");
+$insert = mysqli_query($conn,"INSERT INTO `data_majelis`(`id_majelis`,`username`, `jabatan_majelis`, `password`, `status`,`komisi`) VALUES ('$idm','$usrnm','$stj','$psw','$st','$_komisi')");
 if($insert){ 
   // $alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
   header("location:akun_majelis.php");
@@ -82,6 +83,31 @@ include 'sidebar_menu.php';
                                        <?php  }
                                         ?>
                                     </select>
+                            </div>
+
+                            <div class="col-12 col-lg-10">
+                                <div class="form-group">
+                                    <label for="contact-name"><b>Komisi  :</b></label>
+                                    <select name="status_komisi" id="">
+                                        <option value="">Belum Ada</option>
+                                        <?php
+                                        $tampilkan_data_struktur_komisi = mysqli_query ($conn,"SELECT * FROM `struktur_komisi`");
+                                        while ($ambil_data_komisi = mysqli_fetch_array ($tampilkan_data_struktur_komisi)){ ?>
+                                            <option value="<?= $ambil_data_komisi['id_komisi']?>"><?= $ambil_data_komisi['idnama_komisi']?></option>
+                            
+                                       <?php  }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <div class="form-group">
+                                    <label for="contact-name"><b>Status :</b></label>
+                                    <select name="status_akun" id="">
+                                        <option value="Aktif">Aktif</option>
+                                        <option value="Tidak Aktif">Tidak Aktif</option>
+                                    </select>
+                                </div>
                             </div>
                             
                             <div class="col-12 col-lg-10">
