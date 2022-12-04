@@ -3,7 +3,7 @@ include '../../database.php';
 if(isset($_POST['simpan']))
 {
 $sumber = $_FILES['warta_gereja']['tmp_name'];
-$target = '../warta-gereja/';
+$target = '../../admin/warta-gereja/';
 $nama_file = $_FILES['warta_gereja']['name'];
 $jdl=$_POST['judul'];
 $tgl=$_POST['tanggal'];
