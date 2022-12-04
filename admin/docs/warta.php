@@ -101,6 +101,7 @@ include 'sidebar_menu.php';
                       <form action="" method="POST">
                         <button type="submit" name="hapus" value="<?= $row['id_warta']; ?>" class="btn btn-danger m-1" onclick="return confirm('Yakin Hapus?')"><i class="fa fa-lg fa-trash"></i></button>
                       </form>
+                      <a href="download.php?filename=<?=$row['warta_gereja']?>">Download</a>
                     </td>
                       <td><?= $row["judul"]; ?></td>
                       <td><?= $row["tanggal"]; ?></td>

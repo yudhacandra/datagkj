@@ -7,6 +7,8 @@ $pm=$_POST['periode_majelis'];
 $jlam=$_POST['jumlah_anggota_majelis'];
 
 $query = mysqli_query($conn,"DELETE FROM `struktur_majelis` WHERE  `idjabatan_majelis`=$ijm ");
+$cek_jabatan = mysqli_fetch_array($query )
+if()
 if($hasil){ 
   // $alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
   header("location:struktur_majelis.php");

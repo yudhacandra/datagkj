@@ -139,9 +139,10 @@ if (!isset($_SESSION['role'])) {
         <div class="section-header">          
           <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Warta Gereja</h2>
           <hr class="lines wow zoomIn" data-wow-delay="0.3s">
-          <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p>
+          <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Anda dapat mendownload warta gereja di bawah ini.<br>" Klik Download Pada Ikon Download "</p>
         </div>
         <div class="row">
+          
         <?php
         include 'database.php';
         $data_warta = mysqli_query($conn, "SELECT * FROM `warta` ORDER BY tanggal limit 3");
@@ -152,7 +153,7 @@ if (!isset($_SESSION['role'])) {
           <div class="col-md-4 col-sm-6">
             <div class="item-boxes wow fadeInDown" data-wow-delay="0.2s">
               <div class="icon">
-                <a href="?warta=<?= $data['warta_gereja'];?>"><i class="lnr lnr-download"></i></a>
+                <a href="admin/docs/download.php?filename=<?= $data['warta_gereja'];?>"><i class="lnr lnr-download"></i></a>
               </div>
               <h4><?= $data['judul'];?></h4>
               <!-- <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p> -->
