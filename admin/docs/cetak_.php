@@ -37,7 +37,6 @@ tr:nth-child(even) {
 	Website: http://www.gkjboyolaliofficial.com, Email:  gkj.boyolali@gmail.com						
 </td>
 <br>
-<a href="struktur_komisi.php" class="btn">Kembali</a>
 </center>
 <p></p>
 <br>

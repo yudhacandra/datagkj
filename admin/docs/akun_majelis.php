@@ -16,7 +16,7 @@ $cari = $_POST['cari1'];
 
 if ($cari != null) {
 
-  $akun_majelis = mysqli_query($conn, "SELECT * FROM `data_majelis` where `nama` like '%$cari%' or `id_majelis` like '%$cari%' ");
+  $akun_majelis = mysqli_query($conn, "SELECT * FROM `data_majelis` where `nama` like '%$cari%' or `id_majelis` like '%$cari%'  ");
   $data = mysqli_fetch_array($akun_majelis);
 } else {
   $akun_majelis = mysqli_query($conn, "SELECT * FROM `data_majelis` ");
