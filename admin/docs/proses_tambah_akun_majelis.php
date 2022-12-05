@@ -63,7 +63,6 @@ include 'sidebar_menu.php';
                               </div>
                             </div>
                             
-                           
                             <div class="col-12 col-lg-10">
                               <div class="form-group">
                                 <label for="contact-name"><b>Username :</b></label>
@@ -72,7 +71,25 @@ include 'sidebar_menu.php';
                             </div>
 
                             <div class="col-12 col-lg-10">
-                              <label class="control-label mt-1"><b>Jabatan Grejawi</b></label>
+                              <div class="form-group">
+                                <label for="contact-name"><b>Password :</b></label>
+                                <input type="text" class="form-control" name="password">
+                              </div>
+                            </div>
+
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <div class="form-group">
+                                    <label for="contact-name"><b>Status Akses :</b></label>
+                                    <select name="status_akun" id="">
+                                        <option value="Aktif">Aktif</option>
+                                        <option value="Tidak Aktif">Tidak Aktif</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-10">
+                              <label class="control-label mt-1"><b>Jabatan Gerejawi :</b></label>
                               <select name="status" id="">
                                         <option value="">Belum Ada</option>
                                         <?php
@@ -85,7 +102,7 @@ include 'sidebar_menu.php';
                                     </select>
                             </div>
 
-                            <div class="col-12 col-lg-10">
+                            <!--<div class="col-12 col-lg-10">
                                 <div class="form-group">
                                     <label for="contact-name"><b>Komisi  :</b></label>
                                     <select name="status_komisi" id="">
@@ -98,24 +115,7 @@ include 'sidebar_menu.php';
                                        <?php  }
                                         ?>
                                     </select>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-10">
-                                <div class="form-group">
-                                    <label for="contact-name"><b>Status :</b></label>
-                                    <select name="status_akun" id="">
-                                        <option value="Aktif">Aktif</option>
-                                        <option value="Tidak Aktif">Tidak Aktif</option>
-                                    </select>
-                                </div>
-                            </div>
-                            
-                            <div class="col-12 col-lg-10">
-                              <div class="form-group"><p></p>
-                                <label for="contact-name"><b>Password :</b></label>
-                                <input type="text" class="form-control" name="password">
-                              </div>
-                            </div>
+                                </div>-->
                               
                               
                               <div class="col-12 text-center">

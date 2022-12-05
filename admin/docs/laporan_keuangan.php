@@ -43,10 +43,10 @@ tr:nth-child(even) {
 
 <table>
   <tr>
-                      <th>Jadwal</th>
-                      <th>Jenis Persembahan</th>
-                      <th>Nominal</th>
-                      <th>Keterangan</th>
+                      <th><center>Jadwal</center></th>
+                      <th><center>Jenis Persembahan</center></th>
+                      <th><center>Nominal</center></th>
+                      <th><center>Keterangan</center></th>
   </tr>
 
   <?php $i = 1; ?>

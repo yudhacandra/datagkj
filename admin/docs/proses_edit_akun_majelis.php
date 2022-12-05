@@ -53,23 +53,22 @@ include 'sidebar_menu.php';
                                     <input type="hidden" class="form-control"  value="<?=  $data['id_majelis']; ?>" name="id_majelis" readonly>
                                 </div>
                             </div>
+
                             <div class="col-12 col-lg-10">
-                            <div class="form-group">
-                                <label for="contact-name"><b>Pilih Jemaat :</b></label>
-                                <select name="majelis" id="">
-                                        <option value="">Belum Ada</option>
-                                        <?php
-                                        $tampilkan_data_jemaat = mysqli_query ($conn,"SELECT * FROM `data_jemaat`");
-                                        while ($ambil_data_jemaat = mysqli_fetch_array ($tampilkan_data_jemaat)){ ?>
-                                            <option value="<?= $ambil_data_jemaat['no_induk']?>"><?= $ambil_data_jemaat['nama']?></option>
-                                       <?php  }
-                                        ?>
-                                    </select>
-                                    
-            
-                              </div>
+                                <div class="form-group">
+                                    <label for="contact-name"><b>Pilih Jemaat :</b></label>
+                                    <select name="majelis" id="">
+                                            <option value="">Belum Ada</option>
+                                            <?php
+                                            $tampilkan_data_jemaat = mysqli_query ($conn,"SELECT * FROM `data_jemaat`");
+                                            while ($ambil_data_jemaat = mysqli_fetch_array ($tampilkan_data_jemaat)){ ?>
+                                                <option value="<?= $ambil_data_jemaat['no_induk']?>"><?= $ambil_data_jemaat['nama']?></option>
+                                        <?php  }
+                                            ?>
+                                        </select>
+                                </div>
                             </div>
-                            </div>
+
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
                                     <label for="contact-name"><b>Username   :</b></label>
@@ -84,7 +83,7 @@ include 'sidebar_menu.php';
                             </div>
                             
                             <div class="col-12 col-lg-10">
-                                <label class="control-label mt-1">Jabatan Grejawi</label>
+                                <label class="control-label mt-1">Jabatan Grejawi   :</label>
                                 <select name="status2" id="">
                                         <option value="">Belum Ada</option>
                                         <?php

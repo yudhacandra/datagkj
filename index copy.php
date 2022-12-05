@@ -237,15 +237,15 @@ if (!isset($_SESSION['role'])) {
         <table class="table">
   <thead class="bg-primary text-light">
     <tr>
-    <th>Nama Ibadah</th>
-    <th>Tempat</th>
-                      <th>Tanggal</th>
-                      <th>Waktu Mulai</th>
-                      <th>Waktu Akhir</th>
-                      <th>Pengkotbah</th>
-                
-                      <th>Penanggung Jawab</th>
-                      
+      <th>Nama Ibadah</th>
+      <th>Tempat</th>
+      <th>Tanggal</th>
+      <th>Waktu Mulai</th>
+      <th>Pengkotbah</th>
+      <th>Organis</th>
+      <th>PNJ</th>
+      <th>Bunga Mimbar</th>
+      <th>Penanggung Jawab</th>                
     </tr>
   </thead>
   <tbody>
@@ -258,8 +258,10 @@ if (!isset($_SESSION['role'])) {
                       <td><?= $row["tempat"]; ?></td>
                       <td><?= $row["jadwal_ibadah"]; ?></td>
                       <td><?= $row["jam_mulai"]; ?></td>
-                      <td><?= $row["jam_akhir"]; ?></td>
                       <td><?= $row["pengkotbah"]; ?></td>
+                      <td><?= $row["organis"]; ?></td>
+                      <td><?= $row["pemandu_nyanyian"]; ?></td>
+                      <td><?= $row["bunga_mimbar"]; ?></td>
                       <td><?= $row["penanggung_jawab"]; ?></td>
                     </tr>
                     <?php $i++; ?>

@@ -99,19 +99,19 @@ include 'sidebar_menu.php';
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
-                                    <label for="contact-name"><b>Sudah Baptis ? </b></label>
+                                    <label for="contact-name"><b>Tanggal Baptis : </b></label>
                                     <input type="text" class="form-control" name="baptis">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
-                                    <label for="contact-name"><b>Sudah Sidi ? </b></label>
+                                    <label for="contact-name"><b>Tanggal Sidi : </b></label>
                                     <input type="text" class="form-control" name="sidi">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
-                                    <label for="contact-name"><b> Sudah Nikah ?  </b></label>
+                                    <label for="contact-name"><b> tanggal Nikah :  </b></label>
                                     <input type="text" class="form-control" name="nikah">
                                 </div>
                             </div>
@@ -129,7 +129,7 @@ include 'sidebar_menu.php';
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
-                                    <label for="contact-name"><b>Nama Suami/Istri   :</b></label>
+                                    <label for="contact-name"><b>Nama Suami atau Istri   :</b></label>
                                     <input type="text" class="form-control" name="suami_istri">
                                 </div>
                             </div>
@@ -141,7 +141,32 @@ include 'sidebar_menu.php';
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
-                                    <label for="contact-name"><b>Status   :</b></label>
+                                    <label for="contact-name"><b>Tujuan Gereja :</b></label>
+                                    <input type="text" class="form-control" name="ke_gereja">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <div class="form-group">
+                                    <label for="contact-name"><b>Keterangan    :</b></label>
+                                    <input type="text" class="form-control" name="keterangan">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <div class="form-group">
+                                    <label for="contact-name"><b>Tanggal terdaftar    :</b></label>
+                                    <input type="date" class="form-control" name="tanggal_terdaftar">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <div class="form-group">
+                                    <label for="contact-name"><b>Wilayah :</b></label>
+                                    <input type="text" class="form-control" name="keterangan_tambahan">
+                                    <!-- <textarea col="3" cols="30" class="form-control" rows="3" name="keterangan_tambahan"></textarea> -->
+                                </div>
+                            </div>
+                            <!--<div class="col-12 col-lg-10">
+                                <div class="form-group">
+                                    <label for="contact-name"><b>Jabatan Gerejawi  :</b></label>
                                     <select name="status" id="">
                                         <option value="">Belum Ada</option>
                                         <?php
@@ -168,32 +193,7 @@ include 'sidebar_menu.php';
                                         ?>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="col-12 col-lg-10">
-                                <div class="form-group">
-                                    <label for="contact-name"><b>Tujuan Gereja :</b></label>
-                                    <input type="text" class="form-control" name="ke_gereja">
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-10">
-                                <div class="form-group">
-                                    <label for="contact-name"><b>Keterangan    :</b></label>
-                                    <input type="text" class="form-control" name="keterangan">
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-10">
-                                <div class="form-group">
-                                    <label for="contact-name"><b>Tanggal Baptis    :</b></label>
-                                    <input type="date" class="form-control" name="tanggal_terdaftar">
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-10">
-                                <div class="form-group">
-                                    <label for="contact-name"><b>Wilayah :</b></label>
-                                    <input type="text" class="form-control" name="keterangan_tambahan">
-                                    <!-- <textarea col="3" cols="30" class="form-control" rows="3" name="keterangan_tambahan"></textarea> -->
-                                </div>
-                            </div>
+                            </div>-->
                             </div>
                             <div class="col-12 text-center">
                                 <button type="submit" name="simpan" class="btn btn-info">Tambah</button>
