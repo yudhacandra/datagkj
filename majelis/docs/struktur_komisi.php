@@ -47,11 +47,25 @@ include 'sidebar_menu.php';
       <div class="app-title">
         <div>
           <h1><i class="fa fa-universal-access" aria-hidden="true"></i></i> Data Komisi GKJ Boyolali</h1>
-          <p>Anggota <?= $data_komisi['idnama_komisi']; ?> Gereja GKJ Boyolali</p>
+          <p>Anggota 
+            <?php 
+            if ($data_komisi['id_komisi'] > 0) { ?>
+              <?= $data_komisi['idnama_komisi']; ?>
+          <?php  } else {
+              echo "";
+            }
+            ?>
+            <!-- <?= $data_komisi['idnama_komisi']; ?>  -->
+            Gereja GKJ Boyolali</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><a href="dashboard_majelis.php"><i class="fa fa-dashboard"></a></i></li>
-          <li class="breadcrumb-item">Anggota <?= $data_komisi['idnama_komisi']; ?> </li>
+          <li class="breadcrumb-item">Anggota 
+          <?php 
+            if ($data_komisi['idnama_komisi'] > 0) {
+              echo  $data_komisi['idnama_komisi'];
+            }
+            ?> </li>
         </ul>
       </div>
       <div class="row">

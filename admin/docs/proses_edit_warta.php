@@ -6,16 +6,23 @@ if(isset($_POST['edit_warta']))
 $jdl=$_POST['judul'];
 $tl=$_POST['tanggal'];
 $wg=$_POST['warta_gereja'];
+if ($wg != '') {
+  $warta = mysqli_query($conn, "UPDATE `warta` SET `judul`='$jdl',`tanggal`='$tl',`warta_gereja`='$wg' WHERE id_warta='$id'");
 
-
-$warta = mysqli_query($conn, "UPDATE `warta` SET `judul`='$jdl',`tanggal`='$tl',`warta_gereja`='$wg' WHERE judul='$id'");
+  if ($warta) {
+      header("location:warta.php");
+  }
+}else {
+  $warta = mysqli_query($conn, "UPDATE `warta` SET `judul`='$jdl',`tanggal`='$tl' WHERE id_warta='$id'");
 if ($warta) {
     header("location:warta.php");
 }
 
-}
+} 
+} 
 
-$warta = mysqli_query($conn, "SELECT * FROM `warta` where judul='$id'");
+
+$warta = mysqli_query($conn, "SELECT * FROM `warta` where id_warta='$id'");
 $data = mysqli_fetch_array($warta);
 ?>
 <!DOCTYPE html>
@@ -60,7 +67,7 @@ include 'sidebar_menu.php';
                             <div class="col-12 col-lg-10">
                               <div class="form-group">
                                 <label for="contact-name"><b>Warta Gereja :</b></label>
-                                <input type="file"  name="warta_gereja">
+                                <input type="file"   name="warta_gereja">
                               </div>
                             </div>
                             
