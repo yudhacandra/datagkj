@@ -61,19 +61,19 @@ include 'sidebar_menu.php';
                         <div class="row">
                             <div class="col-12 col-lg-4">
                                 <div class="form-group">
-                                    <label for="contact-name">No Induk:</label>
+                                    <label for="contact-name">No Induk</label>
                                     <input type="text" class="form-control"  value="<?=  $data['no_induk']; ?>" name="no_induk" readonly>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Nama:</label>
+                                    <label for="contact-name">Nama</label>
                                     <input type="text" class="form-control" value="<?=  $data['nama']; ?>"  name="nama">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-number">Jenis Kelamin:</label>
+                                    <label for="contact-number">Jenis Kelamin</label>
                                     <select name="jenis_kelamin" class="form-control" value="<?=  $data['jenis_kelamin']; ?>" >
                                     <option value=""></option>
                                     <option value="P">Perempuan</option>
@@ -83,86 +83,86 @@ include 'sidebar_menu.php';
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Alamat:</label>
+                                    <label for="contact-name">Alamat</label>
                                     <input type="text" class="form-control" value="<?=  $data['alamat']; ?>"  name="alamat">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-number">Tempat dan tanggal lahir :</label>
+                                    <label for="contact-number">Tempat dan Tanggal Lahir</label>
                                     <input type="text" class="form-control" value="<?=  $data['lahir']; ?>"  name="lahir">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Tanggal Baptis :</label>
+                                    <label for="contact-name">Tanggal Baptis</label>
                                     <input type="text" class="form-control" value="<?=  $data['baptis']; ?>"  name="baptis">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Tanggal Sidi :</label>
+                                    <label for="contact-name">Tanggal Sidi</label>
                                     <input type="text" class="form-control" value="<?=  $data['sidi']; ?>"  name="sidi">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Tanggal Nikah :</label>
+                                    <label for="contact-name">Tanggal Nikah</label>
                                     <input type="text" class="form-control" value="<?=  $data['nikah']; ?>"  name="nikah">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Status Meninggal:</label>
+                                    <label for="contact-name">Tanggal Meninggal</label>
                                     <input type="text" class="form-control" value="<?=  $data['meninggal']; ?>"  name="meninggal">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Nama Orang Tua:</label>
+                                    <label for="contact-name">Nama Orang Tua</label>
                                     <input type="text" class="form-control" value="<?=  $data['orang_tua']; ?>"  name="orang_tua">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Nama Suami atau Istri:</label>
+                                    <label for="contact-name">Nama Suami atau Istri</label>
                                     <input type="text" class="form-control" value="<?=  $data['suami_istri']; ?>"  name="suami_istri">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Gereja Asal :</label>
+                                    <label for="contact-name">Gereja Asal</label>
                                     <input type="text" class="form-control" value="<?=  $data['dari_gereja']; ?>"  name="dari_gereja">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Tujuan Gereja:</label>
+                                    <label for="contact-name">Tujuan Gereja</label>
                                     <input type="text" class="form-control" value="<?=  $data['ke_gereja']; ?>"  name="ke_gereja">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Keterangan:</label>
+                                    <label for="contact-name">Keterangan</label>
                                     <input type="text" class="form-control" value="<?=  $data['keterangan']; ?>"  name="keterangan">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Tanggal Terdaftar :</label>
+                                    <label for="contact-name">Tanggal Terdaftar</label>
                                     <input type="date" class="form-control" value="<?=  $data['tanggal_terdaftar']; ?>"  name="tanggal_terdaftar">
                                 </div>
                             </div>
-                            <div class="col-12 col-lg-13">
+                                <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Wilayah :</label>
-                                    <textarea col="3" name="keterangan_tambahan" cols="30" class="form-control" rows="3"><?=  $data['keterangan_tambahan']; ?></textarea>
-                                    <!-- <input type="text" class="form-control" value="<?=  $data['keterangan_tambahan']; ?>"  name="keterangan_tambahan" readonly> -->
+                                    <label for="contact-name">Wilayah</label>
+                                    <input type="text" class="form-control" value="<?=  $data['keterangan_tambahan']; ?>"  name="keterangan_tambahan">
                                 </div>
+                            </div>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
-                                    <label for="contact-name"><b>Jabatan Gerejawi   :</b></label>
+                                    <label for="contact-name"><b>Jabatan Gerejawi</b></label>
                                     <select name="status" id="">
                                         <option value="">Belum Ada</option>
                                         <?php
@@ -184,7 +184,7 @@ include 'sidebar_menu.php';
                                         if($data['jabatan'] > 0) { ?>
                                         <h5 class="text-primary"><?= nama($data['jabatan']); ?></h5>
                                        <?php } else { ?>
-                                        <h5 class="text-danger">Status Belum diMasukan!</h5>
+                                        <h5 class="text-danger">Status belum dimasukan!</h5>
                                       <?php  }
                                         ?>
                                         
@@ -215,7 +215,7 @@ include 'sidebar_menu.php';
                                         if($data['Id_komisi'] > 0) { ?>
                                         <h5 class="text-primary"><?= nama_komisi($data['Id_komisi']); ?></h5>
                                        <?php } else { ?>
-                                        <h5 class="text-danger">Komisi Belum diMasukan!</h5>
+                                        <h5 class="text-danger">Komisi belum dimasukan!</h5>
                                       <?php  }
                                         ?>
                                         
