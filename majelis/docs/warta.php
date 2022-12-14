@@ -19,13 +19,13 @@ if ($cari != null) {
   $warta = mysqli_query($conn, "SELECT * FROM `warta` where `judul` like '%$cari%' or `judul` like '%$cari%' or `tanggal` like '%$cari%' ");
   $data = mysqli_fetch_array($warta);
 } else {
-  $warta = mysqli_query($conn, "SELECT * FROM `warta` ");
+  $warta = mysqli_query($conn, "SELECT * FROM `warta`  order by `tanggal` desc ");
   $data = mysqli_fetch_array($warta);
   
 }
 
 } else {
-  $warta = mysqli_query($conn, "SELECT * FROM `warta` ");
+  $warta = mysqli_query($conn, "SELECT * FROM `warta` order by `tanggal` desc ");
   $data = mysqli_fetch_array($warta);
   
 }

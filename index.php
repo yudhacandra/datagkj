@@ -4,6 +4,8 @@ if (!isset($_SESSION['role'])) {
 } else if ($_SESSION['role'] == "Admin") {
   header("location: ./admin/docs/dashboard.php");
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -146,10 +148,15 @@ if (!isset($_SESSION['role'])) {
         <div class="row">
         <?php
         include 'database.php';
-        $keuangan = mysqli_query($conn, "SELECT * FROM `keuangan` ");
+      
+        
+        $keuangan = mysqli_query($conn, "SELECT * FROM `keuangan` order by `jadwal` desc");
         $dat_a = mysqli_fetch_array($keuangan);
         $pelayan_ibadah = mysqli_query($conn, "SELECT * FROM `pelayan_ibadah` ");
+        
        $data_ibadah = mysqli_fetch_array($pelayan_ibadah);
+       
+
         $data_jemaat_ = mysqli_query($conn, "SELECT * FROM `data_jemaat` ");
         $data_tampil= mysqli_fetch_array($data_jemaat_);
         $data_jemaat = mysqli_query($conn, "SELECT * FROM `warta` ORDER BY tanggal limit 3");
@@ -162,7 +169,7 @@ if (!isset($_SESSION['role'])) {
               <a href="admin/docs/download.php?filename=<?= $data['warta_gereja'];?>"><i class="lnr lnr-download"></i></a>
               </div>
               <h6><?= $data['judul'];?></h6>
-              <!-- <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p> -->
+              <p><?= $data['tanggal'];?></p>
             </div>
           </div>
           <?php }
@@ -181,7 +188,10 @@ if (!isset($_SESSION['role'])) {
         </div>
 
         <div class="row">
-        <div style="height: 600px;overflow: scroll; ">
+          <div>
+          <input type="text" id="search" class="mb-1 shadow text-danger" placeholder="  Search No Induk"></input>
+          </div>
+        <div style="height: 600px;overflow: scroll;Width: 100% ">
         <table  class="table table-striped table-bordered" >
         <thead class="bg-success text-light table-hover table-bordered">
                     <tr>
@@ -343,27 +353,27 @@ if (!isset($_SESSION['role'])) {
             </div>     
             <div class="col-lg-6 col-sm-6 col-xs-12">
               <div class="contact-block">
-                <form id="contactForm">
+              <form method="post" action="send.php" enctype="multipart/form-data">
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Masukan Nama" required data-error="Mohon masukan nama dahulu !">
-                        <div class="help-block with-errors"></div>
+                      <label>Kepada</label><br />
+                    <input type="email" name="email_penerima" placeholder="Email Penerima" style="margin-top: 5px;width: 400px" />
                       </div>                                 
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
-                        <input type="text" placeholder="Masukan E-mail" id="email" class="form-control" name="name" required data-error="Mohon masukan e-mail dahulu !">
-                        <div class="help-block with-errors"></div>
+                      <label>Subjek</label><br />
+                      <input type="text" name="subjek" placeholder="Subjek" style="margin-top: 5px;width: 400px" />
                       </div> 
                     </div>
                     <div class="col-md-12">
                       <div class="form-group"> 
-                        <textarea class="form-control" id="message" placeholder="Masukan Pesan" rows="8" data-error="Mohon masukan pesan !" required></textarea>
-                        <div class="help-block with-errors"></div>
+                      <label>Pesan</label><br />
+                      <textarea name="pesan" placeholder="Pesan" rows="8" style="margin-top: 5px;width: 400px"></textarea>
                       </div>
                       <div class="submit-button text-center">
-                        <button class="btn btn-common" id="submit" type="submit">Kirim Pesan</button>
+                        <button class="btn btn-common" name="kirim_" id="submit" type="submit">Kirim Pesan</button>
                         <div id="msgSubmit" class="h3 text-center hidden"></div> 
                         <div class="clearfix"></div> 
                       </div>
@@ -425,9 +435,24 @@ if (!isset($_SESSION['role'])) {
     <script src="js/main.js"></script>
    
     <script>
-   $(document).ready(function () {
-$('#dtBasicExample').DataTable();
-$('.dataTables_length').addClass('bs-select');
+$("#search").on("keyup", function() {
+    var value = $(this).val();
+
+    $("table tr").each(function(index) {
+        if (index !== 0) {
+
+            $row = $(this);
+
+            var id = $row.find("td:first").text();
+
+            if (id.indexOf(value) !== 0) {
+                $row.hide();
+            }
+            else {
+                $row.show();
+            }
+        }
+    });
 });
 </script>
 

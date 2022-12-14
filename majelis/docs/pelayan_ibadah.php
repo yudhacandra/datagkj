@@ -19,13 +19,13 @@ if ($cari != null) {
   $pelayan_ibadah = mysqli_query($conn, "SELECT * FROM `pelayan_ibadah` where `nama_ibadah` like '%$cari%' or `id_ibadah` like '%$cari%' or `pengkotbah` like '%$cari%' or `organis` like '%$cari%' or `pemandu_nyanyian` like '%$cari%' or `bunga_mimbar` like '%$cari%'");
   $data = mysqli_fetch_array($pelayan_ibadah);
 } else {
-  $pelayan_ibadah = mysqli_query($conn, "SELECT * FROM `pelayan_ibadah` ");
+  $pelayan_ibadah = mysqli_query($conn, "SELECT * FROM `pelayan_ibadah` order by `jadwal_ibadah` desc");
   $data = mysqli_fetch_array($pelayan_ibadah);
   
 }
 
 } else {
-  $pelayan_ibadah = mysqli_query($conn, "SELECT * FROM `pelayan_ibadah` ");
+  $pelayan_ibadah = mysqli_query($conn, "SELECT * FROM `pelayan_ibadah` order by `jadwal_ibadah` desc");
   $data = mysqli_fetch_array($pelayan_ibadah);
   
 }

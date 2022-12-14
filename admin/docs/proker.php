@@ -19,13 +19,13 @@ if ($cari != null) {
   $proker = mysqli_query($conn, "SELECT * FROM `proker` where `nama_proker` like '%$cari%' or `id_proker` like '%$cari%' or `bidang` like '%$cari%' ");
   $data = mysqli_fetch_array($proker);
 } else {
-  $proker = mysqli_query($conn, "SELECT * FROM `proker` ");
+  $proker = mysqli_query($conn, "SELECT * FROM `proker` order by `date` desc ");
   $data = mysqli_fetch_array($proker);
   
 }
 
 } else {
-  $proker = mysqli_query($conn, "SELECT * FROM `proker` ");
+  $proker = mysqli_query($conn, "SELECT * FROM `proker` order by `date` desc ");
   $data = mysqli_fetch_array($proker);
   
 }

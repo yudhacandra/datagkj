@@ -20,13 +20,13 @@ if ($cari != null) {
   $keuangan = mysqli_query($conn, "SELECT * FROM `keuangan` where `jenis_persembahan` like '%$cari%' or `jenis_persembahan` like '%$cari%' or `jadwal` like '%$cari%' ");
   $data = mysqli_fetch_array($keuangan);
 } else {
-  $keuangan = mysqli_query($conn, "SELECT * FROM `keuangan` ");
+  $keuangan = mysqli_query($conn, "SELECT * FROM `keuangan` order by `jadwal` desc ");
   $data = mysqli_fetch_array($keuangan);
   
 }
 
 } else {
-  $keuangan = mysqli_query($conn, "SELECT * FROM `keuangan` ");
+  $keuangan = mysqli_query($conn, "SELECT * FROM `keuangan` order by `jadwal` desc ");
   $data = mysqli_fetch_array($keuangan);
   
 }

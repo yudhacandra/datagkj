@@ -49,7 +49,7 @@ include 'sidebar_menu.php';
           <h1><i class="fa fa-universal-access" aria-hidden="true"></i></i> Data Komisi GKJ Boyolali</h1>
           <p>Anggota 
             <?php 
-            if ($data_komisi['id_komisi'] > 0) { ?>
+            if ($data_komisi['id_komisi'] = NULL) { ?>
               <?= $data_komisi['idnama_komisi']; ?>
           <?php  } else {
               echo "";
@@ -62,7 +62,7 @@ include 'sidebar_menu.php';
           <li class="breadcrumb-item"><a href="dashboard_majelis.php"><i class="fa fa-dashboard"></a></i></li>
           <li class="breadcrumb-item">Anggota 
           <?php 
-            if ($data_komisi['idnama_komisi'] > 0) {
+            if ($data_komisi['idnama_komisi'] = NULL) {
               echo  $data_komisi['idnama_komisi'];
             }
             ?> </li>

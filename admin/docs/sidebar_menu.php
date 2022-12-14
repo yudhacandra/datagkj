@@ -13,12 +13,8 @@
           </ul>
         </li>
 
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><span class="app-menu__label">Bidang Komisi</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-          <ul class="treeview-menu">
-            <li><a class="treeview-item" href="struktur_komisi.php"><i class="app-menu__icon fa fa-minus" aria-hidden="true"></i>Struktur Komisi</a></li>
-          </ul>
-        </li>
 
+        <li><a class="app-menu__item" href="struktur_komisi.php"><span class="app-menu__label">Struktur Komisi</span></a></li>
         <li><a class="app-menu__item" href="pelayan_ibadah.php"><span class="app-menu__label">Jadwal Ibadah</span></a></li>
         
        
