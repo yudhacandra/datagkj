@@ -4,4 +4,4 @@ deployment:
     - export DEPLOYPATH=/home/u1576220/public_html/
     - /bin/cp index.php $DEPLOYPATH
     - /bin/cp style.css $DEPLOYPATH
-    - /bin/cp -R DATAGKJ $DEPLOYPATH
+    - /bin/cp -R datagkj $DEPLOYPATH
