@@ -189,11 +189,7 @@ if (!isset($_SESSION['role'])) {
 
         <div class="row">
           <div>
-<<<<<<< HEAD
             <input type="text" id="search" class="mb-1 shadow text-danger" placeholder="  Search"></input>
-=======
-          <input type="text" name="search" id="search" class="mb-1 shadow text-danger" placeholder="  Search No Induk"></input>
->>>>>>> e4b845ae9345d85c8bc625c7871b24e79503b932
           </div>
         <div style="height: 600px;overflow: scroll;Width: 100% ">
         <table  class="table table-striped table-bordered" id="employee_table">
@@ -326,11 +322,6 @@ if (!isset($_SESSION['role'])) {
       </div>
     </section>
 
-
-
-
-
-
     <!-- Contact Section Start -->
     <section id="contact" class="section" data-stellar-background-ratio="-0.2">      
       <div class="contact-form">
@@ -438,12 +429,8 @@ if (!isset($_SESSION['role'])) {
     <script src="js/contact-form-script.js"></script>   
     <script src="js/main.js"></script>
    
-<<<<<<< HEAD
-   <script>
-    $("#search").on("keyup", function() {
-    var value = $(this).val();
-=======
-    <script>
+
+<script>
       $(document).ready(function(){  
            $('#search').keyup(function(){  
                 search_table($(this).val());  
@@ -468,9 +455,6 @@ if (!isset($_SESSION['role'])) {
                 });  
            }  
       });  
->>>>>>> e4b845ae9345d85c8bc625c7871b24e79503b932
-
-
 </script>
 
   </body>
