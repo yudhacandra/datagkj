@@ -189,7 +189,7 @@ if (!isset($_SESSION['role'])) {
 
         <div class="row">
           <div>
-          <input type="text" id="search" class="mb-1 shadow text-danger" placeholder="  Search No Induk"></input>
+            <input type="text" id="search" class="mb-1 shadow text-danger" placeholder="  Search"></input>
           </div>
         <div style="height: 600px;overflow: scroll;Width: 100% ">
         <table  class="table table-striped table-bordered" >
@@ -208,13 +208,13 @@ if (!isset($_SESSION['role'])) {
   <?php $i = 1; ?>
   <?php foreach ($data_jemaat_ as $row) : ?>
   <tr>
-  <td><?= $row["no_induk"]; ?></td>
-  <td><?= $row["nama"]; ?></td>
-  <td><?= $row["jenis_kelamin"]; ?></td>
-  <td><?= $row["alamat"]; ?></td>
-  <td><?= $row["keterangan_tambahan"]; ?></td>
+    <td><?= $row["no_induk"]; ?></td>
+    <td><?= $row["nama"]; ?></td>
+    <td><?= $row["jenis_kelamin"]; ?></td>
+    <td><?= $row["alamat"]; ?></td>
+    <td><?= $row["keterangan_tambahan"]; ?></td>
                       
-                    </tr>
+  </tr>
   </tbody>
   <?php $i++; ?>
                     <?php endforeach; 
@@ -434,8 +434,8 @@ if (!isset($_SESSION['role'])) {
     <script src="js/contact-form-script.js"></script>   
     <script src="js/main.js"></script>
    
-    <script>
-$("#search").on("keyup", function() {
+   <script>
+    $("#search").on("keyup", function() {
     var value = $(this).val();
 
     $("table tr").each(function(index) {
