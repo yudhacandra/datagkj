@@ -150,14 +150,14 @@ if (!isset($_SESSION['role'])) {
         include 'database.php';
       
         
-        $keuangan = mysqli_query($conn, "SELECT * FROM `keuangan` order by `jadwal` desc");
+        $keuangan = mysqli_query($conn, "SELECT * FROM `keuangan` ORDER BY `jadwal` desc");
         $dat_a = mysqli_fetch_array($keuangan);
         $pelayan_ibadah = mysqli_query($conn, "SELECT * FROM `pelayan_ibadah` ");
         
-       $data_ibadah = mysqli_fetch_array($pelayan_ibadah);
+        $data_ibadah = mysqli_fetch_array($pelayan_ibadah);
        
 
-        $data_jemaat_ = mysqli_query($conn, "SELECT * FROM `data_jemaat` ");
+        $data_jemaat_ = mysqli_query($conn, "SELECT * FROM `data_jemaat` ORDER BY tanggal_terdaftar desc ");
         $data_tampil= mysqli_fetch_array($data_jemaat_);
         $data_jemaat = mysqli_query($conn, "SELECT * FROM `warta` ORDER BY tanggal limit 3");
         while ($data = mysqli_fetch_array($data_jemaat))
