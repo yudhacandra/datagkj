@@ -189,10 +189,14 @@ if (!isset($_SESSION['role'])) {
 
         <div class="row">
           <div>
+<<<<<<< HEAD
             <input type="text" id="search" class="mb-1 shadow text-danger" placeholder="  Search"></input>
+=======
+          <input type="text" name="search" id="search" class="mb-1 shadow text-danger" placeholder="  Search No Induk"></input>
+>>>>>>> e4b845ae9345d85c8bc625c7871b24e79503b932
           </div>
         <div style="height: 600px;overflow: scroll;Width: 100% ">
-        <table  class="table table-striped table-bordered" >
+        <table  class="table table-striped table-bordered" id="employee_table">
         <thead class="bg-success text-light table-hover table-bordered">
                     <tr>
                       <th>No Induk</th>
@@ -200,7 +204,7 @@ if (!isset($_SESSION['role'])) {
                       <th>Jenis Kelamin</th>
                       <th>Alamat</th>
                       <th>Wilayah</th>
-                    
+
                     </tr>
                     
                   </thead>
@@ -434,26 +438,39 @@ if (!isset($_SESSION['role'])) {
     <script src="js/contact-form-script.js"></script>   
     <script src="js/main.js"></script>
    
+<<<<<<< HEAD
    <script>
     $("#search").on("keyup", function() {
     var value = $(this).val();
+=======
+    <script>
+      $(document).ready(function(){  
+           $('#search').keyup(function(){  
+                search_table($(this).val());  
+           });  
+           function search_table(value){  
+                $('#employee_table tbody').each(function(){  
+                     var found = 'false';  
+                     $(this).each(function(){  
+                          if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)  
+                          {  
+                               found = 'true';  
+                          }  
+                     });  
+                     if(found == 'true')  
+                     {  
+                          $(this).show();  
+                     }  
+                     else  
+                     {  
+                          $(this).hide();  
+                     }  
+                });  
+           }  
+      });  
+>>>>>>> e4b845ae9345d85c8bc625c7871b24e79503b932
 
-    $("table tr").each(function(index) {
-        if (index !== 0) {
 
-            $row = $(this);
-
-            var id = $row.find("td:first").text();
-
-            if (id.indexOf(value) !== 0) {
-                $row.hide();
-            }
-            else {
-                $row.show();
-            }
-        }
-    });
-});
 </script>
 
   </body>
