@@ -142,27 +142,45 @@ if (!isset($_SESSION['role'])) {
         <div class="section-header">          
           <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Warta</h2>
           <hr class="lines wow zoomIn" data-wow-delay="0.3s">
-          <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Silahkan anda dapat mendownload warta di bawah ini <br>" Klik Download Pada Ikon Download "</p>
+          <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Silahkan anda dapat mendownload warta di bawah ini <br>" Klik Download Pada Ikon Download "<br>
+          <form action="" method="POST" id="form_id">
+          <select name="datepilih"  onChange="document.getElementById('form_id').submit();">
+         <option value="">Silahkan pilih tanggal</option>
+         <?php
+       include "database.php";
+       $date = mysqli_query($conn, "SELECT * FROM `warta`GROUP by tanggal"); 
+        while ($tanggal = mysqli_fetch_array($date)) { 
+         
+          ?>
+          <option value="<?= $tanggal['tanggal']; ?>"><?= $tanggal['tanggal']; ?></option>
+      <?php  } ?>
+        </select>
+        </form>
+        <a href="./">Reset</a>
+        </p>
         </div>
 
         <div class="row">
         <?php
         include 'database.php';
-      
+        error_reporting(E_ALL ^ E_NOTICE);
         
         $keuangan = mysqli_query($conn, "SELECT * FROM `keuangan` order by `jadwal` desc");
         $dat_a = mysqli_fetch_array($keuangan);
         $pelayan_ibadah = mysqli_query($conn, "SELECT * FROM `pelayan_ibadah` ");
-        
        $data_ibadah = mysqli_fetch_array($pelayan_ibadah);
-       
-
-        $data_jemaat_ = mysqli_query($conn, "SELECT * FROM `data_jemaat` ");
+        $data_jemaat_ = mysqli_query($conn, "SELECT * FROM `data_jemaat` 
+        ");
         $data_tampil= mysqli_fetch_array($data_jemaat_);
-        $data_jemaat = mysqli_query($conn, "SELECT * FROM `warta` ORDER BY tanggal limit 3");
+        if(isset($_POST['datepilih'])){
+          $data_jemaat = mysqli_query($conn, "SELECT * FROM `warta` where tanggal='".$_POST['datepilih']."' ORDER BY tanggal limit 3");
+        } else {
+          $data_jemaat = mysqli_query($conn, "SELECT * FROM `warta` ORDER BY tanggal limit 3");
+        }
         while ($data = mysqli_fetch_array($data_jemaat))
         {
         ?>
+
           <div class="col-md-4 col-sm-6">
             <div class="item-boxes wow fadeInDown" data-wow-delay="0.2s">
               <div class="icon">
@@ -462,6 +480,7 @@ if (!isset($_SESSION['role'])) {
 
 
 </script>
+
 
   </body>
 </html>
