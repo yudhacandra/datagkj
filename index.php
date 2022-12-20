@@ -165,12 +165,17 @@ if (!isset($_SESSION['role'])) {
         include 'database.php';
         error_reporting(E_ALL ^ E_NOTICE);
         
-        $keuangan = mysqli_query($conn, "SELECT * FROM `keuangan` order by `jadwal` desc");
+        $keuangan = mysqli_query($conn, "SELECT * FROM `keuangan` ORDER BY `jadwal` desc");
         $dat_a = mysqli_fetch_array($keuangan);
         $pelayan_ibadah = mysqli_query($conn, "SELECT * FROM `pelayan_ibadah` ");
+
        $data_ibadah = mysqli_fetch_array($pelayan_ibadah);
         $data_jemaat_ = mysqli_query($conn, "SELECT * FROM `data_jemaat` 
         ");
+        $data_ibadah = mysqli_fetch_array($pelayan_ibadah);
+       
+
+        $data_jemaat_ = mysqli_query($conn, "SELECT * FROM `data_jemaat` ORDER BY tanggal_terdaftar desc ");
         $data_tampil= mysqli_fetch_array($data_jemaat_);
         if(isset($_POST['datepilih'])){
           $data_jemaat = mysqli_query($conn, "SELECT * FROM `warta` where tanggal='".$_POST['datepilih']."' ORDER BY tanggal limit 3");
@@ -207,7 +212,7 @@ if (!isset($_SESSION['role'])) {
 
         <div class="row">
           <div>
-          <input type="text" name="search" id="search" class="mb-1 shadow text-danger" placeholder="  Search No Induk"></input>
+            <input type="text" id="search" class="mb-1 shadow text-danger" placeholder="  Search"></input>
           </div>
         <div style="height: 600px;overflow: scroll;Width: 100% ">
         <table  class="table table-striped table-bordered" id="employee_table">
@@ -226,13 +231,13 @@ if (!isset($_SESSION['role'])) {
   <?php $i = 1; ?>
   <?php foreach ($data_jemaat_ as $row) : ?>
   <tr>
-  <td><?= $row["no_induk"]; ?></td>
-  <td><?= $row["nama"]; ?></td>
-  <td><?= $row["jenis_kelamin"]; ?></td>
-  <td><?= $row["alamat"]; ?></td>
-  <td><?= $row["keterangan_tambahan"]; ?></td>
+    <td><?= $row["no_induk"]; ?></td>
+    <td><?= $row["nama"]; ?></td>
+    <td><?= $row["jenis_kelamin"]; ?></td>
+    <td><?= $row["alamat"]; ?></td>
+    <td><?= $row["keterangan_tambahan"]; ?></td>
                       
-                    </tr>
+  </tr>
   </tbody>
   <?php $i++; ?>
                     <?php endforeach; 
@@ -339,11 +344,6 @@ if (!isset($_SESSION['role'])) {
 </table>
       </div>
     </section>
-
-
-
-
-
 
     <!-- Contact Section Start -->
     <section id="contact" class="section" data-stellar-background-ratio="-0.2">      
@@ -452,7 +452,8 @@ if (!isset($_SESSION['role'])) {
     <script src="js/contact-form-script.js"></script>   
     <script src="js/main.js"></script>
    
-    <script>
+
+<script>
       $(document).ready(function(){  
            $('#search').keyup(function(){  
                 search_table($(this).val());  
@@ -477,8 +478,6 @@ if (!isset($_SESSION['role'])) {
                 });  
            }  
       });  
-
-
 </script>
 
 
