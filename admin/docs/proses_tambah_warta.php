@@ -2,17 +2,24 @@
 include '../../database.php';
 if(isset($_POST['simpan']))
 {
-$sumber = $_FILES['warta_gereja']['tmp_name'];
+$acceptedext = array("pdf");
 $target = '../warta-gereja/';
+$sumber = $_FILES['warta_gereja']['tmp_name'];
 $nama_file = $_FILES['warta_gereja']['name'];
+$extension = pathinfo($nama_file, PATHINFO_EXTENSION);
 $jdl=$_POST['judul'];
 $tgl=$_POST['tanggal'];
-if (move_uploaded_file($sumber, $target . $nama_file)) {
-
-$insert = mysqli_query($conn,"INSERT INTO `warta`(`judul` ,`tanggal`, `warta_gereja`) VALUES ('$jdl','$tgl','$nama_file')");
-if($insert){ 
-  // $alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
-  header("location:warta.php");
+if(!in_array($extension, $acceptedext)){
+  echo "<script type='text/javascript'>
+        alert('Format file bukan pdf!');
+        </script>";
+}else{
+  if (move_uploaded_file($sumber, $target . $nama_file)) {
+      $insert = mysqli_query($conn,"INSERT INTO `warta`(`judul` ,`tanggal`, `warta_gereja`) VALUES ('$jdl','$tgl','$nama_file')");
+  if($insert){ 
+    // $alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
+    header("location:warta.php");
+    }
   }
 }
 }
@@ -65,7 +72,7 @@ include 'sidebar_menu.php';
                             <div class="col-12 col-lg-10">
                               <div class="form-group">
                                 <label for="contact-name"><b>Warta Gereja :</b></label>
-                                <input type="file"  name="warta_gereja">
+                                <input type="file" accept=".pdf"  name="warta_gereja">
                               </div>
                             </div>
                           
