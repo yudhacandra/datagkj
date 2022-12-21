@@ -46,12 +46,12 @@ include 'sidebar_menu.php';
             <div class="contact-form-area">
                     <form action="" method="POST" >
                         <div class="row">
-                            <div class="col-12 col-lg-3">
+                            <!--<div class="col-12 col-lg-3">
                               <div class="form-group">
                                 <label for="contact-name"><b>ID Admin :</b></label>
                                 <input type="text" class="form-control" id="contact-name" name="id">
                               </div>
-                            </div>
+                            </div>-->
 
                             <div class="col-12 col-lg-10">
                               <div class="form-group">
