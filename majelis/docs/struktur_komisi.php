@@ -1,5 +1,5 @@
 <?php
-include '../../database.php';
+  include '../../database.php';
   ##$alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
 
 
@@ -25,11 +25,7 @@ include '../../database.php';
     $data_komisi = mysqli_fetch_array($struktur_komisi);
   
     
-  }
-
-
-
-$cek = mysqli_num_rows($struktur_majelis);
+  }$cek = mysqli_num_rows($struktur_majelis);
 ?>
 
 <!DOCTYPE html>
@@ -83,7 +79,7 @@ include 'sidebar_menu.php';
               <div style="height: 600px;overflow: scroll;">
                 <table class=" table-hover table-bordered" >
                   <?php
-                  if ($cek == 0) {
+                    if ($cek == 0) {
                     echo "  <script>
                     Swal.fire(
                       '<strong>Maaf...!</strong>',
@@ -92,7 +88,8 @@ include 'sidebar_menu.php';
                     )
                    </script>";
                   
-                  } else { ?>
+                    } else { 
+                  ?>
               
                   <thead>
                     <tr>
@@ -103,7 +100,7 @@ include 'sidebar_menu.php';
                   </thead>
                   <tbody>
                   <?php 
-                   $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` WHERE Id_komisi='$ambi_jbt'");
+                   $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` WHERE id_komisi='$ambi_jbt'");
                   
                   $i = 1; ?>
                   <?php foreach ($data_jemaat as $row) : ?>
