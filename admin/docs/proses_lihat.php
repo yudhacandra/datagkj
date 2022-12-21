@@ -182,7 +182,7 @@ include 'sidebar_menu.php';
                             </div>
                             <div class="col-12 col-lg-13">
                                 <div class="form-group">
-                                    <label for="contact-name">Tanggal Baptis:</label>
+                                    <label for="contact-name">Tanggal Terdaftar:</label>
                                     <input type="text" class="form-control" value="<?=  $data['tanggal_terdaftar']; ?>"  name="tanggal_terdaftar" readonly>
                                 </div>
                             </div>

@@ -12,6 +12,7 @@ if(isset($_POST['edit_pelayan_ibadah']))
   $pn=$_POST['pemandu_nyanyian'];
   $bm=$_POST['bunga_mimbar'];
   $ktg=$_POST['keterangan'];
+  $pic=$_POST['penanggung_jawab'];
   $jam_mulai=$_POST['jam_mulai'];
   $jam_akhir=$_POST['jam_akhir'];
 
