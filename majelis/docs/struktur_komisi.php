@@ -2,30 +2,31 @@
   include '../../database.php';
   ##$alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
 
-
+  include 'session-majelis.php';
+  $struktur_majelis = mysqli_query($conn, "SELECT * FROM `data_majelis` where id_majelis ='$id'");
+  $data = mysqli_fetch_array($struktur_majelis);
+  $ambi_jbt =$data['komisi'];
+  $struktur_komisi= mysqli_query($conn, "SELECT * FROM `struktur_komisi` where id_komisi ='$ambi_jbt'");
+  $data_komisi = mysqli_fetch_array($struktur_komisi);
+  
   if (isset($_POST['cari'])) {
     $cari = $_POST['cari1'];
     
     if ($cari != null) {
-      
-      $struktur_majelis = mysqli_query($conn, "SELECT * FROM `data_majelis` where `idjabatan_majelis` like '%$cari%' or `idjabatan_majelis` like '%$cari%' ");
-      $data = mysqli_fetch_array($struktur_majelis);
+    
+      $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` where `nama` like '%$cari%' or `no_induk` like '%$cari%' or jabatan='$ambi_jbt' ");
+      // $data = mysqli_fetch_array($struktur_majelis);
     } else {
-      $struktur_majelis = mysqli_query($conn, "SELECT * FROM `data_majelis` ");
-      $data = mysqli_fetch_array($struktur_majelis);
+     
+      $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` WHERE jabatan='$ambi_jbt';");
       
     }
     
   } else {
-    include 'session-majelis.php';
-    $struktur_majelis = mysqli_query($conn, "SELECT * FROM `data_majelis` where id_majelis ='$id'");
-    $data = mysqli_fetch_array($struktur_majelis);
-    $ambi_jbt =$data['komisi'];
-    $struktur_komisi= mysqli_query($conn, "SELECT * FROM `struktur_komisi` where id_komisi ='$ambi_jbt'");
-    $data_komisi = mysqli_fetch_array($struktur_komisi);
-  
     
-  }$cek = mysqli_num_rows($struktur_majelis);
+    $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` WHERE id_komisi='$ambi_jbt'");
+    
+  }$cek = mysqli_num_rows($data_jemaat);
 ?>
 
 <!DOCTYPE html>
@@ -100,7 +101,6 @@ include 'sidebar_menu.php';
                   </thead>
                   <tbody>
                   <?php 
-                   $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` WHERE id_komisi='$ambi_jbt'");
                   
                   $i = 1; ?>
                   <?php foreach ($data_jemaat as $row) : ?>
