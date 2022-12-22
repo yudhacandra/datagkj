@@ -9,7 +9,7 @@ $jk=$_POST['jenis_kelamin'];
 $al=$_POST['alamat'];
 $lh=$_POST['lahir'];
 $bp=$_POST['baptis'];
-$si=$_POST['sidi'];
+$sd=$_POST['sidi'];
 $st=$_POST['status'];
 $ni=$_POST['nikah'];
 $men=$_POST['meninggal'];
@@ -22,7 +22,7 @@ $tt=$_POST['tanggal_terdaftar'];
 $kt=$_POST['keterangan_tambahan'];
 $_komisi=$_POST['status_komisi'];
 
-$data_jemaat = mysqli_query($conn, "UPDATE `data_jemaat` SET `nama`='$nm',`jabatan`='$st',`jenis_kelamin`='$jk',`alamat`='$al',`lahir`='$lh',`baptis`='$bp',`sidi`='$si',`nikah`='$ni',`meninggal`='$men',`orang_tua`='$ot',`suami_istri`='$si',`dari_gereja`='$dg',`ke_gereja`='$kg',`keterangan`='$ket',`tanggal_terdaftar`='$tt',`keterangan_tambahan`='$kt',`Id_komisi`='$_komisi' WHERE no_induk='$nik'");
+$data_jemaat = mysqli_query($conn, "UPDATE `data_jemaat` SET `nama`='$nm',`jabatan`='$st',`jenis_kelamin`='$jk',`alamat`='$al',`lahir`='$lh',`baptis`='$bp',`sidi`='$sd',`nikah`='$ni',`meninggal`='$men',`orang_tua`='$ot',`suami_istri`='$si',`dari_gereja`='$dg',`ke_gereja`='$kg',`keterangan`='$ket',`tanggal_terdaftar`='$tt',`keterangan_tambahan`='$kt',`Id_komisi`='$_komisi' WHERE no_induk='$nik'");
 if ($data_jemaat) {
     header("location:data_jemaat.php");
 }

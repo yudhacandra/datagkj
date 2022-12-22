@@ -375,8 +375,8 @@ if (!isset($_SESSION['role'])) {
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                      <label>Kepada</label><br />
-                    <input type="email" name="email_penerima" placeholder="Email Penerima" style="margin-top: 5px;width: 400px" />
+                      <label>Email</label><br />
+                    <input type="email" name="email_penerima" placeholder="Email Gereja" style="margin-top: 5px;width: 400px" />
                       </div>                                 
                     </div>
                     <div class="col-md-12">
