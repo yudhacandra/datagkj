@@ -14,7 +14,7 @@ include('phpmailer/Exception.php');
 include('phpmailer/PHPMailer.php');
 include('phpmailer/SMTP.php');
 
-$email_pengirim = 'candralampung77@gmail.com'; // Isikan dengan email pengirim
+$email_pengirim = 'gkjboyolaliofficial@gmail.com'; // Isikan dengan email pengirim
 $nama_pengirim = 'GEREJA KRISTEN JAWA BOYOLALI'; // Isikan dengan nama pengirim
 $email_penerima = $_POST['email_penerima']; // Ambil email penerima dari inputan form
 $subjek = $_POST['subjek']; // Ambil subjek dari inputan form
