@@ -4,10 +4,11 @@ $id = $_GET['id'];
 if(isset($_POST['edit_struktur_komisi']))
 {
 $ink=$_POST['nama_komisi'];
+$tk=$_POST['tugas_komisi'];
 $pk=$_POST['periode_komisi'];
 
 
-$struktur_komisi = mysqli_query($conn, "UPDATE `struktur_komisi` SET `idnama_komisi`='$ink',`periode_komisi`='$pk' WHERE id_komisi='$id'");
+$struktur_komisi = mysqli_query($conn, "UPDATE `struktur_komisi` SET `idnama_komisi`='$ink',`tugas_komisi`='$tk',`periode_komisi`='$pk' WHERE id_komisi='$id'");
 if ($struktur_komisi) {
     header("location:struktur_komisi.php");
 }
@@ -46,6 +47,13 @@ include 'sidebar_menu.php';
                             <div class="col-12 col-lg-10">
                               <label class="control-label mt-1"><b>Nama Komisi :</b></label>
                             <input type="text" name="nama_komisi" class="form-control" value="<?=  $data['idnama_komisi']; ?>">
+                            </div>
+
+                            <div class="col-12 col-lg-10">
+                                <div class="form-group">
+                                    <label for="contact-name"><b>Tugas dan Tanggung Jawab  :</b></label>
+                                    <input type="text" class="form-control" value="<?=  $data['tugas_komisi']; ?>"  name="tugas_komisi">
+                                </div>
                             </div>
 
                             <div class="col-12 col-lg-10">

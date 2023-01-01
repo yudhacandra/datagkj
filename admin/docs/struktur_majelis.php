@@ -92,6 +92,7 @@ include 'sidebar_menu.php';
                     <tr>
                       <th rowspan="2">Opsi</th>
                       <th rowspan="2">Jabatan Bidang Majelis</th>
+                      <th rowspan="2">Tugas dan Tanggung Jawab</th>
                       <th rowspan="2">Periode Majelis</th>
                       <th rowspan="2">Jumlah Anggota</th>
                     </tr>
@@ -108,6 +109,7 @@ include 'sidebar_menu.php';
                       </form>
                         <!-- <a class="btn btn-primary m-1" href="proses_hapus_struktur_majelis.php?id=<?= $row["idjabatan_majelis"]; ?>"><i class="fa fa-lg fa-trash"></i></a></td> -->
                       <td><?= $row["idjabatan_majelis"]; ?></td>
+                      <td><?= $row["tugas_tanggungjawab"]; ?></td>
                       <td><?= $row["periode_majelis"]; ?></td>
                       <td>
                         <?php

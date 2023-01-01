@@ -3,9 +3,10 @@ include '../../database.php';
 if(isset($_POST['simpan']))
 {
 $ijm=$_POST['keterangan'];
+$ttj=$_POST['tugas_tanggungjawab'];
 $pm=$_POST['periode_majelis'];
 
-$insert = mysqli_query($conn,"INSERT INTO `struktur_majelis` (`idjabatan_majelis`,`periode_majelis`) VALUES ('$ijm', '$pm')");
+$insert = mysqli_query($conn,"INSERT INTO `struktur_majelis` (`idjabatan_majelis`,`tugas_tanggungjawab`,`periode_majelis`) VALUES ('$ijm', '$ttj', '$pm')");
 if($insert){ 
   // $alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
   header("location:struktur_majelis.php");
@@ -53,6 +54,13 @@ include 'sidebar_menu.php';
                             <div class="col-12 col-lg-10">
                               <div class="form-group">
                                 <p></p>
+                                <label for="contact-name"><b>Tugas dan Tanggung Jawab :</b></label>
+                                <input type="" class="form-control" name="tugas_tanggungjawab">
+                              </div>
+                            </div>
+
+                            <div class="col-12 col-lg-10">
+                              <div class="form-group">
                                 <label for="contact-name"><b>Periode Majelis :</b></label>
                                 <input type="" class="form-control" name="periode_majelis">
                               </div>

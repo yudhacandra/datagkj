@@ -4,9 +4,10 @@ $id = $_GET['id'];
 if(isset($_POST['edit_struktur_majelis']))
 {
 $ijm=$_POST['idjabatan_majelis'];
+$ttj=$_POST['tugas_tanggungjawab'];
 $pm=$_POST['periode_majelis'];
 
-$struktur_majelis = mysqli_query($conn, "UPDATE `struktur_majelis` SET `idjabatan_majelis`='$ijm',`periode_majelis`='$pm' WHERE idjabatan_majelis='$ijm'");
+$struktur_majelis = mysqli_query($conn, "UPDATE `struktur_majelis` SET `idjabatan_majelis`='$ijm', `tugas_tanggungjawab`='$ttj', `periode_majelis`='$pm' WHERE idjabatan_majelis='$ijm'");
 if ($struktur_majelis) {
     header("location:struktur_majelis.php");
 }
@@ -59,6 +60,14 @@ include 'sidebar_menu.php';
                                 <option value="Bidang Kajian">Bidanng Kajian</option>
                                 <option value="Bidang Pembangunan">Bidanng Pembangunan</option>
                               </select>
+                            </div>
+
+                            <div class="col-12 col-lg-10">
+                                <div class="form-group">
+                                    <p></p>
+                                    <label for="contact-name"><b>Tugas dan Tanggung Jawab :</b></label>
+                                    <input type="text" class="form-control" value="<?=  $data['tugas_tanggungjawab']; ?>"  name="tugas_tanggungjawab">
+                                </div>
                             </div>
 
                             <div class="col-12 col-lg-10">

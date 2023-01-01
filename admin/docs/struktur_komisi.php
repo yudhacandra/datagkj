@@ -81,6 +81,7 @@ include 'sidebar_menu.php';
                     <tr>
                       <th rowspan="2">Opsi</th>
                       <th rowspan="2">Nama Komisi</th>
+                      <th rowspan="2">Tugas dan Tanggung Jawab</th>
                       <th rowspan="2">Periode Komisi</th>
                       <th rowspan="2">Jumlah Anggota</th>
                     </tr>
@@ -95,6 +96,7 @@ include 'sidebar_menu.php';
                         <a class="btn btn-primary m-1" href="proses_hapus_struktur_komisi.php?id=<?= $row["idnama_komisi"]; ?>"><i class="fa fa-lg fa-trash"></i></a></td>
                       </td>
                       <td><?= $row["idnama_komisi"]; ?></td>
+                      <td><?= $row["tugas_komisi"]; ?></td>
                       <td><?= $row["periode_komisi"]; ?></td>
                       <td>
                       <?php

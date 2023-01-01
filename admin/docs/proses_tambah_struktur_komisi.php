@@ -3,9 +3,10 @@ include '../../database.php';
 if(isset($_POST['simpan']))
 {
 $ink=$_POST['nama_komisi'];
+$tk=$_POST['tugas_komisi'];
 $pk=$_POST['periode_komisi'];
 
-$insert = mysqli_query($conn,"INSERT INTO `struktur_komisi` (`idnama_komisi`,`periode_komisi`) VALUES ('$ink', '$pk')");
+$insert = mysqli_query($conn,"INSERT INTO `struktur_komisi` (`idnama_komisi`,`tugas_komisi`,`periode_komisi`) VALUES ('$ink', '$tk', '$pk')");
 if($insert){ 
   // $alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
   header("location:struktur_komisi.php");
@@ -54,6 +55,13 @@ include 'sidebar_menu.php';
                             <div class="col-12 col-lg-10">
                               <div class="form-group">
                                 <p></p>
+                                <label for="contact-name"><b>Tugas dan Tanggung Jawab :</b></label>
+                                <input type="text" class="form-control" name="tugas_komisi">
+                              </div>
+                            </div>
+
+                            <div class="col-12 col-lg-10">
+                              <div class="form-group">
                                 <label for="contact-name"><b>Periode Komisi :</b></label>
                                 <input type="text" class="form-control" name="periode_komisi">
                               </div>
