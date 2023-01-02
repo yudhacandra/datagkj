@@ -26,7 +26,7 @@ $mail->isSMTP();
 
 $mail->Host = 'smtp.gmail.com';
 $mail->Username = $email_pengirim; // Email Pengirim
-$mail->Password = 'candra11'; // Isikan dengan Password email pengirim
+$mail->Password = 'dmwfjmmvrzlsuezz'; // Isikan dengan Password email pengirim
 $mail->Port = 465;
 $mail->SMTPAuth = true;
 $mail->SMTPSecure = 'ssl';
