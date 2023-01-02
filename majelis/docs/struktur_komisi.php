@@ -6,27 +6,30 @@
   $struktur_majelis = mysqli_query($conn, "SELECT * FROM `data_majelis` where id_majelis ='$id'");
   $data = mysqli_fetch_array($struktur_majelis);
   $ambi_jbt =$data['komisi'];
-  $struktur_komisi= mysqli_query($conn, "SELECT * FROM `struktur_komisi` where id_komisi ='$ambi_jbt'");
-  $data_komisi = mysqli_fetch_array($struktur_komisi);
   
   if (isset($_POST['cari'])) {
     $cari = $_POST['cari1'];
     
     if ($cari != null) {
     
-      $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` where `nama` like '%$cari%' or `no_induk` like '%$cari%' or jabatan='$ambi_jbt' ");
+      $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` where `nama` like '%$cari%' or `no_induk`='$cari' ");
       // $data = mysqli_fetch_array($struktur_majelis);
     } else {
      
-      $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` WHERE jabatan='$ambi_jbt';");
+      $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` WHERE Id_komisi='$ambi_jbt'");
       
     }
     
   } else {
+   
+    $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` WHERE Id_komisi='$ambi_jbt'");
     
-    $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` WHERE id_komisi='$ambi_jbt'");
     
-  }$cek = mysqli_num_rows($data_jemaat);
+  }
+  $cek = mysqli_num_rows($data_jemaat);
+  
+  
+  
 ?>
 
 <!DOCTYPE html>
@@ -96,12 +99,14 @@ include 'sidebar_menu.php';
                     <tr>
                     <th rowspan="2">No Induk</th>
                       <th rowspan="2">Nama Anggota</th>
+                      <th rowspan="2">Tugas Anggota</th>
                     </tr>
 
                   </thead>
                   <tbody>
                   <?php 
-                  
+                  $struktur_komisi= mysqli_query($conn, "SELECT * FROM `struktur_komisi` where id_komisi ='$ambi_jbt'");
+                  $data_komisi = mysqli_fetch_array($struktur_komisi);
                   $i = 1; ?>
                   <?php foreach ($data_jemaat as $row) : ?>
                     <tr>
@@ -110,7 +115,14 @@ include 'sidebar_menu.php';
                         <?= $row["no_induk"]; ?>
                       </td>
                       <td>
-                        <?= $row["nama"]; ?>
+                        <?= $row["nama"]; ?> <br> 
+                        <small class="text-danger">
+                          <?= $data_komisi["idnama_komisi"]; ?>
+                        </small>
+                      </td>
+                      <td>
+                        <?= $data_komisi["tugas_komisi"]; ?>
+
                       </td>
                     </tr>
                     <?php $i++; ?>

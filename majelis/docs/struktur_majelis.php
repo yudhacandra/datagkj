@@ -13,16 +13,16 @@ if (isset($_POST['cari'])) {
   
   if ($cari != null) {
     
-    $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` where `nama` like '%$cari%' or `no_induk` like '%$cari%' or jabatan='$ambi_jbt' ");
+    $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` where `nama` like '%$cari%' or `no_induk`='$cari' ");
     // $data = mysqli_fetch_array($struktur_majelis);
   } else {
    
-    $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` WHERE jabatan='$ambi_jbt';");
+    $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` WHERE jabatan='$ambi_jbt'");
     
   }
   
 } else {
-  $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` WHERE jabatan='$ambi_jbt';");
+  $data_jemaat = mysqli_query($conn, "SELECT * FROM `data_jemaat` WHERE jabatan='$ambi_jbt'");
 }
 
 
@@ -84,12 +84,13 @@ include 'sidebar_menu.php';
                  
                       <th rowspan="2">No Induk</th>
                       <th rowspan="2">Nama Anggota</th>
+                      <th rowspan="2">Tugas Anggota</th>
                     </tr>
 
                   </thead>
                   <tbody>
                   <?php 
-                  
+                  $ambil_datamajelis = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM `struktur_majelis` WHERE `id_struktur`='$ambi_jbt'"));
                   $i = 1; ?>
                   <?php foreach ($data_jemaat as $row) : ?>
                     <tr>
@@ -98,7 +99,14 @@ include 'sidebar_menu.php';
                         <?= $row["no_induk"]; ?>
                       </td>
                       <td>
-                        <?= $row["nama"]; ?>
+                        <?= $row["nama"]; ?> <br> 
+                        <small class="text-danger">
+                        <?= $ambil_datamajelis["idjabatan_majelis"]; ?>
+                 
+                      </small>
+                    </td>
+                    <td>
+                        <?= $ambil_datamajelis["tugas_tanggungjawab"]; ?>
                       </td>
                     </tr>
                     <?php $i++; ?>

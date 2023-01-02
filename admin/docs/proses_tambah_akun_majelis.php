@@ -3,18 +3,22 @@ include '../../database.php';
 if(isset($_POST['simpan']))
 {
 $idm=$_POST['majelis'];
-// $nam=$_POST['nama'];
 $usrnm=$_POST['username'];
 $psw=$_POST['password'];
 $stj=$_POST['status'];
-$st=['status_akun'];
-$_komisi=$_POST['status_komisi'];
-
+$st=$_POST['status_akun'];
+$tampilkan_data_jemaat = mysqli_query($conn,"SELECT Id_komisi FROM `data_jemaat` WHERE no_induk='$idm'");
+if (mysqli_num_rows($tampilkan_data_jemaat) > 0) {
+$ambilkomisi = mysqli_fetch_array ($tampilkan_data_jemaat);
+$_komisi= $ambilkomisi['Id_komisi'];
 $insert = mysqli_query($conn,"INSERT INTO `data_majelis`(`id_majelis`,`username`, `jabatan_majelis`, `password`, `status`,`komisi`) VALUES ('$idm','$usrnm','$stj','$psw','$st','$_komisi')");
 if($insert){ 
   // $alert = $_SESSION['alert'] ='Data Berhasil Di Tambahkan';
   header("location:akun_majelis.php");
   }
+}
+// $tampilkan_data_jemaat['Id_komisi'];
+
 }
 ?>
 
@@ -80,8 +84,9 @@ include 'sidebar_menu.php';
                             </div>
                             <div class="col-12 col-lg-10">
                                 <div class="form-group">
-                                    <label for="contact-name"><b>Status Akses :</b></label>
-                                    <select name="status_akun" id="">
+                                    <label for=""><b>Status Akses :</b></label>
+                                    <select name="status_akun" id="" required>
+                                        <option value="">Silahkan Pilih</option>
                                         <option value="Aktif">Aktif</option>
                                         <option value="Tidak Aktif">Tidak Aktif</option>
                                     </select>

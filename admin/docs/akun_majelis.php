@@ -97,6 +97,7 @@ include 'sidebar_menu.php';
                   </thead>
                   <tbody>
                   <?php 
+                 
                    function nama($name_)
                    {
                        global $conn;
@@ -104,7 +105,10 @@ include 'sidebar_menu.php';
                        return $sqly['idjabatan_majelis'];
                    }
                   $i = 1; ?>
-                  <?php foreach ($akun_majelis as $row) : ?>
+                  <?php foreach ($akun_majelis as $row) : 
+                    
+                    
+                    ?>
                     <tr>
                       <td>
                         <a class="btn btn-primary m-1" href="proses_edit_akun_majelis.php?id=<?= $row["id_majelis"]; ?>"><i class="fa fa-lg fa-edit"></i></a>  
@@ -121,12 +125,14 @@ include 'sidebar_menu.php';
                       
                       <?php
                       ?></td>
-                      <td><?= $row["username"]; ?></td>
+                      <td>
+                        <?= $row["username"]; ?>
+                    </td>
                       <td><?= $row["password"]; ?></td>
                       <td>
                         <?php 
                           if ($row["jabatan_majelis"] > 0 ){ ?>
-<?= nama($row["jabatan_majelis"]); ?>
+                            <?= nama($row["jabatan_majelis"]); ?>
                         <?php  }
                         ?>
                       
