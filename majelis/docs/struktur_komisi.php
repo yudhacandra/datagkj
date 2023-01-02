@@ -95,7 +95,8 @@ include 'sidebar_menu.php';
                   <thead>
                     <tr>
                     <th rowspan="2">No Induk</th>
-                      <th rowspan="2">Nama Anggota</th>
+                    <th rowspan="2">Nama Anggota</th>
+                    <th rowspan="2">Tugas dan Tanggung Jawab</th>
                     </tr>
 
                   </thead>
