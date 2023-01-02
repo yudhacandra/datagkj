@@ -98,7 +98,7 @@ if (!isset($_SESSION['role'])) {
                             <a class="page-scroll" href="index.php">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="page-scroll" href="#warta">Warta</a>
+                            <a class="page-scroll" href="#warta">Warta  eee</a>
                         </li>
                         <li class="nav-item">
                             <a class="page-scroll" href="#Jemaat">Jemaat</a>
