@@ -83,7 +83,7 @@ include 'sidebar_menu.php';
               <div style="height: 600px;overflow: scroll;">
                 <table class=" table-hover table-bordered" >
                   <?php
-                    if ($cek == 0) {
+                    if ($cek == 0 || $cek == NULL) {
                     echo "  <script>
                     Swal.fire(
                       '<strong>Maaf...!</strong>',

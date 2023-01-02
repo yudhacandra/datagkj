@@ -1,7 +1,7 @@
 <?php
  include 'database.php';
   if(isset($_POST['kirim_'])){
-    $penerima = $_POST['email_penerima'];
+    $penerima = $_POST['email_pengirim'];
     $subjek = $_POST['subjek'];
     $isipesan = $_POST['pesan'];
     $berhasil_ = mysqli_query ($conn,"INSERT INTO `email`(`email`, `subject`, `pesan`) VALUES ('$penerima','$subjek','$isipesan')");
@@ -25,14 +25,14 @@ $mail = new PHPMailer;
 $mail->isSMTP();
 
 $mail->Host = 'smtp.gmail.com';
-$mail->Username = $email_pengirim; // Email Pengirim
+$mail->Username = 'gkjboyolaliofficial@gmail.com'; // Email Pengirim
 $mail->Password = 'dmwfjmmvrzlsuezz'; // Isikan dengan Password email pengirim
 $mail->Port = 465;
 $mail->SMTPAuth = true;
 $mail->SMTPSecure = 'ssl';
 // $mail->SMTPDebug = 2; // Aktifkan untuk melakukan debugging
 
-$mail->setFrom($email_pengirim, $nama_pengirim);
+$mail->setFrom($email_penerima);
 $mail->addAddress($email_penerima, '');
 $mail->isHTML(true); // Aktifkan jika isi emailnya berupa html
 
