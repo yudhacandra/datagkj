@@ -32,7 +32,7 @@ $mail->SMTPAuth = true;
 $mail->SMTPSecure = 'ssl';
 // $mail->SMTPDebug = 2; // Aktifkan untuk melakukan debugging
 
-$mail->setFrom($email_penerima);
+$mail->setFrom($email_pengirim);
 $mail->addAddress($email_penerima, '');
 $mail->isHTML(true); // Aktifkan jika isi emailnya berupa html
 
