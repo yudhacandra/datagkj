@@ -107,7 +107,7 @@ if (!isset($_SESSION['role'])) {
                             <a class="page-scroll" href="#Ibadah">Ibadah</a>
                         </li>
                         <li class="nav-item">
-                            <a class="page-scroll" href="#Keuangan">Keuangan</a>
+                            <a class="page-scroll" href="#Keuangan">Keuangan_TT</a>
                         </li>
                         <li class="nav-item">
                             <a class="page-scroll" href="login-majelis.php">Login</a>
