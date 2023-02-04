@@ -98,9 +98,6 @@ if (!isset($_SESSION['role'])) {
                             <a class="page-scroll" href="index.php">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="page-scroll" href="index.php">News</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="page-scroll" href="#warta">Warta</a>
                         </li>
                         <li class="nav-item">
@@ -251,7 +248,13 @@ if (!isset($_SESSION['role'])) {
       </div>
     </section>
 
-
+    <section id="Ibadah" class="section">
+      <div class="container">
+        <div class="section-header">          
+          <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">News</h2>
+          <hr class="lines wow zoomIn" data-wow-delay="0.3s">
+          <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Jadwal Ibadah<br>Gereja Kristen Jawa Boyolali</br></p>
+        </div>
 
     <section id="Ibadah" class="section">
       <div class="container">
